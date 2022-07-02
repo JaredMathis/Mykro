@@ -10,6 +10,6 @@ export async function file_js_new(function_name) {
     await assert(not(file_exists))(file_path)
     file_overwrite(file_path, `
 export function ${function_name}() {
-    
+    // TODO
 }`)
 }
