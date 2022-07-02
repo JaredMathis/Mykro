@@ -1,3 +1,3 @@
 export default function assert(_function) {
-    returns(_function, true)();
+    return returns(_function, true);
 }
