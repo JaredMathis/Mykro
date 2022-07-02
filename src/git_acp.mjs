@@ -4,7 +4,6 @@ import { git_commit } from "./git_commit.mjs";
 import { git_push } from "./git_push.mjs";
 import { string_is } from "./string_is.mjs";
 
-
 export async function git_acp(message) {
     await arguments_assert(string_is)(arguments)
     for (let command of [
