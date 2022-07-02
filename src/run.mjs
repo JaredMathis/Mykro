@@ -12,7 +12,9 @@ var rl = readline.createInterface({
 
 let directory = './src';
 
-rl.on('line', async function run_line(line) {
+rl.on('line', run_line)
+
+async function run_line(line) {
     let tokens = line.split(' ');
     let first = tokens[0];
     let files = Array.from(file_list(directory));
@@ -33,4 +35,4 @@ rl.on('line', async function run_line(line) {
     } else {
         console.log('No matching command.')
     }
-})
+}
