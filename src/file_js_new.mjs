@@ -13,7 +13,10 @@ export async function file_js_new(function_name) {
         `${function_name}.mjs`);
     await assert(not(file_exists))(file_path)
     await file_overwrite(file_path, `
+import { arguments_assert } from "./arguments_assert.mjs";
+
 export function ${function_name}() {
+    await arguments_assert()(arguments);
     // TODO
 }`)
     await git_acp(`${file_js_new.name} ${function_name}`);
