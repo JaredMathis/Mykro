@@ -8,7 +8,9 @@ var rl = readline.createInterface({
     terminal: true
 });
 
-rl.on('line', run_line)
+rl.on('line', async (line) => {
+    run_line(line);
+})
 
 let directory = './src';
 
