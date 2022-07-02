@@ -6,7 +6,7 @@ export function arguments_assert() {
     return async function wrapped() {
         let _arguments = Array.from(arguments[0]);
         await assert(equals)(asserters.length, _arguments.length);
-        await Promises.all(asserters.map(async (asserter, i) => {
+        await Promise.all(asserters.map(async (asserter, i) => {
             let value = _arguments[i];
             await assert(asserter, {i, a: asserter, value})(value);
         }))
