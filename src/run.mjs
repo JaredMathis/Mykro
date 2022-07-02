@@ -1,6 +1,5 @@
 
 import readline from 'readline';
-import { run_line } from './run_line.mjs';
 
 var rl = readline.createInterface({
     input: process.stdin,
