@@ -23,7 +23,7 @@ rl.on('line', async function(line) {
     } );
     let match;
     if (match = _.find(mapped, { name: first })) {
-        let imported = await import(result.file_path);
+        let imported = await import(match.file_path);
         let tokens_remaining = tokens.slice(1);
         let result = imported(...tokens_remaining)
         console.log(result);
