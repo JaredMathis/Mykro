@@ -3,12 +3,12 @@ import { equals } from "./equals.mjs";
 
 export function arguments_assert() {
     let asserters = Array.from(arguments);
-    return function wrapped() {
+    return async function wrapped() {
         let _arguments = Array.from(arguments[0]);
-        assert(equals)(asserters.length, _arguments.length);
-        asserters.forEach((asserter, i) => {
+        await assert(equals)(asserters.length, _arguments.length);
+        await Promises.all(asserters.map(async (asserter, i) => {
             let value = _arguments[i];
-            assert(asserter, {i, a: asserter, value})(value);
-        })
+            await assert(asserter, {i, a: asserter, value})(value);
+        }))
     }
 }
