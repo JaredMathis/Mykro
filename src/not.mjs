@@ -7,6 +7,7 @@ export function not(_function) {
         let result = function_call(_function, arguments);
         assert(boolean_is, {
             _function_name:_function.name,
+            arguments: Array.from(arguments)
         })(result);
         return !result;
     }
