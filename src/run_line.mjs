@@ -25,8 +25,9 @@ export async function run_line(line) {
         let tokens_remaining = tokens.slice(1);
         try {
             let result = await _function(...tokens_remaining);
-            await git_acp(`${line}`);
             console.log(result);
+            await git_acp(`${line}`);
+            console.log(`${git_acp.name} ran successfully`.magenta);
         } catch (e) {
             console.log(e.stack.red);
         }
