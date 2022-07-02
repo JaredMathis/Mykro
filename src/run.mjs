@@ -11,7 +11,7 @@ var rl = readline.createInterface({
 
 let directory = './src';
 
-rl.on('line', function(line) {
+rl.on('line', async function(line) {
     let tokens = line.split(' ');
     let first = tokens[0];
     let files = Array.from(file_list(directory));
