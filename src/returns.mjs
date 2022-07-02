@@ -6,7 +6,7 @@ export function returns(_function, expected, data) {
     return function wrapped() {
         let result = function_call(_function, arguments);
         if (!equals(result, expected)) {
-            error(JSON.stringify({result, expected, a:arguments}))
+            error(JSON.stringify({result, expected, a:arguments, data}))
         }
     }
 }
