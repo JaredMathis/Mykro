@@ -3,6 +3,7 @@ import {file_list} from './file_list.mjs'
 import { path_file_name } from './path_file_name.mjs';
 import path from 'path';
 
+let directory = './src';
 export async function run_line(line) {
     let tokens = line.split(' ');
     let first = tokens[0];
