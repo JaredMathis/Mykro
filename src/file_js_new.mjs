@@ -17,5 +17,9 @@ export async function ${function_name}() {
     // TODO
 }`)
     await git_acp(`${file_js_new.name} ${function_name}`);
+    await msft_vs_code_open(file_path);
+}
+
+async function msft_vs_code_open(file_path) {
     await command_line(`code ${file_path}`);
 }
