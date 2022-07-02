@@ -7,7 +7,7 @@ export function returns(_function, expected, data) {
         let result = await function_call(_function, arguments);
         if (!equals(result, expected)) {
             error(JSON.stringify({
-                _function_name:_function.name,
+                _function_data:_function.data || _function.name,
                 result, 
                 expected, 
                 a:Array.from(arguments),
