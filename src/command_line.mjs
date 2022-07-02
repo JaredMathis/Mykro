@@ -3,5 +3,5 @@ import child_process from 'child_process';
 let exec = util.promisify(child_process.exec)
 
 export async function command_line(command) {
-    exec(command);
+    return await exec(command);
 }
