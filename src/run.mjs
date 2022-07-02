@@ -10,9 +10,10 @@ var rl = readline.createInterface({
     terminal: true
 });
 
+rl.on('line', run_line)
+
 let directory = './src';
 
-rl.on('line', run_line)
 
 async function run_line(line) {
     let tokens = line.split(' ');
