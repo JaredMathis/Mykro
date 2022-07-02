@@ -7,7 +7,9 @@ import path from 'path'
 import { git_acp } from "./git_acp.mjs";
 
 export async function file_js_new(function_name) {
-    let file_path = path.join(directory_get(), `${function_name}.mjs`);
+    let file_path = path.join(
+        directory_get(), 
+        `${function_name}.mjs`);
     await assert(not(file_exists))(file_path)
     await file_overwrite(file_path, `
 export function ${function_name}() {
