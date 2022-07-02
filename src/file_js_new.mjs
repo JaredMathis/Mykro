@@ -1,3 +1,3 @@
-export default function file_js_new() {
-    assert(not(file_exists))()
+export default function file_js_new(file_path) {
+    assert(not(file_exists))(file_path)
 }
