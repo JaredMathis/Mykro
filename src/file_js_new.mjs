@@ -13,7 +13,7 @@ export async function file_js_new(function_name) {
     await file_overwrite(file_path, `
 import { arguments_assert } from "./arguments_assert.mjs";
 
-export function ${function_name}() {
+export async function ${function_name}() {
     await arguments_assert()(arguments);
     // TODO
 }`)
