@@ -5,7 +5,7 @@ export function arguments_assert() {
     let asserters = Array.from(arguments);
     return function wrapped() {
         let _arguments = Array.from(arguments[0]);
-        assert(equals)(asserters.length, arguments.length);
+        assert(equals)(asserters.length, _arguments.length);
         asserters.forEach((asserter, i) => {
             let value = _arguments[i];
             assert(asserter, {i, a: asserter, value})(value);
