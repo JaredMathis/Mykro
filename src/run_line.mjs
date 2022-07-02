@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import {file_list} from './file_list.mjs'
 import { path_file_name } from './path_file_name.mjs';
+import { git_acp } from './git_acp.mjs';
 import path from 'path';
 import colors from 'colors'
 
@@ -23,7 +24,8 @@ export async function run_line(line) {
         let _function = imported[match.name];
         let tokens_remaining = tokens.slice(1);
         try {
-            let result = await _function(...tokens_remaining)
+            let result = await _function(...tokens_remaining);
+            await git_acp(`${line}`);
             console.log(result);
         } catch (e) {
             console.log(e.stack.red);
