@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 export function *file_list(dir) {
   const files = fs.readdirSync(dir, { withFileTypes: true });
