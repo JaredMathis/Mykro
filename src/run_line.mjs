@@ -25,4 +25,4 @@ export async function run_line(line) {
     } else {
         console.log('No matching command.')
     }
-}s
+}
