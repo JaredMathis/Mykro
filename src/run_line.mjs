@@ -2,6 +2,7 @@ import _ from 'lodash';
 import {file_list} from './file_list.mjs'
 import { path_file_name } from './path_file_name.mjs';
 import path from 'path';
+import colors from 'colors'
 
 let directory = './src';
 export async function run_line(line) {
@@ -21,9 +22,13 @@ export async function run_line(line) {
         let imported = await import("file://" + import_path);
         let _function = imported[match.name];
         let tokens_remaining = tokens.slice(1);
-        let result = _function(...tokens_remaining)
-        console.log(result);
+        try {
+            let result = _function(...tokens_remaining)
+            console.log(result);
+        } catch (e) {
+            console.log(e.red);
+        }
     } else {
-        console.log('No matching command.')
+        console.log('No matching command.'.red)
     }
 }
