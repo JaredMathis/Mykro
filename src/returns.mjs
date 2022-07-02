@@ -2,9 +2,9 @@ import {equals} from './equals.mjs';
 import {function_call} from './function_call.mjs';
 import {error} from './error.mjs';
 
-export function returns(_function, expected, data) {
+export async function returns(_function, expected, data) {
     return function wrapped() {
-        let result = function_call(_function, arguments);
+        let result = await function_call(_function, arguments);
         if (!equals(result, expected)) {
             error(JSON.stringify({
                 _function_name:_function.name,
