@@ -8,10 +8,11 @@ export async function git_acp(message) {
     await arguments_assert(string_is)(arguments)
     for (let command of [
         git_add, 
-        () => git_commit(message), 
+        () => {
+            return git_commit(message)
+        }, 
         git_push
     ]) {
-        console.log(command)
         await command();
     }
 }
