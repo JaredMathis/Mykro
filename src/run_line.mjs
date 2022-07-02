@@ -17,7 +17,7 @@ export async function run_line(line) {
     } );
     let match;
     if (match = _.find(mapped, { name: first })) {
-        console.log(match.file_path)
+        console.log(match.file_path.blue)
         let import_path = path.resolve(match.file_path)
         let imported = await import("file://" + import_path);
         let _function = imported[match.name];
