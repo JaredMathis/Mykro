@@ -17,8 +17,8 @@ export async function run_line(line) {
     } );
     let match;
     if (match = _.find(mapped, { name: first })) {
-        console.log(match.file_path.blue)
         let import_path = path.resolve(match.file_path)
+        console.log(import_path.blue)
         let imported = await import("file://" + import_path);
         let _function = imported[match.name];
         let tokens_remaining = tokens.slice(1);
@@ -26,7 +26,7 @@ export async function run_line(line) {
             let result = _function(...tokens_remaining)
             console.log(result);
         } catch (e) {
-            console.log(e.red);
+            console.log(e.stack.red);
         }
     } else {
         console.log('No matching command.'.red)
