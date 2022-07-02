@@ -1,4 +1,5 @@
 import readline from 'readline';
+import {file_list} from './file_list.mjs'
 
 var rl = readline.createInterface({
     input: process.stdin,
@@ -6,6 +7,10 @@ var rl = readline.createInterface({
     terminal: true
 });
 
-rl.on('line', function(line){
-    console.log(line);
+let directory = './src';
+
+rl.on('line', function(line) {
+    let tokens = line.split(' ');
+    let files = Array.from(file_list(directory));
+    console.log(files)
 })
