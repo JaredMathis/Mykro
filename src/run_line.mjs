@@ -26,8 +26,13 @@ export async function run_line(line) {
         try {
             let result = await _function(...tokens_remaining);
             console.log(result);
-            await git_acp(`${line}`);
-            console.log(`${git_acp.name} ran successfully`.magenta);
+            let git_result = await git_acp(`${line}`);
+            if (_.isUndefined(git_result)) {
+                console.log(`${git_acp.name} ran successfully`.magenta);
+            } else {
+                console.log(`${git_acp.name} errored. Maybe there was nothing to commit?`.magenta);
+                console.log(git_result.stack.red);
+            }
         } catch (e) {
             console.log(e.stack.red);
         }

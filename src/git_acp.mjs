@@ -13,6 +13,10 @@ export async function git_acp(message) {
         }, 
         git_push
     ]) {
-        await command();
+        try {
+            await command();
+        } catch (e) {
+            return e;
+        }
     }
 }
