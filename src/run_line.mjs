@@ -23,7 +23,7 @@ export async function run_line(line) {
         let _function = imported[match.name];
         let tokens_remaining = tokens.slice(1);
         try {
-            let result = _function(...tokens_remaining)
+            let result = await _function(...tokens_remaining)
             console.log(result);
         } catch (e) {
             console.log(e.stack.red);
