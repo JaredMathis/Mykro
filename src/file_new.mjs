@@ -1,4 +1,3 @@
-import { assert } from 'console';
 import fs from 'fs';
 
 export function file_new(file_path) {
