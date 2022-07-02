@@ -5,6 +5,7 @@ import { file_overwrite } from "./file_overwrite.mjs";
 import { directory_get } from "./directory_get.mjs";
 import path from 'path'
 import { git_acp } from "./git_acp.mjs";
+import { command_line } from "./command_line.mjs";
 
 export async function file_js_new(function_name) {
     let file_path = path.join(
@@ -16,4 +17,5 @@ export function ${function_name}() {
     // TODO
 }`)
     await git_acp(`${file_js_new.name} ${function_name}`);
+    await command_line(`code ${file_path}`);
 }
