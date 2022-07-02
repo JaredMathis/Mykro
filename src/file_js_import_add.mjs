@@ -1,4 +1,5 @@
 import { arguments_assert } from "./arguments_assert.mjs"
+import { file_prepend } from "./file_prepend.mjs";
 import { string_is } from "./string_is.mjs"
 
 export function file_js_import_add(file_path, import_name) {
