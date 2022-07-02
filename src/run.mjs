@@ -23,6 +23,11 @@ rl.on('line', function(line) {
     } );
     let result;
     if (result = _.find(mapped, { name: first })) {
-        console.log({result})
+        let imported = await import(result.file_path);
+        let tokens_remaining = tokens.slice(1);
+        let result = imported(...tokens_remaining)
+        console.log(result);
+    } else {
+        console.log('No matching command.')
     }
 })
