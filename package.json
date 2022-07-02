@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "node src/run.mjs"
+  },
   "dependencies": {
     "readline": "^1.3.0"
   }
