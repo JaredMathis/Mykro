@@ -22,7 +22,6 @@ rl.on('line', function(line) {
         } 
     } );
     let result;
-    console.log({first,mapped})
     if (result = _.find(mapped, { name: first })) {
         console.log({result})
     }
