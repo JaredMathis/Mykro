@@ -3,8 +3,8 @@ import { assert } from "./assert.mjs";
 import { file_exists } from "./file_exists.mjs";
 import { file_overwrite } from "./file_overwrite.mjs";
 import { git_acp } from "./git_acp.mjs";
-import { command_line } from "./command_line.mjs";
 import { file_js_name_to_path } from "./file_js_name_to_path.mjs";
+import { msft_vs_code_open } from "./msft_vs_code_open.mjs";
 
 export async function file_js_new(function_name) {
     let file_path = await file_js_name_to_path(function_name);
@@ -20,6 +20,3 @@ export async function ${function_name}() {
     await msft_vs_code_open(file_path);
 }
 
-async function msft_vs_code_open(file_path) {
-    await command_line(`code ${file_path}`);
-}
