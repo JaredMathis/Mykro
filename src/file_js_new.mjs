@@ -15,5 +15,5 @@ export async function file_js_new(function_name) {
 export function ${function_name}() {
     // TODO
 }`)
-    await git_acp(`${file_js_new.name} ${function_name}`)
+    await git_acp(`${file_js_new.name} ${function_name}`);
 }
