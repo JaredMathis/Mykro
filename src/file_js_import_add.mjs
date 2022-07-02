@@ -5,7 +5,7 @@ export function file_js_import_add(file_path, import_name) {
     arguments_assert(string_is, string_is)(arguments);
     
     // TODO
-    file_prepend(`
+    file_prepend(file_path, `
 import ${import_name} from '${import_name}';    
 `)
 }
