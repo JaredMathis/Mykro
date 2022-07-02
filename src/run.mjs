@@ -12,7 +12,10 @@ let directory = './src';
 
 rl.on('line', function(line) {
     let tokens = line.split(' ');
+    let first = tokens[0];
     let files = Array.from(file_list(directory));
     let mapped = files.map(f => path_file_name(f));
-    console.log(mapped)
+    if (mapped.includes(first)) {
+        
+    }
 })
