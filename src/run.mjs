@@ -21,8 +21,8 @@ rl.on('line', async function(line) {
             file_path: f,
         } 
     } );
-    let result;
-    if (result = _.find(mapped, { name: first })) {
+    let match;
+    if (match = _.find(mapped, { name: first })) {
         let imported = await import(result.file_path);
         let tokens_remaining = tokens.slice(1);
         let result = imported(...tokens_remaining)
