@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import readline from 'readline';
 import {file_list} from './file_list.mjs'
 import { path_file_name } from './path_file_name.mjs';
@@ -15,9 +16,14 @@ rl.on('line', function(line) {
     let first = tokens[0];
     let files = Array.from(file_list(directory));
     let mapped = files.map(f => {
-        return path_file_name(f);
+        return {
+            name: path_file_name(f),
+            file_path: f,
+        } 
     } );
-    if (mapped.includes(first)) {
-        
+    let result;
+    console.log({first,mapped})
+    if (result = _.find(mapped, { name: first })) {
+        console.log({result})
     }
 })
