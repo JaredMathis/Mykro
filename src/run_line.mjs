@@ -1,4 +1,4 @@
-import _ from 'lodash';e
+import _ from 'lodash';
 import {file_list} from './file_list.mjs'
 import { path_file_name } from './path_file_name.mjs';
 import path from 'path';

@@ -12,5 +12,3 @@ rl.on('line', async (line) => {
     run_line(line);
 })
 
-let directory = './src';
-
