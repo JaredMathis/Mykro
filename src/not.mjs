@@ -1,3 +1,4 @@
+import { assert } from "./assert.mjs";
 import { function_call } from "./function_call.mjs";
 
 export function not(_function) {
