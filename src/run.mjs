@@ -2,6 +2,7 @@ import _ from 'lodash';
 import readline from 'readline';
 import {file_list} from './file_list.mjs'
 import { path_file_name } from './path_file_name.mjs';
+import path from 'path';
 
 var rl = readline.createInterface({
     input: process.stdin,
@@ -23,9 +24,11 @@ rl.on('line', async function(line) {
     } );
     let match;
     if (match = _.find(mapped, { name: first })) {
-        let imported = await import(match.file_path);
+        let import_path = path.resolve(match.file_path)
+        let imported = await import("file://" + import_path);
+        let _function = imported[match.name];
         let tokens_remaining = tokens.slice(1);
-        let result = imported(...tokens_remaining)
+        let result = _function(...tokens_remaining)
         console.log(result);
     } else {
         console.log('No matching command.')
