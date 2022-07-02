@@ -9,6 +9,7 @@ var rl = readline.createInterface({
 });
 
 rl.on('line', async (line) => {
-    run_line(line);
+    let imported = await import('./run_line.mjs');
+    imported.run_line(line);
 })
 
