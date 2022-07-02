@@ -14,7 +14,9 @@ rl.on('line', function(line) {
     let tokens = line.split(' ');
     let first = tokens[0];
     let files = Array.from(file_list(directory));
-    let mapped = files.map(f => path_file_name(f));
+    let mapped = files.map(f => {
+        return path_file_name(f);
+    } );
     if (mapped.includes(first)) {
         
     }
