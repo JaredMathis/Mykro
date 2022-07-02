@@ -7,7 +7,7 @@ export function arguments_assert() {
         let _arguments = Array.from(arguments);
         assert(equals)(asserts.length, arguments.length);
         asserts.forEach((a, i) => {
-            assert(a)(_arguments[i]);
+            assert(a, {i})(_arguments[i]);
         })
     }
 }
