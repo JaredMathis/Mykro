@@ -30,7 +30,7 @@ export async function lyrics_that_clause(database, noun) {
                 });
                 if (_.some(groups_for_noun)) {
                     let group_for_noun = await list_item_random(groups_for_noun);
-                    let group_for_noun_noun = await list_item_random(group_for_noun.nouns);
+                    let group_for_noun_noun = await list_item_random(group_for_noun.objects);
 
                     object_clause = `a ${group_for_noun_noun} ${await list_item_random(['like', 'as'])} ${object_clause}`;
                 }
