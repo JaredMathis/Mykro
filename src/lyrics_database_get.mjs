@@ -90,6 +90,7 @@ export async function lyrics_database_get() {
         group_god_attributes,
         group_me,
         group_me_past,
+        group_me_present,
     ];
 
     let database = {
