@@ -7,7 +7,6 @@ import { lyrics_paragraph } from "./lyrics_paragraph.mjs";
 export async function lyrics() {
     await arguments_assert()(arguments);
 
-    console.log('here2')
     let database = await lyrics_database_get();
 
     let subject = 'god';
