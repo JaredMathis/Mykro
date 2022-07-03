@@ -7,8 +7,11 @@ import { random_with_probability } from "./random_with_probability.mjs";
 import { tautology } from "./tautology.mjs";
 import { equals_json } from "./equals_json.mjs";
 
-export async function lyrics_sentence(group, database) {
-    await arguments_assert(tautology, tautology)(arguments);
+export async function lyrics_sentence(_arguments) {
+    await arguments_assert(tautology)(arguments);
+
+    let {database} = _arguments;
+    let {group} = _arguments;
 
     let noun = await list_item_random(group.nouns);
     if (noun === 'me') {
@@ -70,6 +73,10 @@ export async function lyrics_sentence(group, database) {
                 result = `${result} ${verb} a ${object}`;
                 has_verb = true;
             }
+        }
+
+        if (is_past && has_verb) {
+
         }
     }
 
