@@ -12,9 +12,9 @@ export async function lyrics_sentence(group, database) {
     let { sub_groups } = group;
 
     let sub_group = await list_item_random(sub_groups);
-
     let sub_adjective = await list_item_random(sub_group.adjectives);
     let sub_noun = await list_item_random(sub_group.nouns);
+
     let noun = await list_item_random(group.nouns);
     let adjective = await list_item_random(group.adjectives);
 
