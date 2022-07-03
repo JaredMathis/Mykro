@@ -18,7 +18,7 @@ export async function lyrics_that_clause(database, noun) {
             that_clause += " that ";
             let proposition = await list_item_random(propositions_for_noun);
     
-            let object_clause = proposition.object;
+            let object_clause = await list_item_random(proposition.objects);
 
             let probability_object_clause = 0.5
             

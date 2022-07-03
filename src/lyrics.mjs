@@ -12,7 +12,8 @@ export async function lyrics() {
 
     let database = await lyrics_database_get();
 
-    let group = await list_item_random(database.groups);
+    const groups_about_god = database.groups;
+    let group = await list_item_random(groups_about_god);
 
     let sentences_count = 12;
 
