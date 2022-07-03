@@ -13,7 +13,7 @@ export async function lyrics() {
     let database = await lyrics_database_get();
 
     let subject = 'god';
-    let groups_about_god = await list_where(database.groups, g => g.parent === subject );
+    let groups_about_god = await list_where(database.groups, g => g.parent === subject || );
     let group = await list_item_random(groups_about_god);
 
     let sentences_count = 12;
