@@ -1,13 +1,12 @@
 
 import _ from "lodash";
 import { arguments_assert } from "./arguments_assert.mjs";
-import { error } from "./error.mjs";
 import { list_item_random } from "./list_item_random.mjs";
 import { lyrics_that_clause } from "./lyrics_that_clause.mjs";
 import { random_with_probability } from "./random_with_probability.mjs";
 import { tautology } from "./tautology.mjs";
 
-export async function lyrics_sentence_exclamation_sub_how(group, database) {
+export async function lyrics_sentence(group, database) {
     await arguments_assert(tautology, tautology)(arguments);
 
     let { sub_groups } = group;
