@@ -20,7 +20,7 @@ export async function lyrics_database_get() {
         ]
     };
 
-    let group1 = {
+    let group_god_attributes = {
         parent: 'god',
         adjectives: god_attribute_adjectives,
         nouns: [
@@ -47,7 +47,7 @@ export async function lyrics_database_get() {
     }];
 
     let groups = [
-        group1
+        group_god_attributes
     ];
 
     let database = {
