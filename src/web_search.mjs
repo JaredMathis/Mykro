@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { parse } from 'node-html-parser';
+import { tree_traverse } from './tree_traverse.mjs';
 export async function web_search(query) {
     let get = await axios.get('https://duckduckgo.com/?q=' + query);
     let parsed = parse(get.data);
