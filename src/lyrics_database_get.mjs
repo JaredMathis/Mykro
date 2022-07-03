@@ -10,7 +10,7 @@ export async function lyrics_database_get() {
         "endless",
     ];
 
-    let group2 = {
+    let sub_group1 = {
         adjectives: [
             "sweet",
             "pleasant"
@@ -28,12 +28,12 @@ export async function lyrics_database_get() {
             "love",
         ],
         sub_groups: [
-            group2
+            sub_group1
         ]
     };
 
     let group_me = {
-        noun: 'me',
+        nouns: ['me'],
         objects: [
             'wretch',
             'worm'
@@ -41,18 +41,18 @@ export async function lyrics_database_get() {
     };
 
     let propositions = [{
-        noun: 'grace',
-        verb: 'saved',
-        object: 'me',
+        nouns: ['grace'],
+        verbs: ['saved'],
+        objects: ['me'],
     }];
 
-    let god_attributes_groups = [
+    let groups = [
         group1
     ];
 
     let database = {
         propositions,
-        god_attributes_groups,
+        groups,
     };
     return database;
 }
