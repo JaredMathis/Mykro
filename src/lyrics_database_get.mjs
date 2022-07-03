@@ -35,7 +35,7 @@ export async function lyrics_database_get() {
         noun: 'me',
         objects: [
             'wretch',
-            'me'
+            'worm'
         ]
     };
 
