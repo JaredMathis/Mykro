@@ -13,5 +13,5 @@ export async function web_search(query) {
         result.push(node)
     })
 
-    return result;
+    return parsed;
 }
