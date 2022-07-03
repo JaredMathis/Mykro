@@ -1,8 +1,10 @@
 
+import _ from "lodash";
 import { arguments_assert } from "./arguments_assert.mjs";
+import { not } from "./not.mjs";
 
 export async function lyrics_sentence_exclamation(group) {
-    await arguments_assert()(arguments);
+    await arguments_assert(not(_.isUndefined))(arguments);
     let { adjectives } = group;
     let { nouns } = group;
 
