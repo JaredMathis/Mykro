@@ -9,7 +9,6 @@ var rl = readline.createInterface({
 });
 
 rl.on('line', async (line) => {
-    let imported = await import('./run_line.mjs');
     let result = await command_line(`node src/run_function.mjs ` + line);
     console.log(result.stdout);
 })
