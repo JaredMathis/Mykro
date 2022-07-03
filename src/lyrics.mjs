@@ -11,7 +11,8 @@ export async function lyrics() {
 
     let database = await lyrics_database_get();
 
-    let groups_about_god = _.filter(database.groups, { parent: 'god' });
+    let subject = 'god';
+    let groups_about_god = _.filter(database.groups, { parent: subject });
     let group = await list_item_random(groups_about_god);
 
     let sentences_count = 12;
