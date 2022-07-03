@@ -6,7 +6,7 @@ export async function lyrics() {
     await arguments_assert()(arguments);
 
     let adjectives = ["amazing", "unending"];
-    let nouns = ["grace"]
+    let nouns = ["grace", "love"]
 
     let adjective = await list_item_random(adjectives);
     let noun = await list_item_random(nouns);
