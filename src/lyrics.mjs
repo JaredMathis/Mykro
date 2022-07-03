@@ -9,7 +9,7 @@ import { lyrics_sentence_exclamation_sub_how } from "./lyrics_sentence_exclamati
 export async function lyrics() {
     await arguments_assert()(arguments);
 
-    let database = lyrics_database_get();
+    let database = await lyrics_database_get();
 
     let group = await list_item_random(database.groups);
 
