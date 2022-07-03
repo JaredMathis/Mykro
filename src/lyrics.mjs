@@ -6,6 +6,7 @@ import { list_item_random } from "./list_item_random.mjs";
 import { lyrics_database_get } from "./lyrics_database_get.mjs";
 import { lyrics_sentence } from "./lyrics_sentence.mjs";
 import { list_where } from "./list_where.mjs";
+import { lyrics_group_is_about } from "./lyrics_group_is_about.mjs";
 
 export async function lyrics() {
     await arguments_assert()(arguments);
@@ -13,7 +14,7 @@ export async function lyrics() {
     let database = await lyrics_database_get();
 
     let subject = 'god';
-    let groups_about_god = await list_where(database.groups, g => g.parent === subject || );
+    let groups_about_god = await list_where(database.groups, async g => g.parent === subject || (await lyrics_group_is_about(subject))(g));
     let group = await list_item_random(groups_about_god);
 
     let sentences_count = 12;
