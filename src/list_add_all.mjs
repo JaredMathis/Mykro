@@ -7,7 +7,7 @@ import { list_add } from "./list_add.mjs";
 export async function list_add_all(list, other) {
     await arguments_assert(list_is, list_is)(arguments);
     
-    await for_each(other, o => {
+    await for_each(other, async o => {
         await list_add(list, o);
     })
 }
