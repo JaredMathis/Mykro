@@ -36,6 +36,14 @@ export async function lyrics() {
         ]
     }
 
+    let propositions = [
+        "grace saved me"
+    ];
+
+    let database = {
+        propositions,
+    }
+
     let groups = [
         group1
     ]
@@ -56,7 +64,7 @@ export async function lyrics() {
 
         let sentence_get = await list_item_random(choices);
 
-        result.push(await sentence_get(group))
+        result.push(await sentence_get(group, database))
     }
     
     return result

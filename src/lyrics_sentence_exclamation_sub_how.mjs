@@ -3,8 +3,8 @@ import { arguments_assert } from "./arguments_assert.mjs";
 import { list_item_random } from "./list_item_random.mjs";
 import { tautology } from "./tautology.mjs";
 
-export async function lyrics_sentence_exclamation_sub_how(group) {
-    await arguments_assert(tautology)(arguments);
+export async function lyrics_sentence_exclamation_sub_how(group, database) {
+    await arguments_assert(tautology, tautology)(arguments);
 
     let { sub_groups } = group;
 
@@ -14,7 +14,7 @@ export async function lyrics_sentence_exclamation_sub_how(group) {
     let sub_noun = await list_item_random(sub_group.nouns);
     let noun = await list_item_random(group.nouns);
 
-    let result = `how ${sub_adjective} the ${sub_noun} (of ${noun})`;
+    let result = `how ${sub_adjective} the ${sub_noun} (of ${noun}) that`;
 
     return result;
 }
