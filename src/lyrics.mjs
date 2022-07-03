@@ -27,7 +27,8 @@ export async function lyrics() {
 
         let sentence_get = await list_item_random(choices);
 
-        result.push(await sentence_get(group, database))
+        const item = await sentence_get(group, database);
+        result.push(item)
     }
     
     return result
