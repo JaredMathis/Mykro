@@ -1,6 +1,7 @@
 
 import _ from "lodash";
 import { arguments_assert } from "./arguments_assert.mjs";
+import { list_item_random } from "./list_item_random.mjs";
 import { not } from "./not.mjs";
 
 export async function lyrics_sentence_exclamation(group) {
