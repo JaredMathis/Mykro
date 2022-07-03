@@ -22,7 +22,6 @@ export async function lyrics_sentence(group, database) {
     if (await random_with_probability(0.5)) {
         adjective = ``;
     }
-
     let noun_clause = `${adjective}${noun}`;
 
     let result;
