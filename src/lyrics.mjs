@@ -26,6 +26,9 @@ export async function lyrics() {
             "grace", 
             "love"
         ],
+        sub_groups: [
+            group2
+        ]
     }
 
     let groups = [
