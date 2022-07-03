@@ -44,6 +44,33 @@ export async function lyrics_database_get() {
         ]
     };
 
+    let group_me_past = {
+        times: ['past'],
+        nouns: ['me'],
+        adjectives: [
+            'lost',
+            'dead',
+            'blind',
+            'confused',
+            'alone',
+        ],
+    }
+
+    let group_me_present = {
+        times: ['present'],
+        nouns: ['me'],
+        adjectives: [
+            'found',
+            'blessed',
+            'secure',
+            'hopeful',
+        ],
+        verbs: [
+            'see',
+            'hope',
+        ]
+    }
+
     let proposition_sentences = [
         'grace saved me',
     ]
@@ -62,6 +89,7 @@ export async function lyrics_database_get() {
     let groups = [
         group_god_attributes,
         group_me,
+        group_me_past,
     ];
 
     let database = {
