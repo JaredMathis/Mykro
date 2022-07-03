@@ -26,6 +26,5 @@ export async function lyrics_sentence_exclamation_sub_how(group, database) {
         result += `${proposition.verb} ${proposition.object}`
     }
 
-
     return result;
 }
