@@ -6,5 +6,5 @@ import { list_size } from "./list_size.mjs";
 
 export async function list_is_not_empty(list) {
     await arguments_assert(list_is)(arguments);
-    return number_at_least(list_size(list), 1);
+    return number_at_least(await list_size(list), 1);
 }
