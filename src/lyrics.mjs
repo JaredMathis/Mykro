@@ -16,7 +16,7 @@ export async function lyrics() {
 
     let sentences_count = 12;
 
-    let result = list_map(_.range(0, sentences_count), async i => {
+    let result = await list_map(_.range(0, sentences_count), async i => {
         let choices = [
             lyrics_sentence_exclamation
         ];
