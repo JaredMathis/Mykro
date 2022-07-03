@@ -16,5 +16,5 @@ export async function probability_is(p) {
         await number_at_most(p, 1),
     ];
 
-    return _.some(list_where(tests, false_is));
+    return _.every(list_where(tests, true_is));
 }

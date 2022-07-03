@@ -10,7 +10,7 @@ export function returns(_function, expected, data) {
                 _function_data:_function.data || _function.name,
                 result, 
                 expected, 
-                a:Array.from(arguments),
+                arguments:Array.from(arguments),
                 data
             }))
         }
