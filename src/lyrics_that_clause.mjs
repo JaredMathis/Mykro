@@ -22,7 +22,7 @@ export async function lyrics_that_clause(database, noun) {
 
             let probability_object_clause = 0.5
             
-            if (await random_with_probability(probability_that_clause)) {
+            if (await random_with_probability(probability_object_clause)) {
             }
             
             that_clause += `${proposition.verb} ${object_clause}`;
