@@ -1,6 +1,7 @@
 
 import _ from "lodash";
 import { arguments_assert } from "./arguments_assert.mjs";
+import { list_item_random } from "./list_item_random.mjs";
 import { string_is } from "./string_is.mjs";
 import { tautology } from "./tautology.mjs";
 
