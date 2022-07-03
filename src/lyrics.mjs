@@ -6,7 +6,7 @@ export async function lyrics() {
 
     let adjectives = ["Amazing"];
 
-    
+    list_item_random(adjectives);
 
     return "Amazing grace!";
 }
