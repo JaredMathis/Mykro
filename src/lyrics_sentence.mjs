@@ -11,6 +11,10 @@ export async function lyrics_sentence(group, database) {
     await arguments_assert(tautology, tautology)(arguments);
 
     let noun = await list_item_random(group.nouns);
+    if (noun === 'me') {
+        noun = "i";
+    }
+
     let adjective = ``;
     if (group.adjective) {
         if (await random_with_probability(0.5)) {
