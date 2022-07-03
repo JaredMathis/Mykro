@@ -61,6 +61,7 @@ export async function lyrics_sentence(group, database) {
             if (await random_with_probability(0.5)) {
                 let adjective = await list_item_random(group.adjectives)
                 result = `${result} ${verb} ${adjective}`;
+                has_verb = true;
             }
         }
         if (group.objects) {
