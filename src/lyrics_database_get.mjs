@@ -52,11 +52,11 @@ export async function lyrics_database_get() {
         let split = await string_split(s, ' ');
         assert(equals)(split.length, 3);
 
-        return [{
+        return {
             nouns: [split[0]],
             verbs: [split[1]],
             objects: [split[2]],
-        }]
+        }
     });
 
     let groups = [
