@@ -5,6 +5,7 @@ import { list_item_random } from "./list_item_random.mjs";
 import { lyrics_that_clause } from "./lyrics_that_clause.mjs";
 import { random_with_probability } from "./random_with_probability.mjs";
 import { tautology } from "./tautology.mjs";
+import { equals_json } from "./equals_json.mjs";
 
 export async function lyrics_sentence(group, database) {
     await arguments_assert(tautology, tautology)(arguments);
@@ -40,9 +41,9 @@ export async function lyrics_sentence(group, database) {
         }
     }
     
-    
+    let verb
     if (noun === 'me') {
-        if (equals_json(group.time, ['past'])) {
+        if (group.time && await equals_json(group.time, ['past'])) {
             verb = 'was'
         } else {
             verb = 'am';
