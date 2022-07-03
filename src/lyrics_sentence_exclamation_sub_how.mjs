@@ -29,7 +29,12 @@ export async function lyrics_sentence_exclamation_sub_how(group, database) {
     if (await random_with_probability(0.5)) {
         of_clause = ``;
     }
-    let result = `how ${sub_adjective} the ${sub_noun}${of_clause}`;
+    let result;
+    if (await random_with_probability(0.5)) {
+        result = `how ${sub_adjective} the ${sub_noun}${of_clause}`;
+    } else {
+        result = noun_clause
+    }
 
     result += await lyrics_that_clause(database, noun);
 
