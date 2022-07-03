@@ -15,11 +15,11 @@ export async function lyrics() {
 
     let subject = 'god';
     subject = 'me'
-    let groups_about_god = await list_where(
+    let groups_about_subject = await list_where(
         database.groups, 
         async g => g.parent === subject || (await lyrics_group_is_about(subject))(g));
 
-    let group = await list_item_random(groups_about_god);
+    let group = await list_item_random(groups_about_subject);
 
     let sentences_count = 12;
 
