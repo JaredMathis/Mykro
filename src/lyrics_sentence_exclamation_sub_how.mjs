@@ -24,8 +24,8 @@ export async function lyrics_sentence_exclamation_sub_how(group, database) {
         adjective = ``;
     }
 
-    let noun_clause = ` of ${adjective}${noun}`;
-    let of_clause = noun_clause;
+    let noun_clause = `${adjective}${noun}`;
+    let of_clause = ` of ${noun_clause}`;
     if (await random_with_probability(0.5)) {
         of_clause = ``;
     }
