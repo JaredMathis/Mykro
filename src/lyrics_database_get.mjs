@@ -53,6 +53,7 @@ export async function lyrics_database_get() {
             'blind',
             'confused',
             'alone',
+            'broken',
         ],
     }
 
