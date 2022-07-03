@@ -26,7 +26,9 @@ export async function lyrics_that_clause(database, noun) {
             let probability_object_clause = 0.5
             
             if (await random_with_probability(probability_object_clause)) {
-                let groups_for_object_clause = await list_where(database.groups, await lyrics_group_is_about(object_clause));
+                let groups_for_object_clause = await list_where(
+                    database.groups, 
+                    await lyrics_group_is_about(object_clause));
                 if (_.some(groups_for_object_clause)) {
                     let group_for_object_clause = await list_item_random(groups_for_object_clause);
                     if (_.some(group_for_object_clause.objects)) {
