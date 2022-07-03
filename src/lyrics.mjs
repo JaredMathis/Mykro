@@ -8,7 +8,8 @@ export async function lyrics() {
     let group = {
         adjectives: [
             "amazing",
-            "unending"
+            "unending",
+            "endless"
         ],
         nouns: [
             "grace", 
@@ -18,12 +19,17 @@ export async function lyrics() {
 
     let probability_sentence = .9;
 
-    let {adjectives} = group;
-    let {nouns} = group;
+    let result = await lyrics_sentence_exclamation(group);
+    
+    return result
+}
+
+async function lyrics_sentence_exclamation(group) {
+    let { adjectives } = group;
+    let { nouns } = group;
 
     let adjective = await list_item_random(adjectives);
     let noun = await list_item_random(nouns);
     let result = `${adjective} ${noun}!`;
-    
-    return result
+    return result;
 }
