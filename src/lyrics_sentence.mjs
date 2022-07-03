@@ -60,7 +60,7 @@ export async function lyrics_sentence(group, database) {
     if (group.objects) {
         if (await random_with_probability(0.5)) {
             let object = await list_item_random(group.objects)
-            result = `${result} ${verb} ${object}`;
+            result = `${result} ${verb} a ${object}`;
         }
     }
     
