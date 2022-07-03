@@ -14,6 +14,6 @@ export async function lyrics_sentence_exclamation(group, database) {
     let adjective = await list_item_random(adjectives);
     let noun = await list_item_random(nouns);
     let that_clause = await lyrics_that_clause(database, noun);
-    let result = `${adjective} ${noun}${that_clause}!`;
+    let result = `${adjective} ${noun}${that_clause}`;
     return result;
 }
