@@ -11,6 +11,9 @@ import { random_number } from "./random_number.mjs";
 
 export async function lyrics_paragraph(database, subject) {
     await arguments_assert(defined_is, string_is)(arguments);
+
+    console.log('here')
+
     let groups_about_subject = await list_where(
         database.groups,
         async (g) => g.parent === subject || (await lyrics_group_is_about(subject))(g));
