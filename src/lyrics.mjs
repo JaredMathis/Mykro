@@ -21,7 +21,7 @@ export async function lyrics() {
 
     let group = await list_item_random(groups_about_subject);
 
-    let sentences_count = 12;
+    let sentences_count = ;
 
     let result = await list_map(_.range(0, sentences_count), async i => {
         let item = await lyrics_sentence(group, database);
