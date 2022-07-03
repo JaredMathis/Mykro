@@ -22,7 +22,9 @@ export async function lyrics_sentence_exclamation_sub_how(group, database) {
     if (_.some(propositions_for_noun)) {
         result += " that ";
         let proposition = await list_item_random(propositions_for_noun);
-        console.error(proposition);
+
+        result += `${proposition.verb} ${proposition.object}`
+        error({proposition})
     }
 
 
