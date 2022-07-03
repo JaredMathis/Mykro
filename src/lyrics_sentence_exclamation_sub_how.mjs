@@ -19,11 +19,16 @@ export async function lyrics_sentence_exclamation_sub_how(group, database) {
     let noun = await list_item_random(group.nouns);
     let adjective = await list_item_random(group.adjectives);
 
+    adjective += ' ';
+    if (await random_with_probability(0.5)) {
+        adjective = ``;
+    }
+
     let of_clause = ` of ${noun}`;
     if (await random_with_probability(0.5)) {
         of_clause = ``;
     }
-    let result = `how ${sub_adjective} the ${sub_noun}${of_clause}`;
+    let result = `how ${sub_adjective} the ${adjective}${sub_noun}${of_clause}`;
 
     result += await lyrics_that_clause(database, noun);
 
