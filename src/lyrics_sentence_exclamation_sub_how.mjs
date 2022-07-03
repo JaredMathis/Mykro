@@ -3,6 +3,7 @@ import _ from "lodash";
 import { arguments_assert } from "./arguments_assert.mjs";
 import { error } from "./error.mjs";
 import { list_item_random } from "./list_item_random.mjs";
+import { lyrics_that_clause } from "./lyrics_that_clause.mjs";
 import { tautology } from "./tautology.mjs";
 
 export async function lyrics_sentence_exclamation_sub_how(group, database) {
@@ -23,14 +24,3 @@ export async function lyrics_sentence_exclamation_sub_how(group, database) {
     return result;
 }
 
-async function lyrics_that_clause(database, noun) {
-    let that_clause = "";
-    let propositions_for_noun = _.filter(database.propositions, { noun });
-    if (_.some(propositions_for_noun)) {
-        that_clause += " that ";
-        let proposition = await list_item_random(propositions_for_noun);
-
-        that_clause += `${proposition.verb} ${proposition.object}`;
-    }
-    return that_clause;
-}
