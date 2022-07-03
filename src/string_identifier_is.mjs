@@ -9,7 +9,7 @@ export async function string_identifier_is(value) {
     await arguments_assert(defined_is)(arguments);
 
     let identifer_characters = await constant_alphabet() + `_`;
-    let choices = string_to_list(identifer_characters);
+    let choices = await string_to_list(identifer_characters);
 
     let result = true;
     await for_each(list_range(string_size(value)), i => {
