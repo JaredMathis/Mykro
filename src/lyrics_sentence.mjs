@@ -63,7 +63,6 @@ export async function lyrics_sentence(group, database) {
             result = `${result} ${verb} a ${object}`;
         }
     }
-    
 
     result += await lyrics_that_clause(database, noun);
 
