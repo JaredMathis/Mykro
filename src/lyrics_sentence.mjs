@@ -44,8 +44,12 @@ export async function lyrics_sentence(group, database) {
     if (noun === 'me') {
         console.log({group, gt: group.times})
         if (group.times && await equals_json(group.times, ['past'])) {
+            
+        console.log('HERE')
+
             verb = 'was'
         } else {
+            console.log('asdf')
             verb = 'am';
         }
     } else {
