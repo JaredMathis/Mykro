@@ -8,7 +8,7 @@ export function arguments_assert() {
         await assert(equals)(asserters.length, _arguments.length);
         await Promise.all(asserters.map(async (asserter, i) => {
             let value = _arguments[i];
-            await assert(asserter, {i, a: asserter, value})(value);
+            await assert(asserter, {i, asserter, value})(value);
         }))
     }
 }
