@@ -10,6 +10,7 @@ export async function web_search(query) {
         if (node.rawTagName === 'a') {
             result.push(node.toString());
         }
+        result.push(node)
     })
 
     return result;
