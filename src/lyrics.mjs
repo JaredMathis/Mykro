@@ -23,12 +23,6 @@ export async function lyrics() {
         let paragraph = await lyrics_paragraph(database, subject);
         await list_add_all(result, paragraph);
         
-        // console.log(result)
-
-        
-        // Remove duplicate sentences
-        // result = _.uniq(result);
-        
         result = await list_where(result, i => i !== 'i');
     }) ;
 
