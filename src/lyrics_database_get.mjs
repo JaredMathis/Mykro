@@ -48,7 +48,7 @@ export async function lyrics_database_get() {
         'grace saved me',
     ]
 
-    let propositions = list_map(proposition_sentences, async s => {
+    let propositions = await list_map(proposition_sentences, async s => {
         let split = await string_split(s, ' ');
         assert(equals)(split.length, 3);
 
