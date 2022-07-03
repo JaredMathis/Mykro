@@ -18,7 +18,6 @@ export async function lyrics() {
         database.groups, 
         async g => g.parent === subject || (await lyrics_group_is_about(subject))(g));
 
-    console.log(JSON.stringify({groups_about_god}))
     let group = await list_item_random(groups_about_god);
 
     let sentences_count = 12;
