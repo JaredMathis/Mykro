@@ -26,7 +26,8 @@ export async function lyrics_that_clause(database, noun) {
 
             }
             
-            that_clause += `${proposition.verb} ${object_clause}`;
+            let verb = proposition.verb
+            that_clause += `${verb} ${object_clause}`;
         }
     }
     return that_clause;
