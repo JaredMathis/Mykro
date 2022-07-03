@@ -1,7 +1,9 @@
 
 import _ from "lodash";
 import { arguments_assert } from "./arguments_assert.mjs";
+import { error } from "./error.mjs";
 import { list_item_random } from "./list_item_random.mjs";
+import { list_where } from "./list_where.mjs";
 import { random_with_probability } from "./random_with_probability.mjs";
 import { string_is } from "./string_is.mjs";
 import { tautology } from "./tautology.mjs";
@@ -23,7 +25,9 @@ export async function lyrics_that_clause(database, noun) {
             let probability_object_clause = 0.5
             
             if (await random_with_probability(probability_object_clause)) {
-
+                error({g:database.groups})
+                let filtered = await list_where(database.groups, g => _.isUndefined(g.parent) && g.nouns.include('me'));
+                error({filtered})
             }
             
             let verb = await list_item_random(proposition.verbs)
