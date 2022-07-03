@@ -1,8 +1,8 @@
 
 import { arguments_assert } from "./arguments_assert.mjs";
-import { not } from "./not.mjs";
+import { defined_is } from "./defined_is.mjs";
 
 export async function probability_is(p) {
-    await arguments_assert(not(_.isUndefined))(arguments);
+    await arguments_assert(defined_is)(arguments);
     // TODO
 }
