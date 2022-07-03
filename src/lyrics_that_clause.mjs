@@ -10,6 +10,7 @@ import { tautology } from "./tautology.mjs";
 
 export async function lyrics_that_clause(database, noun) {
     await arguments_assert(tautology, string_is)(arguments);
+    console.log({noun})
 
     let probability_that_clause = 0.5
 
@@ -28,7 +29,6 @@ export async function lyrics_that_clause(database, noun) {
                 let groups_for_noun = await list_where(database.groups, g => {
                     return _.isUndefined(g.parent) && g.nouns.includes(noun)
                 });
-                console.log({groups_for_noun, noun})
                 if (_.some(groups_for_noun)) {
                     let group_for_noun = await list_item_random(groups_for_noun);
                     error({group_for_noun})
