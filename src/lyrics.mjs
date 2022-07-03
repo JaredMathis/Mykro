@@ -1,4 +1,5 @@
 
+import _ from "lodash";
 import { arguments_assert } from "./arguments_assert.mjs";
 import { lyrics_sentence_exclamation } from "./lyrics_sentence_exclamation.mjs";
 
@@ -17,12 +18,18 @@ export async function lyrics() {
         ],
     }
 
+    let sentences_max = 100;
     let probability_sentence = .9;
 
+    let result = [];
+    for (let i of _.range(0, sentences_max)) {
+        let sentence = await lyrics_sentence_exclamation(group);
 
-
-    let sentence = await lyrics_sentence_exclamation(group);
+        if (_.random() > probability_sentence) {
+            break;
+        }
+        result.push(sentence)
+    }
     
-    let result = sentence;
     return result
 }
