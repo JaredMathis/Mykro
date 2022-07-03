@@ -12,5 +12,5 @@ export async function web_search(query) {
         }
     })
 
-    return result;
+    return parsed.toString();
 }
