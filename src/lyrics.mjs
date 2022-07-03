@@ -12,11 +12,12 @@ export async function lyrics() {
         "amazing",
         "unending",
         "endless",
-        "sweet",
     ]
 
     let group2 = {
-        adjectives: god_attribute_adjectives,
+        adjectives: [
+            "sweet",
+        ],
         nouns: [
             "sound",
         ]
