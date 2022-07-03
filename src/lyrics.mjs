@@ -18,9 +18,8 @@ export async function lyrics() {
 
     let adjective = await list_item_random(adjectives);
     let noun = await list_item_random(nouns);
+    let result = `${adjective} ${noun}!`;
 
     
-
-    let result = `${adjective} ${noun}!`;
     return result
 }
