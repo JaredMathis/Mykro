@@ -36,6 +36,14 @@ export async function lyrics() {
         ]
     }
 
+    let group_me = {
+        noun: 'me',
+        objects: [
+            'wretch',
+            'me'
+        ]
+    }
+
     let propositions = [{
         noun: 'grace',
         verb: 'saved',
@@ -52,7 +60,7 @@ export async function lyrics() {
 
     let group = await list_item_random(groups);
 
-    let sentences_count = 8;
+    let sentences_count = 12;
 
     let result = [];
     for (let i of _.range(0, sentences_count)) {
