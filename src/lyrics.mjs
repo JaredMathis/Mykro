@@ -31,6 +31,7 @@ export async function lyrics() {
         // result = _.uniq(result);
         
         let filtered = await list_where(result, async i => tautology(i));
+        console.log(filtered)
     }) ;
 
     return result;
