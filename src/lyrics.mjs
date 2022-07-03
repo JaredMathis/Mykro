@@ -50,13 +50,14 @@ export async function lyrics() {
         object: 'me', 
     }];
 
-    let database = {
-        propositions,
-    }
-
     let groups = [
         group1
     ]
+
+    let database = {
+        propositions,
+        groups,
+    }
 
     let group = await list_item_random(groups);
 
