@@ -10,7 +10,6 @@ import { equals_json } from "./equals_json.mjs";
 export async function lyrics_sentence(group, database) {
     await arguments_assert(tautology, tautology)(arguments);
 
-    console.log({group})
     let noun = await list_item_random(group.nouns);
     let adjective = ``;
     
