@@ -9,8 +9,8 @@ export async function probability_is(p) {
     
     let tests = [
         _.isNumber(p),
-        number_negative_not_is(p),
-        number_at_most(p, 1),
+        await number_negative_not_is(p),
+        await number_at_most(p, 1),
     ];
 
     return _.some(list_where(tests, false_is));
