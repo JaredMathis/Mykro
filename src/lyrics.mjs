@@ -5,7 +5,8 @@ import { list_item_random } from "./list_item_random.mjs";
 export async function lyrics() {
     await arguments_assert()(arguments);
 
-    let adjectives = ["Amazing", "Unending"];
+    let adjectives = ["amazing", "unending"];
+    let nouns = ["grace"]
 
     let choice = await list_item_random(adjectives);
 
