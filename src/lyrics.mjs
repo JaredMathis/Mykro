@@ -1,6 +1,7 @@
 
 import _ from "lodash";
 import { arguments_assert } from "./arguments_assert.mjs";
+import { list_item_random } from "./list_item_random.mjs";
 import { lyrics_sentence_exclamation } from "./lyrics_sentence_exclamation.mjs";
 
 export async function lyrics() {
@@ -36,6 +37,7 @@ export async function lyrics() {
 
     let result = [];
     for (let i of _.range(0, sentences_max)) {
+        let group = list_item_random(groups);
         let sentence = await lyrics_sentence_exclamation(group);
         result.push(sentence)
     }
