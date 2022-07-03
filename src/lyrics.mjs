@@ -6,7 +6,7 @@ import { lyrics_sentence_exclamation } from "./lyrics_sentence_exclamation.mjs";
 export async function lyrics() {
     await arguments_assert()(arguments);
 
-    let group = {
+    let group1 = {
         adjectives: [
             "amazing",
             "unending",
@@ -16,6 +16,15 @@ export async function lyrics() {
             "grace", 
             "love"
         ],
+    }
+
+    let group2 = {
+        adjectives: [
+            "sweet"
+        ],
+        nouns: [
+            "sound"
+        ]
     }
 
     let sentences_max = 8;
