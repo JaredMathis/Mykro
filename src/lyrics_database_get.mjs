@@ -20,7 +20,7 @@ export async function lyrics_database_get() {
         ]
     };
 
-    let god_attributes = {
+    let god_attributes_group = {
         adjectives: god_attribute_adjectives,
         nouns: [
             "grace",
@@ -45,8 +45,8 @@ export async function lyrics_database_get() {
         object: 'me',
     }];
 
-    let groups = [
-        god_attributes
+    let god_attributes_groups = [
+        god_attributes_group
     ];
 
     let database = {
