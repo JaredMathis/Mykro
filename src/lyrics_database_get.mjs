@@ -47,7 +47,8 @@ export async function lyrics_database_get() {
     }];
 
     let groups = [
-        group_god_attributes
+        group_god_attributes,
+        group_me,
     ];
 
     let database = {
