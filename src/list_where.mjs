@@ -1,9 +1,16 @@
 
 import _ from "lodash";
 import { arguments_assert } from "./arguments_assert.mjs";
+import { for_each } from "./for_each.mjs";
 
 export async function list_where(list, predicate) {
     await arguments_assert(_.isArray, _.isFunction)(arguments);
     
-    return list.filter(item => predicate(item));
+    let result = [];
+    for_each(list, async item => {
+        if (await predicate(item)) {
+            result.push(item);
+        }
+    })
+    return result;
 }
