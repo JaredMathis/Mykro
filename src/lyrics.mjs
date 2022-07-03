@@ -19,7 +19,10 @@ export async function lyrics() {
 
     let probability_sentence = .9;
 
-    let result = await lyrics_sentence_exclamation(group);
+
+
+    let sentence = await lyrics_sentence_exclamation(group);
     
+    let result = sentence;
     return result
 }
