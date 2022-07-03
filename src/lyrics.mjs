@@ -37,7 +37,7 @@ export async function lyrics() {
 
     let result = [];
     for (let i of _.range(0, sentences_max)) {
-        let group = list_item_random(groups);
+        let group = await list_item_random(groups);
         let sentence = await lyrics_sentence_exclamation(group);
         result.push(sentence)
     }
