@@ -29,7 +29,7 @@ export async function lyrics() {
         // Remove duplicate sentences
         // result = _.uniq(result);
         
-        // result = await list_where(result, item => item !== 'i');
+        result = await list_where(result, item => item !== 'i');
     }) ;
 
     return result;
