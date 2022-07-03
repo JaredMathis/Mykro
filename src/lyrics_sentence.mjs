@@ -24,6 +24,8 @@ export async function lyrics_sentence(group, database) {
     }
     let noun_clause = `${adjective}${noun}`;
 
+    noun_clause += await lyrics_that_clause(database, noun);
+
     let result = noun_clause;
 
     if (group['sub_groups']) {
@@ -41,8 +43,6 @@ export async function lyrics_sentence(group, database) {
             result = `how ${sub_adjective} the ${sub_noun}${of_clause}`;
         }
 
-        result += await lyrics_that_clause(database, noun);
-        
     } else {
         let verb
         if (noun === 'i') {
