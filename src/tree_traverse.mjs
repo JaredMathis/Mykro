@@ -6,8 +6,6 @@ import { not } from "./not.mjs";
 export async function tree_traverse(node, children_get, for_each_child) {
     await arguments_assert(not(_.isUndefined), _.isFunction, _.isFunction)(arguments);
 
-    console.log('here', {node})
-
     await for_each_child(node);
 
     let children = await children_get(node);
