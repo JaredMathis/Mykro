@@ -25,8 +25,8 @@ export async function lyrics_that_clause(database, noun) {
             let probability_object_clause = 0.5
             
             if (await random_with_probability(probability_object_clause)) {
-                error({g:database.groups})
                 let filtered = await list_where(database.groups, g => {
+                    console.log({g})
                     return _.isUndefined(g.parent) && g.nouns.include('me')
                 });
                 error({filtered})
