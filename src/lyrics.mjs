@@ -15,16 +15,19 @@ export async function lyrics() {
 
     let result = [];
 
-    while (await list_size(result) < 12) {
+    while ((await list_size(result)) < 12) {
         let subjects = ['god', 'me'];
         let subject = await list_item_random(subjects);
         let paragraph = await lyrics_paragraph(database, subject);
         await list_add_all(result, paragraph);
         
-        // Remove duplicate sentences
-        result = _.uniq(result);
+        // console.log(result)
+
         
-        result = await list_where(result, item => item !== 'i');
+        // Remove duplicate sentences
+        // result = _.uniq(result);
+        
+        // result = await list_where(result, item => item !== 'i');
     }
 
     return result;
