@@ -8,24 +8,21 @@ export async function lyrics() {
     await arguments_assert()(arguments);
 
     let god_attribute_adjectives = [
-
+        "amazing",
+        "unending",
+        "endless",
+        "sweet",
     ]
 
     let group2 = {
-        adjectives: [
-            "sweet",
-        ],
+        adjectives: god_attribute_adjectives,
         nouns: [
             "sound",
         ]
     }
 
     let group1 = {
-        adjectives: [
-            "amazing",
-            "unending",
-            "endless",
-        ],
+        adjectives: god_attribute_adjectives,
         nouns: [
             "grace", 
             "love",
