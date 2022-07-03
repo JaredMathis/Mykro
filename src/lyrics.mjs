@@ -7,6 +7,7 @@ import { lyrics_database_get } from "./lyrics_database_get.mjs";
 import { lyrics_paragraph } from "./lyrics_paragraph.mjs";
 import { list_add_all } from "./list_add_all.mjs";
 import { list_where } from "./list_where.mjs";
+import { for_each } from "./for_each.mjs";
 
 export async function lyrics() {
     await arguments_assert()(arguments);
@@ -15,7 +16,8 @@ export async function lyrics() {
 
     let result = [];
 
-    while ((await list_size(result)) < 12) {
+    await for_each(_.range(0, 12), async item => {
+
         let subjects = ['god', 'me'];
         let subject = await list_item_random(subjects);
         let paragraph = await lyrics_paragraph(database, subject);
@@ -27,8 +29,8 @@ export async function lyrics() {
         // Remove duplicate sentences
         // result = _.uniq(result);
         
-        // result = await list_where(result, item => item !== 'i');
-    }
+        result = await list_where(result, item => item !== 'i');
+    }) ;
 
     return result;
 }
