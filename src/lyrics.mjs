@@ -17,6 +17,7 @@ export async function lyrics() {
     let group2 = {
         adjectives: [
             "sweet",
+            "pleasant"
         ],
         nouns: [
             "sound",
