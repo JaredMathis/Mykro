@@ -21,6 +21,9 @@ export async function lyrics_that_clause(database, noun) {
 
             let probability_object_clause = 0.5
             
+            if (Math.random() < probability_that_clause) {
+            }
+            
             that_clause += `${proposition.verb} ${object_clause}`;
         }
     }
