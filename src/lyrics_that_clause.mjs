@@ -29,7 +29,8 @@ export async function lyrics_that_clause(database, noun) {
                     return _.isUndefined(g.parent) && g.nouns.includes(noun)
                 });
                 if (_.some(groups_for_noun)) {
-                    let group_for_noun = await list_item_random()
+                    let group_for_noun = await list_item_random(groups_for_noun);
+                    error({group})
                 }
             }
             
