@@ -4,6 +4,7 @@ import { arguments_assert } from "./arguments_assert.mjs";
 import { error } from "./error.mjs";
 import { list_item_random } from "./list_item_random.mjs";
 import { lyrics_that_clause } from "./lyrics_that_clause.mjs";
+import { random_with_probability } from "./random_with_probability.mjs";
 import { tautology } from "./tautology.mjs";
 
 export async function lyrics_sentence_exclamation_sub_how(group, database) {
@@ -18,6 +19,9 @@ export async function lyrics_sentence_exclamation_sub_how(group, database) {
     let noun = await list_item_random(group.nouns);
 
     let of_clause = ` of ${noun}`;
+    if (random_with_probability(0.5)) {
+        of_clause = ``;
+    }
     let result = `how ${sub_adjective} the ${sub_noun}${of_clause}`;
 
     result += await lyrics_that_clause(database, noun);
