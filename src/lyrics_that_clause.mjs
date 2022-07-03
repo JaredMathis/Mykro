@@ -25,11 +25,12 @@ export async function lyrics_that_clause(database, noun) {
             let probability_object_clause = 0.5
             
             if (await random_with_probability(probability_object_clause)) {
-                let groups_for_noun = await list_where(database.groups, g => {
+                let groups_for_object_clause = await list_where(database.groups, g => {
                     return _.isUndefined(g.parent) && g.nouns.includes(object_clause)
                 });
-                if (_.some(groups_for_noun)) {
-                    let group_for_noun = await list_item_random(groups_for_noun);
+                if (_.some(groups_for_object_clause)) {
+                    let group_for_noun = await list_item_random(groups_for_object_clause);
+                    console.log({groups_for_object_clause})
                     let group_for_noun_noun = await list_item_random(group_for_noun.objects);
 
                     object_clause = `a ${group_for_noun_noun} ${await list_item_random(['like', 'as'])} ${object_clause}`;
