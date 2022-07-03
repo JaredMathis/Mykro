@@ -17,7 +17,8 @@ export async function lyrics_sentence_exclamation_sub_how(group, database) {
     let sub_noun = await list_item_random(sub_group.nouns);
     let noun = await list_item_random(group.nouns);
 
-    let result = `how ${sub_adjective} the ${sub_noun} (of ${noun})`;
+    let of_clause = ` of ${noun}`;
+    let result = `how ${sub_adjective} the ${sub_noun}${of_clause}`;
 
     result += await lyrics_that_clause(database, noun);
 
