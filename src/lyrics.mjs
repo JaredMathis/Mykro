@@ -2,6 +2,7 @@
 import _ from "lodash";
 import { arguments_assert } from "./arguments_assert.mjs";
 import { list_item_random } from "./list_item_random.mjs";
+import { lyrics_database_get } from "./lyrics_database_get.mjs";
 import { lyrics_sentence_exclamation } from "./lyrics_sentence_exclamation.mjs";
 import { lyrics_sentence_exclamation_sub_how } from "./lyrics_sentence_exclamation_sub_how.mjs";
 
@@ -30,58 +31,4 @@ export async function lyrics() {
     }
     
     return result
-}
-
-function lyrics_database_get() {
-    let god_attribute_adjectives = [
-        "abundant",
-        "amazing",
-        "unending",
-        "endless",
-    ];
-
-    let group2 = {
-        adjectives: [
-            "sweet",
-            "pleasant"
-        ],
-        nouns: [
-            "sound",
-        ]
-    };
-
-    let group1 = {
-        adjectives: god_attribute_adjectives,
-        nouns: [
-            "grace",
-            "love",
-        ],
-        sub_groups: [
-            group2
-        ]
-    };
-
-    let group_me = {
-        noun: 'me',
-        objects: [
-            'wretch',
-            'me'
-        ]
-    };
-
-    let propositions = [{
-        noun: 'grace',
-        verb: 'saved',
-        object: 'me',
-    }];
-
-    let groups = [
-        group1
-    ];
-
-    let database = {
-        propositions,
-        groups,
-    };
-    return database;
 }
