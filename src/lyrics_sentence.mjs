@@ -44,6 +44,7 @@ export async function lyrics_sentence(group, database) {
         }
 
     } else {
+        let is_past = false;
         let verb
         if (noun === 'i') {
             if (group.times && await equals_json(group.times, ['past'])) {
