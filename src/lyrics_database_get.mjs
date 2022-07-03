@@ -21,6 +21,7 @@ export async function lyrics_database_get() {
     };
 
     let group1 = {
+        parent: 'god',
         adjectives: god_attribute_adjectives,
         nouns: [
             "grace",
