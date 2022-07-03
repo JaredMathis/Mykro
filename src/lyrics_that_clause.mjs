@@ -15,7 +15,6 @@ export async function lyrics_that_clause(database, noun) {
 
     let that_clause = "";
     let propositions_for_noun = await list_where(database.propositions, p => p.nouns.includes(noun));
-    console.log({a:database.propositions})
     if (_.some(propositions_for_noun)) {
         if (await random_with_probability(probability_that_clause)) {
             that_clause += " that ";
