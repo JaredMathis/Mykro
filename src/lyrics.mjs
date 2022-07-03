@@ -18,17 +18,12 @@ export async function lyrics() {
         ],
     }
 
-    let sentences_max = 100;
-    let probability_sentence = .95;
+    let sentences_max = 20;
 
     let result = [];
     for (let i of _.range(0, sentences_max)) {
         let sentence = await lyrics_sentence_exclamation(group);
         result.push(sentence)
-
-        if (_.random() > probability_sentence) {
-            break;
-        }
     }
     
     return result
