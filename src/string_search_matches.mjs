@@ -11,8 +11,11 @@ export async function string_search_matches(candidate, query) {
 
     let candidate_as_list = string_to_list(candidate);
 
+    let index_previous = -1;
     await for_each(query_as_list, q => {
         let index = list_index_of(candidate, q);
+
+
     })
 
     // TODO
