@@ -1,7 +1,7 @@
 
 import _ from "lodash";
 import { arguments_assert } from "./arguments_assert.mjs";
-import { for_each } from "./for_each.mjs";
+import { list_map } from "./list_map.mjs";
 import { list_item_random } from "./list_item_random.mjs";
 import { lyrics_database_get } from "./lyrics_database_get.mjs";
 import { lyrics_sentence_exclamation } from "./lyrics_sentence_exclamation.mjs";
@@ -16,8 +16,7 @@ export async function lyrics() {
 
     let sentences_count = 12;
 
-    let result = [];
-    await for_each(_.range(0, sentences_count), async i => {
+    let result = list_map(_.range(0, sentences_count), i => {
         let choices = [
             lyrics_sentence_exclamation
         ];
@@ -29,8 +28,8 @@ export async function lyrics() {
         let sentence_get = await list_item_random(choices);
 
         let item = await sentence_get(group, database);
-        result.push(item)
-    })
+        return item;
+    });
     
     return result
 }
