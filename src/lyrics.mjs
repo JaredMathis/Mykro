@@ -9,6 +9,7 @@ export async function lyrics() {
     await arguments_assert()(arguments);
 
     let god_attribute_adjectives = [
+        "abundant",
         "amazing",
         "unending",
         "endless",
