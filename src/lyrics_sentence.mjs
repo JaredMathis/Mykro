@@ -76,7 +76,7 @@ export async function lyrics_sentence(_arguments) {
         }
 
         if (is_past && has_verb) {
-
+            
         }
     }
 
