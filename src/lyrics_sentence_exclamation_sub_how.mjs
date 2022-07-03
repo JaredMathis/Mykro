@@ -15,7 +15,7 @@ export async function lyrics_sentence_exclamation_sub_how(group) {
 
     let adjective = await list_item_random(adjectives);
     let noun = await list_item_random(nouns);
-    let result = `How ${adjective} the ${noun}!`;
+    let result = `how ${adjective} the ${noun}!`;
 
     return result;
 }
