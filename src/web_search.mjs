@@ -6,12 +6,12 @@ export async function web_search(query) {
     let parsed = parse(get.data);
 
     let result = [];
-    tree_traverse(parsed, node => node.childNodes, node => {
+    await tree_traverse(parsed, node => node.childNodes, node => {
         if (node.rawTagName === 'a') {
             result.push(node.toString());
         }
         result.push(node)
     })
 
-    return Object.keys(parsed);
+    return result;
 }
