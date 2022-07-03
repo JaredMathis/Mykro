@@ -40,6 +40,26 @@ export async function lyrics_sentence(group, database) {
         }
     }
 
+    if (group.objects) {
+        if (await random_with_probability(0.5)) {
+            let of_clause = ` of ${noun_clause}`;
+            if (await random_with_probability(0.5)) {
+                of_clause = ``;
+            }
+            if (noun === 'me') {
+                if (equals_json(group.time, ['past'])) {
+                    verb = 'was'
+                } else {
+                    verb = 'am';
+                }
+            } else {
+                verb = 'is';
+            }
+            result = `${result} ${verb} ${sub_noun}${of_clause}`;
+        }
+    }
+    
+
     result += await lyrics_that_clause(database, noun);
 
     return result;
