@@ -2,7 +2,7 @@
 import { arguments_assert } from "./arguments_assert.mjs";
 import { list_item_random } from "./list_item_random.mjs";
 
-export async function lyrics_sentence_exclamation_sub_how() {
+export async function lyrics_sentence_exclamation_sub_how(group) {
     await arguments_assert()(arguments);
 
     let { sub_groups } = group;
