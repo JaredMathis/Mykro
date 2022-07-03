@@ -42,7 +42,7 @@ export async function lyrics_sentence(group, database) {
     
     let verb
     if (noun === 'me') {
-        console.log({group})
+        console.log({group, gt: group.times})
         if (group.times && await equals_json(group.times, ['past'])) {
             verb = 'was'
         } else {
