@@ -20,18 +20,20 @@ export async function lyrics_sentence(group, database) {
 
     let result = noun_clause;
 
-    let { sub_groups } = group;
+    if (group['sub_groups']) {
+        let { sub_groups } = group;
 
-    let sub_group = await list_item_random(sub_groups);
-    let sub_adjective = await list_item_random(sub_group.adjectives);
-    let sub_noun = await list_item_random(sub_group.nouns);
-
-    if (await random_with_probability(0.5)) {
-        let of_clause = ` of ${noun_clause}`;
+        let sub_group = await list_item_random(sub_groups);
+        let sub_adjective = await list_item_random(sub_group.adjectives);
+        let sub_noun = await list_item_random(sub_group.nouns);
+    
         if (await random_with_probability(0.5)) {
-            of_clause = ``;
+            let of_clause = ` of ${noun_clause}`;
+            if (await random_with_probability(0.5)) {
+                of_clause = ``;
+            }
+            result = `how ${sub_adjective} the ${sub_noun}${of_clause}`;
         }
-        result = `how ${sub_adjective} the ${sub_noun}${of_clause}`;
     }
 
     result += await lyrics_that_clause(database, noun);
