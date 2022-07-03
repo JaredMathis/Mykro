@@ -9,12 +9,6 @@ import { tautology } from "./tautology.mjs";
 export async function lyrics_sentence(group, database) {
     await arguments_assert(tautology, tautology)(arguments);
 
-    let { sub_groups } = group;
-
-    let sub_group = await list_item_random(sub_groups);
-    let sub_adjective = await list_item_random(sub_group.adjectives);
-    let sub_noun = await list_item_random(sub_group.nouns);
-
     let noun = await list_item_random(group.nouns);
     let adjective = await list_item_random(group.adjectives);
 
@@ -25,6 +19,13 @@ export async function lyrics_sentence(group, database) {
     let noun_clause = `${adjective}${noun}`;
 
     let result = noun_clause;
+
+    let { sub_groups } = group;
+
+    let sub_group = await list_item_random(sub_groups);
+    let sub_adjective = await list_item_random(sub_group.adjectives);
+    let sub_noun = await list_item_random(sub_group.nouns);
+
     if (await random_with_probability(0.5)) {
         let of_clause = ` of ${noun_clause}`;
         if (await random_with_probability(0.5)) {
