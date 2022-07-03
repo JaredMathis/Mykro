@@ -3,6 +3,7 @@ import _ from "lodash";
 import { arguments_assert } from "./arguments_assert.mjs";
 import { list_item_random } from "./list_item_random.mjs";
 import { lyrics_sentence_exclamation } from "./lyrics_sentence_exclamation.mjs";
+import { lyrics_sentence_exclamation_sub_how } from "./lyrics_sentence_exclamation_sub_how.mjs";
 
 export async function lyrics() {
     await arguments_assert()(arguments);
@@ -42,9 +43,17 @@ export async function lyrics() {
 
     let result = [];
     for (let i of _.range(0, sentences_count)) {
-        let sentence;
-        sentence = await lyrics_sentence_exclamation(group);
-        result.push(sentence)
+        let choices = [
+            lyrics_sentence_exclamation
+        ];
+
+        if (i >= 1) {
+            choices.push(lyrics_sentence_exclamation_sub_how);
+        }
+
+        let sentence_get = await list_item_random(choices);
+
+        result.push(await sentence_get(group))
     }
     
     return result
