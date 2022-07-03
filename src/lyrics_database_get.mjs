@@ -54,6 +54,7 @@ export async function lyrics_database_get() {
             'confused',
             'alone',
             'broken',
+            'fatherless',
         ],
     }
 
