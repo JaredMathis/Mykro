@@ -8,6 +8,7 @@ import { lyrics_paragraph } from "./lyrics_paragraph.mjs";
 import { list_add_all } from "./list_add_all.mjs";
 import { list_where } from "./list_where.mjs";
 import { for_each } from "./for_each.mjs";
+import { tautology } from "./tautology.mjs";
 
 export async function lyrics() {
     await arguments_assert()(arguments);
@@ -29,7 +30,7 @@ export async function lyrics() {
         // Remove duplicate sentences
         // result = _.uniq(result);
         
-        result = await list_where(result, item => item !== 'i');
+        result = await list_where(result, tautology);
     }) ;
 
     return result;
