@@ -17,7 +17,7 @@ export async function lyrics_sentence(group, database) {
         adjective = await list_item_random(group.adjectives);
         adjective += ' ';
     }
-    let noun_clause = `${noun}`;
+    let noun_clause = `${adjective}${noun}`;
 
     let result = noun_clause;
 
