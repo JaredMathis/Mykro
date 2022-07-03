@@ -24,11 +24,11 @@ export async function lyrics_sentence_exclamation_sub_how(group, database) {
         adjective = ``;
     }
 
-    let of_clause = ` of ${noun}`;
+    let of_clause = ` of ${adjective}${noun}`;
     if (await random_with_probability(0.5)) {
         of_clause = ``;
     }
-    let result = `how ${sub_adjective} the ${adjective}${sub_noun}${of_clause}`;
+    let result = `how ${sub_adjective} the ${sub_noun}${of_clause}`;
 
     result += await lyrics_that_clause(database, noun);
 
