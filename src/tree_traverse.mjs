@@ -1,7 +1,8 @@
 
 import { arguments_assert } from "./arguments_assert.mjs";
+import { not } from "./not.mjs";
 
-export async function tree_traverse() {
-    await arguments_assert()(arguments);
+export async function tree_traverse(tree, children_get) {
+    await arguments_assert(not(_.isUndefined), _.isFunction)(arguments);
     // TODO
 }
