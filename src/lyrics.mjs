@@ -59,7 +59,7 @@ export async function lyrics() {
         groups,
     }
 
-    let group = await list_item_random(groups);
+    let group = await list_item_random(database.groups);
 
     let sentences_count = 12;
 
