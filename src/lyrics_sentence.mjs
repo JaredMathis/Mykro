@@ -11,7 +11,8 @@ export async function lyrics_sentence(group, database) {
 
     console.log({group})
     let noun = await list_item_random(group.nouns);
-    let adjective = await list_item_random(group.adjectives);
+    let adjective;
+    adjective = await list_item_random(group.adjectives);
 
     adjective += ' ';
     if (await random_with_probability(0.5)) {
