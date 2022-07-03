@@ -11,8 +11,6 @@ export async function lyrics_sentence(group, database) {
 
     let { sub_groups } = group;
 
-    console.log({group})
-
     let sub_group = await list_item_random(sub_groups);
 
     let sub_adjective = await list_item_random(sub_group.adjectives);
