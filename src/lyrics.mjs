@@ -32,8 +32,7 @@ export async function lyrics() {
     }
 
     let groups = [
-        group1,
-        group2
+        group1
     ]
 
     let sentences_max = 8;
