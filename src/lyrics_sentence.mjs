@@ -49,6 +49,7 @@ export async function lyrics_sentence(group, database) {
         if (noun === 'i') {
             if (group.times && await equals_json(group.times, ['past'])) {
                 verb = 'was'
+                is_past = true;
             } else {
                 verb = 'am';
             }
