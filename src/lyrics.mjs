@@ -30,7 +30,7 @@ export async function lyrics() {
         // Remove duplicate sentences
         // result = _.uniq(result);
         
-        result = await list_where(result, tautology);
+        result = await list_where(result, async i => tautology(i));
     }) ;
 
     return result;
