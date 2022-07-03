@@ -26,4 +26,5 @@ export async function lyrics_paragraph(database, subject) {
         let item = await lyrics_sentence(group, database);
         return item;
     });
+    return result;
 }
