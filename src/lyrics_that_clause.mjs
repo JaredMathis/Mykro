@@ -1,7 +1,6 @@
 
 import _ from "lodash";
 import { arguments_assert } from "./arguments_assert.mjs";
-import { error } from "./error.mjs";
 import { list_item_random } from "./list_item_random.mjs";
 import { list_where } from "./list_where.mjs";
 import { lyrics_group_is_about } from "./lyrics_group_is_about.mjs";
