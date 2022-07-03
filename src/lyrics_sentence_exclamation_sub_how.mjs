@@ -18,8 +18,7 @@ export async function lyrics_sentence_exclamation_sub_how(group, database) {
 
     let result = `how ${sub_adjective} the ${sub_noun} (of ${noun})`;
 
-    let that_clause = await lyrics_that_clause(database, noun);
-    result += that_clause;
+    result += await lyrics_that_clause(database, noun);
 
     return result;
 }
