@@ -24,15 +24,13 @@ export async function lyrics_sentence(group, database) {
     }
     let noun_clause = `${adjective}${noun}`;
 
-    let result;
+    let result = noun_clause;
     if (await random_with_probability(0.5)) {
         let of_clause = ` of ${noun_clause}`;
         if (await random_with_probability(0.5)) {
             of_clause = ``;
         }
         result = `how ${sub_adjective} the ${sub_noun}${of_clause}`;
-    } else {
-        result = noun_clause
     }
 
     result += await lyrics_that_clause(database, noun);
