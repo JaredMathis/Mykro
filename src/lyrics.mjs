@@ -30,6 +30,8 @@ export async function lyrics() {
         let item = await sentence_get(group, database);
         return item;
     });
+
+    console.log({result})
     
     return result
 }
