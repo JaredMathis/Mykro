@@ -40,32 +40,33 @@ export async function lyrics_sentence(group, database) {
             }
             result = `how ${sub_adjective} the ${sub_noun}${of_clause}`;
         }
-    }
-    
-    let verb
-    if (noun === 'i') {
-        if (group.times && await equals_json(group.times, ['past'])) {
-            verb = 'was'
-        } else {
-            verb = 'am';
-        }
-    } else {
-        verb = 'is';
-    }
-    if (group.adjectives) {
-        if (await random_with_probability(0.5)) {
-            let adjective = await list_item_random(group.adjectives)
-            result = `${result} ${verb} ${adjective}`;
-        }
-    }
-    if (group.objects) {
-        if (await random_with_probability(0.5)) {
-            let object = await list_item_random(group.objects)
-            result = `${result} ${verb} a ${object}`;
-        }
-    }
 
-    result += await lyrics_that_clause(database, noun);
+        result += await lyrics_that_clause(database, noun);
+        
+    } else {
+        let verb
+        if (noun === 'i') {
+            if (group.times && await equals_json(group.times, ['past'])) {
+                verb = 'was'
+            } else {
+                verb = 'am';
+            }
+        } else {
+            verb = 'is';
+        }
+        if (group.adjectives) {
+            if (await random_with_probability(0.5)) {
+                let adjective = await list_item_random(group.adjectives)
+                result = `${result} ${verb} ${adjective}`;
+            }
+        }
+        if (group.objects) {
+            if (await random_with_probability(0.5)) {
+                let object = await list_item_random(group.objects)
+                result = `${result} ${verb} a ${object}`;
+            }
+        }
+    }
 
     return result;
 }
