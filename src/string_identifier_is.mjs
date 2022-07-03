@@ -10,7 +10,7 @@ export async function string_identifier_is(value) {
     let identifer_characters = await constant_alphabet() + `_`;
 
     let result = true;
-    await for_each(range(string_size(value)), i => {
+    await for_each(list_range(string_size(value)), i => {
     })
 
     return result
