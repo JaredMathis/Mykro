@@ -36,9 +36,11 @@ export async function lyrics() {
         ]
     }
 
-    let propositions = [
-        "grace saved me"
-    ];
+    let propositions = [{
+        noun: 'grace',
+        verb: 'saved',
+        object: 'me', 
+    }];
 
     let database = {
         propositions,
