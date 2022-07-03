@@ -26,7 +26,7 @@ export async function lyrics_that_clause(database, noun) {
 
             }
             
-            let verb = proposition.verb
+            let verb = await list_item_random(proposition.verbs)
             that_clause += `${verb} ${object_clause}`;
         }
     }
