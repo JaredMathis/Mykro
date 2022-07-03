@@ -50,13 +50,9 @@ export async function lyrics_sentence(group, database) {
     } else {
         verb = 'is';
     }
-    if (group.objects) {
+    if (group.adjectives) {
         if (await random_with_probability(0.5)) {
-            let of_clause = ` of ${noun_clause}`;
-            if (await random_with_probability(0.5)) {
-                of_clause = ``;
-            }
-            result = `${result} ${verb} ${sub_noun}${of_clause}`;
+            result = `${result} ${verb} ${adjectives}`;
         }
     }
     
