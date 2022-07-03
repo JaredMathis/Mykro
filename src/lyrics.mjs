@@ -24,11 +24,11 @@ export async function lyrics() {
     let result = [];
     for (let i of _.range(0, sentences_max)) {
         let sentence = await lyrics_sentence_exclamation(group);
+        result.push(sentence)
 
         if (_.random() > probability_sentence) {
             break;
         }
-        result.push(sentence)
     }
     
     return result
