@@ -18,15 +18,20 @@ export async function lyrics_sentence_exclamation_sub_how(group, database) {
 
     let result = `how ${sub_adjective} the ${sub_noun} (of ${noun})`;
 
+    let that_clause = await lyrics_that_clause(database, noun);
+    result += that_clause;
+
+    return result;
+}
+
+async function lyrics_that_clause(database, noun) {
     let that_clause = "";
     let propositions_for_noun = _.filter(database.propositions, { noun });
     if (_.some(propositions_for_noun)) {
         that_clause += " that ";
         let proposition = await list_item_random(propositions_for_noun);
 
-        that_clause += `${proposition.verb} ${proposition.object}`
+        that_clause += `${proposition.verb} ${proposition.object}`;
     }
-    result += that_clause;
-
-    return result;
+    return that_clause;
 }
