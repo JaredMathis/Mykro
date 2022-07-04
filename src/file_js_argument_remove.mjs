@@ -3,6 +3,7 @@ import { file_js_arguments_transform } from "./file_js_arguments_transform.mjs";
 import { list_single } from "./list_single.mjs";
 import { es_function_declaration_param_get } from "./es_function_declaration_param_get.mjs";
 import {string_identifier_is} from "./string_identifier_is.mjs";
+import {list_remove_at} from "./list_remove_at.mjs";
 export async function file_js_argument_remove(function_name, argument_name) {
   await arguments_assert(string_identifier_is, string_identifier_is)(arguments);
   
