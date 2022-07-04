@@ -58,14 +58,14 @@ async function run_line_search(first) {
             extension: await path_file_extension(f),
         } 
     } );
-    let filtered = await list_where(mapped, m => m.extension === 'mjs');
+    let filtered = await list_where(mapped, m => m.extension === '.mjs');
 
     let exact_matches = await list_where(filtered, m => equals(m.name, first));
     if (equals(await list_size(exact_matches), 1)) {
         return exact_matches;
     }
 
-    let matches = await list_where(mapped, async m => {
+    let matches = await list_where(filtered, async m => {
         return await string_search_matches(m.name, first)
     })
 
