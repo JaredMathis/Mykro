@@ -17,30 +17,35 @@ export async function file_js_arguments_transform(function_name, transformer_arg
     await arguments_assert(string_identifier_is, _.isFunction)(arguments);
 
     let ast = await file_js_parse(function_name);
-    let function_exported = await es_function_exported(ast);
 
-    let declaration = await property_get(function_exported, 'declaration');
+    let transformer = async () => {
+        let function_exported = await es_function_exported(ast);
+    
+        let declaration = await property_get(function_exported, 'declaration');
+        
+        let body = await property_get(declaration, 'body');
+        let body_block = await property_get(body, 'body');
+        let statement_first = await list_first(body_block);
+        await assert(equals)(await property_get(statement_first, 'type'), 'ExpressionStatement')
+        let expression_first = await property_get(statement_first, 'expression');
+        await assert(equals)(await property_get(expression_first, 'type'), 'AwaitExpression');
+        let awaited_first = await property_get(expression_first, 'argument');
+        await assert(equals)(await property_get(awaited_first, 'type'), 'CallExpression');
+        let awaited_first_arguments = await property_get(awaited_first, 'arguments');
+        await assert(equals)(
+            await json_to(awaited_first_arguments), 
+            "[{\"type\":\"Identifier\",\"name\":\"arguments\"}]")
+        let awaited_first_callee = await property_get(awaited_first, 'callee');
+        await es_function_call_to_is(awaited_first_callee, arguments_assert.name);
+        let awaited_first_callee_arguments = await property_get(awaited_first_callee, 'arguments');
+    
+        await transformer_arguments({
+            declaration,
+            awaited_first_callee_arguments
+        })
+    }
 
-    let body = await property_get(declaration, 'body');
-    let body_block = await property_get(body, 'body');
-    let statement_first = await list_first(body_block);
-    await assert(equals)(await property_get(statement_first, 'type'), 'ExpressionStatement')
-    let expression_first = await property_get(statement_first, 'expression');
-    await assert(equals)(await property_get(expression_first, 'type'), 'AwaitExpression');
-    let awaited_first = await property_get(expression_first, 'argument');
-    await assert(equals)(await property_get(awaited_first, 'type'), 'CallExpression');
-    let awaited_first_arguments = await property_get(awaited_first, 'arguments');
-    await assert(equals)(
-        await json_to(awaited_first_arguments), 
-        "[{\"type\":\"Identifier\",\"name\":\"arguments\"}]")
-    let awaited_first_callee = await property_get(awaited_first, 'callee');
-    await es_function_call_to_is(awaited_first_callee, arguments_assert.name);
-    let awaited_first_callee_arguments = await property_get(awaited_first_callee, 'arguments');
-
-    await transformer_arguments({
-        declaration,
-        awaited_first_callee_arguments
-    })
+    await transformer();
 
     let text = await es_unparse(ast)
     let file_path = await file_js_name_to_path(function_name)
