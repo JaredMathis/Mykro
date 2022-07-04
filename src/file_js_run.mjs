@@ -1,6 +1,5 @@
 import {equals} from './equals.mjs';
 import {list_size} from './list_size.mjs';
-
 import { arguments_assert } from "./arguments_assert.mjs";
 import { list_is } from "./list_is.mjs";
 import { string_identifier_is } from "./string_identifier_is.mjs";
