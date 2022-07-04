@@ -4,14 +4,23 @@ import { path_file_name } from './path_file_name.mjs';
 import { git_acp } from './git_acp.mjs';
 import path from 'path';
 import colors from 'colors'
+import { list_where } from './list_where.mjs';
+import { string_search_matches } from './string_search_matches.mjs';
+import { list_size } from './list_size.mjs';
+import { equals } from './equals.mjs';
 
 let directory = './src';
 
 export async function run_line(line) {
     let tokens = line.split(' ');
     let token_first = tokens[0];
-    let match;
-    if (match = await run_line_search(token_first)) {
+
+    let matches = await run_line_search(token_first);
+    let matches_count = await list_size(matches);
+
+    if (equals(matches_count, 1)) {
+        let match = matches[0];
+
         let import_path = path.resolve(match.file_path)
         console.log(import_path.blue)
         let imported = await import("file://" + import_path);
@@ -43,5 +52,10 @@ async function run_line_search(first) {
             file_path: f,
         } 
     } );
-    return _.find(mapped, { name: first });
+
+    let matches = await list_where(mapped, async m => {
+        return await string_search_matches(m.name, first)
+    })
+
+    return matches;
 }
