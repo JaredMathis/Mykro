@@ -17,7 +17,8 @@ export async function run_line(line) {
     let matches_count = await list_size(matches);
 
     if (equals(matches_count, 0)) {
-        console.log(`No matching command: ${token_first}`.red)
+        let on_no_matches = async () => console.log(`No matching command: ${token_first}`.red)
+        await on_no_matches();
 
     } else if (equals(matches_count, 1)) {
         let match = matches[0];
