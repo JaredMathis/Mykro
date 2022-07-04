@@ -13,11 +13,15 @@ export async function file_js_argument_add(function_name, argument_name, argumen
     let function_exported = await es_function_exported(parsed);
 
     let declaration = await property_get(function_exported, 'declaration');
-    let params = await property_get(declaration, 'params');
-
-    await list_add(params, { type: 'Identifier', name: argument_name });
+    await es_function_declaration_param_add(declaration, argument_name);
 
     let body = await property_get(declaration, 'body');
 
     return declaration;
+}
+
+async function es_function_declaration_param_add(declaration, argument_name) {
+    let params = await property_get(declaration, 'params');
+
+    await list_add(params, { type: 'Identifier', name: argument_name });
 }
