@@ -29,7 +29,9 @@ export async function file_js_argument_add(function_name, argument_name, argumen
 async function es_function_declaration_param_add(declaration, argument_name) {
     let params = await property_get(declaration, 'params');
 
-    let existing = await list_where(params, p => p.type === 'Identifier' && p.name === argument_name);
+    let existing = await list_where(
+        params, 
+        p => p.type === 'Identifier' && p.name === argument_name);
 
     await assert(equals)(await list_size(existing), 0)
 
