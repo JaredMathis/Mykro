@@ -35,6 +35,8 @@ export async function file_js_argument_add(function_name, argument_name, argumen
         "[{\"type\":\"Identifier\",\"name\":\"arguments\"}]")
     let awaited_first_callee = await property_get(awaited_first, 'callee');
     await es_function_call_to_is(awaited_first_callee, arguments_assert.name);
+    let awaited_first_callee_arguments = await property_get(awaited_first_callee, 'arguments');
+    // await list_add(awaited_first_callee_arguments, )
 
     return awaited_first_callee;
 }
