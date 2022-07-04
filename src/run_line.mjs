@@ -59,7 +59,7 @@ async function run_line_search(first) {
     } );
 
     let exact_matches = await list_where(mapped, m => equals(m.name, first));
-    if (list_size(exact_matches) === 1) {
+    if (equals(await list_size(exact_matches), 1)) {
         return exact_matches;
     }
 
