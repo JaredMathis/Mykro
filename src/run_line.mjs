@@ -55,6 +55,7 @@ async function run_line_search(first) {
         return {
             name: path_file_name(f),
             file_path: f,
+            // extension: path_file_extension(f),
         } 
     } );
 
