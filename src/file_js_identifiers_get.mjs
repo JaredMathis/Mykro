@@ -20,6 +20,9 @@ export async function file_js_identifiers_get(function_name) {
         await list_add(result, node.name);
     }
   });
+
+  result = await list_unique(result);
+
   return result;
 }
 async function es_traverse(ast, ast_node_for_each) {
