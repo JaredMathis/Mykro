@@ -11,7 +11,7 @@ export async function run_line(line) {
     let tokens = line.split(' ');
     let token_first = tokens[0];
     let match;
-    if (match = run_line_search(token_first)) {
+    if (match = await run_line_search(token_first)) {
         let import_path = path.resolve(match.file_path)
         console.log(import_path.blue)
         let imported = await import("file://" + import_path);
@@ -35,7 +35,7 @@ export async function run_line(line) {
     }
 }
 
-function run_line_search(first) {
+async function run_line_search(first) {
     let files = Array.from(file_list(directory));
     let mapped = files.map(f => {
         return {
