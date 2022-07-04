@@ -22,7 +22,7 @@ export async function file_js_argument_add(function_name, argument_name, argumen
 
     let body = await property_get(declaration, 'body');
 
-    return declaration;
+    return body;
 }
 
 async function es_function_declaration_param_add(declaration, argument_name) {
