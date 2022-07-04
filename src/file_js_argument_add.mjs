@@ -11,6 +11,7 @@ export async function file_js_argument_add(function_name, argument_name, argumen
     let function_exported = await es_function_exported(parsed);
 
     let declaration = await property_get(function_exported, 'declaration');
+    let body = await property_get(declaration, 'body');
 
     return declaration;
 }
