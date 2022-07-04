@@ -10,6 +10,7 @@ import { property_get } from "./property_get.mjs";
 import { list_single } from "./list_single.mjs";
 import { assert } from "./assert.mjs";
 import { equals_json } from "./equals_json.mjs";
+import { list_remove } from "./list_remove.mjs";
 export async function file_js_imports_missing_get(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
   let imports = await file_js_imports_get(function_name)
@@ -24,6 +25,11 @@ export async function file_js_imports_missing_get(function_name) {
   })
 
   let identifiers = await file_js_identifiers_get(function_name);
+  
+  // Remove this own function from the identifiers;
+  // We don't need to import ourselves.
+  await list_remove(identifiers, function_name);
+  
   let functions = await file_js_all();
   let function_names = await list_map(functions, f => f.name);
 
@@ -35,9 +41,5 @@ export async function file_js_imports_missing_get(function_name) {
     identifiers_for_functions, 
     async i => !(await list_contains(import_names, i)));
 
-  // let identifiers_missing = await list_where(
-  //   identifiers_for_functions,
-  //   async i => 
-  // )
   return identifiers_missing;
 }
