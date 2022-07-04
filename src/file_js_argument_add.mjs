@@ -4,6 +4,5 @@ import string_is from './string_is.mjs';
 export function file_js_argument_add(file_path, argument_name) {
     arguments_assert(string_is, string_is)(arguments)
 
-    //let parsed = file_js_parse(file_path);
-    // TODO
+    let parsed = await file_js_parse(file_path);
 }
