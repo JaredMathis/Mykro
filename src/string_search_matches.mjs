@@ -8,9 +8,9 @@ import { list_index_of_starting_at } from "./list_index_of_starting_at.mjs";
 export async function string_search_matches(candidate, query) {
     await arguments_assert(string_is, string_is)(arguments);
 
-    let query_as_list = string_to_list(query);
+    let query_as_list = await string_to_list(query);
 
-    let candidate_as_list = string_to_list(candidate);
+    let candidate_as_list = await string_to_list(candidate);
 
     let result = true;
 
