@@ -24,7 +24,6 @@ export async function file_js_run(function_name, _arguments, on_no_matches, on_s
       let result = await _function(..._arguments);
       await on_success(result);
     } catch (e) {
-      console.log(e.toString().yellow);
       await on_error(e);
     }
   } else {
