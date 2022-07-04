@@ -10,15 +10,8 @@ let directory = './src';
 export async function run_line(line) {
     let tokens = line.split(' ');
     let first = tokens[0];
-    let files = Array.from(file_list(directory));
-    let mapped = files.map(f => {
-        return {
-            name: path_file_name(f),
-            file_path: f,
-        } 
-    } );
     let match;
-    if (match = run_line_search(mapped, first)) {
+    if (match = run_line_search(first)) {
         let import_path = path.resolve(match.file_path)
         console.log(import_path.blue)
         let imported = await import("file://" + import_path);
@@ -42,6 +35,13 @@ export async function run_line(line) {
     }
 }
 
-function run_line_search(mapped, first) {
+function run_line_search(first) {
+    let files = Array.from(file_list(directory));
+    let mapped = files.map(f => {
+        return {
+            name: path_file_name(f),
+            file_path: f,
+        } 
+    } );
     return _.find(mapped, { name: first });
 }
