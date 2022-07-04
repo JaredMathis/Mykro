@@ -18,7 +18,10 @@ export async function run_line(line) {
     let matches = await run_line_search(token_first);
     let matches_count = await list_size(matches);
 
-    if (equals(matches_count, 1)) {
+    if (equals(matches_count, 0)) {
+        console.log('No matching command.'.red)
+        
+    } else if (equals(matches_count, 1)) {
         let match = matches[0];
 
         let import_path = path.resolve(match.file_path)
@@ -40,7 +43,7 @@ export async function run_line(line) {
             console.log(e.stack.red);
         }
     } else {
-        console.log('No matching command.'.red)
+        
     }
 }
 
