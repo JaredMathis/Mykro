@@ -18,7 +18,7 @@ export async function file_js_arguments_transform(function_name, transformer_arg
 
     let ast = await file_js_parse(function_name);
 
-    let transformer = async () => {
+    let transformer = async (ast) => {
         let function_exported = await es_function_exported(ast);
     
         let declaration = await property_get(function_exported, 'declaration');
@@ -45,7 +45,7 @@ export async function file_js_arguments_transform(function_name, transformer_arg
         })
     }
 
-    await transformer();
+    await transformer(ast);
 
     let text = await es_unparse(ast)
     let file_path = await file_js_name_to_path(function_name)
