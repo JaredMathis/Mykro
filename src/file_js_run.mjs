@@ -3,6 +3,7 @@ import {list_size} from './list_size.mjs';
 import { arguments_assert } from "./arguments_assert.mjs";
 import { list_is } from "./list_is.mjs";
 import { string_identifier_is } from "./string_identifier_is.mjs";
+import _ from 'lodash';
 
 export async function file_js_run(function_name, _arguments, on_no_matches, on_success, on_error, on_multiple_matches) {
     await arguments_assert(string_identifier_is, list_is, _.isFunction, _.isFunction, _.isFunction, _.isFunction)(arguments);
@@ -28,4 +29,19 @@ export async function file_js_run(function_name, _arguments, on_no_matches, on_s
     } else {
         await on_multiple_matches(matches);
     }
+}
+
+async function run_line_search(first) {
+    let filtered = await file_js_all();
+
+    let exact_matches = await list_where(filtered, m => equals(m.name, first));
+    if (equals(await list_size(exact_matches), 1)) {
+        return exact_matches;
+    }
+
+    let matches = await list_where(filtered, async m => {
+        return await string_search_matches(m.name, first)
+    })
+
+    return matches;
 }
