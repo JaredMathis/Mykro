@@ -27,6 +27,7 @@ export async function file_js_argument_add(function_name, argument_name, argumen
     let expression_first = await property_get(statement_first, 'expression');
     await assert(equals)(await property_get(expression_first, 'type'), 'AwaitExpression');
     let awaited_first = await property_get(expression_first, 'argument');
+    await assert(equals)(await property_get(awaited_first, 'type'), 'CallExpression');
 
     return awaited_first;
 }
