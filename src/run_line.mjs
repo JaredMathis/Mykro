@@ -1,6 +1,4 @@
 import _ from 'lodash';
-import {file_list} from './file_list.mjs'
-import { path_file_name } from './path_file_name.mjs';
 import { git_acp } from './git_acp.mjs';
 import path from 'path';
 import colors from 'colors'
@@ -9,8 +7,7 @@ import { string_search_matches } from './string_search_matches.mjs';
 import { list_size } from './list_size.mjs';
 import { equals } from './equals.mjs';
 import { list_map } from './list_map.mjs';
-import {path_file_extension} from './path_file_extension.mjs';
-let directory = './src';
+import { file_js_all } from './file_js_all.mjs';
 
 export async function run_line(line) {
     let tokens = line.split(' ');
@@ -63,16 +60,3 @@ async function run_line_search(first) {
 
     return matches;
 }
-async function file_js_all() {
-    let files = Array.from(file_list(directory));
-    let mapped = await list_map(files, async (f) => {
-        return {
-            name: path_file_name(f),
-            file_path: f,
-            extension: await path_file_extension(f),
-        };
-    });
-    let filtered = await list_where(mapped, m => m.extension === '.mjs');
-    return filtered;
-}
-
