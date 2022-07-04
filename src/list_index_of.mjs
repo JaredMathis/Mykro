@@ -11,6 +11,6 @@ export async function list_index_of(list, item) {
 
     return {
         index,
-        success: number_negative_not_is(index),
+        success: await number_negative_not_is(index),
     };
 }
