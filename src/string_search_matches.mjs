@@ -25,10 +25,6 @@ export async function string_search_matches(candidate, query) {
             return true;
         }
 
-        console.log({
-            index, q
-        })
-        
         index_previous = index.index;
     });
 
