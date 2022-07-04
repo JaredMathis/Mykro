@@ -6,4 +6,6 @@ export async function file_js_imports_get(function_name) {
 
   let ast = await file_js_parse(function_name);
 
+  return ast;
+  
 }
