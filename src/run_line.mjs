@@ -27,6 +27,11 @@ export async function run_line(line) {
     }
 
     let on_error = async (e) => console.log(e.stack.red);
+    
+    let on_multiple_matches = async (matches) => {
+        console.log(`Multiple commands matched: `)
+        console.log(await list_map(matches, m => m.name))
+    }
 
     let matches = await run_line_search(token_first);
     let matches_count = await list_size(matches);
@@ -49,10 +54,6 @@ export async function run_line(line) {
             await on_error(e);
         }
     } else {
-        let on_multiple_matches = async (matches) => {
-            console.log(`Multiple commands matched: `)
-            console.log(await list_map(matches, m => m.name))
-        }
         await on_multiple_matches(matches);
     }
 }
