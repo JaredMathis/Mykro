@@ -22,7 +22,6 @@ export async function file_js_argument_add(function_name, argument_name, argumen
     let function_exported = await es_function_exported(ast);
 
     let declaration = await property_get(function_exported, 'declaration');
-    await es_function_declaration_param_add(declaration, argument_name);
 
     let body = await property_get(declaration, 'body');
     let body_block = await property_get(body, 'body');
@@ -39,7 +38,8 @@ export async function file_js_argument_add(function_name, argument_name, argumen
     let awaited_first_callee = await property_get(awaited_first, 'callee');
     await es_function_call_to_is(awaited_first_callee, arguments_assert.name);
     let awaited_first_callee_arguments = await property_get(awaited_first_callee, 'arguments');
-    
+
+    await es_function_declaration_param_add(declaration, argument_name);
     await list_add(awaited_first_callee_arguments, es_identifier(argument_type))
 
     let text = await es_unparse(ast)
