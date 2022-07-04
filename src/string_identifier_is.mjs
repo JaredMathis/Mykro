@@ -14,7 +14,7 @@ export async function string_identifier_is(value) {
     let value_as_list = await string_to_list(value);
 
     let result = true;
-    await for_each(value_as_list, v => {
+    await for_each(value_as_list, async v => {
         let index = await list_index_of(identifer_characters_as_list, v)
         if (!index.success) {
             result = false;
