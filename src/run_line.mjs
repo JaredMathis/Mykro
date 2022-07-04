@@ -15,6 +15,16 @@ export async function run_line(line) {
 
     let on_no_matches = async () => console.log(`No matching command: ${token_first}`.red)
 
+    let on_success = async () => {
+        let git_result = await git_acp(`${line}`);
+        if (_.isUndefined(git_result)) {
+            console.log(`${git_acp.name} ran successfully`.magenta);
+        } else {
+            console.log(`${git_acp.name} errored. Maybe there was nothing to commit?`.magenta);
+            console.log(git_result.stack.red);
+        }
+    }
+    
     let matches = await run_line_search(token_first);
     let matches_count = await list_size(matches);
 
@@ -32,15 +42,6 @@ export async function run_line(line) {
         try {
             let result = await _function(...tokens_remaining);
             console.log(result);
-            let on_success = async () => {
-                let git_result = await git_acp(`${line}`);
-                if (_.isUndefined(git_result)) {
-                    console.log(`${git_acp.name} ran successfully`.magenta);
-                } else {
-                    console.log(`${git_acp.name} errored. Maybe there was nothing to commit?`.magenta);
-                    console.log(git_result.stack.red);
-                }
-            }
             await on_success();
         } catch (e) {
             console.log(e.stack.red);
