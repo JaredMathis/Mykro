@@ -17,13 +17,13 @@ export async function string_search_matches(candidate, query) {
     let index_previous = -1;
     await for_each(query_as_list, async q => {
         let index = await list_index_of_starting_at(candidate, q, index_previous);
-
         if (!index.success) {
             result = false;
             return true;
         }
         
-    })
+        index_previous = index.index;
+    });
 
-    // TODO
+    return result;
 }
