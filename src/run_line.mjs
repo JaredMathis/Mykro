@@ -18,7 +18,7 @@ export async function run_line(line) {
         } 
     } );
     let match;
-    if (match = _.find(mapped, { name: first })) {
+    if (match = run_line_search(mapped, first)) {
         let import_path = path.resolve(match.file_path)
         console.log(import_path.blue)
         let imported = await import("file://" + import_path);
@@ -40,4 +40,8 @@ export async function run_line(line) {
     } else {
         console.log('No matching command.'.red)
     }
+}
+
+function run_line_search(mapped, first) {
+    return _.find(mapped, { name: first });
 }
