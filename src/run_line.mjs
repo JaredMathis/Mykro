@@ -9,7 +9,7 @@ import { string_search_matches } from './string_search_matches.mjs';
 import { list_size } from './list_size.mjs';
 import { equals } from './equals.mjs';
 import { list_map } from './list_map.mjs';
-
+import {path_file_extension} from './path_file_extension.mjs';
 let directory = './src';
 
 export async function run_line(line) {
@@ -51,11 +51,11 @@ export async function run_line(line) {
 
 async function run_line_search(first) {
     let files = Array.from(file_list(directory));
-    let mapped = files.map(f => {
+    let mapped = await list_map(files, async f => {
         return {
             name: path_file_name(f),
             file_path: f,
-            // extension: path_file_extension(f),
+            extension: await path_file_extension(f),
         } 
     } );
 
