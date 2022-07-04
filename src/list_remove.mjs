@@ -13,4 +13,5 @@ export async function list_remove(list, item) {
   let index = await property_get(index_of, 'index')
 
   list.splice(index, 1);
+  return {index}
 }
