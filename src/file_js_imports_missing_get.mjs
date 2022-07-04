@@ -14,6 +14,6 @@ export async function file_js_imports_missing_get(function_name) {
   let functions = await file_js_all();
   let function_names = await list_map(functions, f => f.name);
 
-  let identifiers_for_functions = list_where(identifiers, async i => await list_contains(function_names, i));
+  let identifiers_for_functions = await list_where(identifiers, async i => await list_contains(function_names, i));
   return identifiers_for_functions;
 }
