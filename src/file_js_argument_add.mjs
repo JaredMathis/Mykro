@@ -34,7 +34,9 @@ export async function file_js_argument_add(function_name, argument_name, argumen
     let awaited_first_callee = await property_get(awaited_first, 'callee');
     await assert(equals)(await property_get(awaited_first_callee, 'type'), 'CallExpression');
     let awaited_first_callee_callee = await property_get(awaited_first_callee, 'callee');
-    await assert(equals)(await json_to(awaited_first_callee_callee), "{\"type\":\"Identifier\",\"name\":\"arguments_assert\"}");
+    await assert(equals)(
+        await json_to(awaited_first_callee_callee), 
+        "{\"type\":\"Identifier\",\"name\":\"arguments_assert\"}");
 
     return awaited_first_callee;
 }
