@@ -12,6 +12,10 @@ export async function list_index_of_starting_at(list, item, starting_at) {
 
     let result = await list_index_of(sublist, item);
 
+    if (!result.success) {
+        return result;
+    }
+
     result += starting_at;
 
     return result;
