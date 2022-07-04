@@ -17,7 +17,7 @@ export async function file_js_imports_missing_get(function_name) {
   await list_map(imports, async i => {
     let specifiers = await property_get(i, 'specifiers');
     let specifier = await list_single(specifiers);
-    const local = await property_get(specifier, 'local');
+    let local = await property_get(specifier, 'local');
     await assert(equals_json)(
       local, 
       await property_get(specifier, 'imported'))
