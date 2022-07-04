@@ -16,8 +16,6 @@ import { equals } from "./equals.mjs";
 export async function file_js_arguments_transform(function_name, transformer_arguments) {
     await arguments_assert(string_identifier_is, _.isFunction)(arguments);
 
-    let ast = await file_js_parse(function_name);
-
     let transformer = async (ast) => {
         let function_exported = await es_function_exported(ast);
     
@@ -44,6 +42,8 @@ export async function file_js_arguments_transform(function_name, transformer_arg
             awaited_first_callee_arguments
         })
     }
+
+    let ast = await file_js_parse(function_name);
 
     await transformer(ast);
 
