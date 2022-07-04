@@ -8,12 +8,12 @@ import _ from "lodash";
 export async function file_js_identifiers_get(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
   let ast = await file_js_parse(function_name);
+    const ast_node_for_each = node => {
+    };
   await tree_traverse(ast, node => {
     let values = await js_values(node);
     await list_where(values, v => await has_property(v, 'type') || _.isArray(v))
-  }, node => {
-
-  })
+  }, ast_node_for_each)
 }
 async function js_values(node) {
     let properties = await js_properties(node);
