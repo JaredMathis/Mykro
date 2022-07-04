@@ -52,7 +52,7 @@ async function file_js_arguments_transform(function_name, transformer) {
     await es_function_call_to_is(awaited_first_callee, arguments_assert.name);
     let awaited_first_callee_arguments = await property_get(awaited_first_callee, 'arguments');
 
-    transformer({
+    await transformer({
         declaration,
         awaited_first_callee_arguments
     })
