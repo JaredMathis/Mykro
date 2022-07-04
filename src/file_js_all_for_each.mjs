@@ -6,7 +6,7 @@ import { for_each } from './for_each.mjs';
 export async function file_js_all_for_each(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
 
-  file_js_run();
+  await file_js_run();
 
   let files = await file_js_all();
   await for_each(files, async file => {
