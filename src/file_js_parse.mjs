@@ -8,6 +8,5 @@ export async function file_js_parse(file_path) {
     
     let unparsed = await file_read(file_path);
     let parsed = await es_parse(unparsed);
-
-    
+    return parsed;
 }
