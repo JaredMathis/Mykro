@@ -1,6 +1,7 @@
 import readline from "readline";
 import {command_line} from "./command_line.mjs";
 import "colors";
+import { js_log_error } from "./js_log_error.mjs";
 var rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -11,6 +12,6 @@ rl.on("line", async line => {
     let result = await command_line(`node src/run_function.mjs ` + line);
     console.log(result.stdout);
   } catch (e) {
-    console.log(e.stack.red);
+    await js_log_error(e);
   }
 });
