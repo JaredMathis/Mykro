@@ -50,15 +50,7 @@ export async function run_line(line) {
 }
 
 async function run_line_search(first) {
-    let files = Array.from(file_list(directory));
-    let mapped = await list_map(files, async f => {
-        return {
-            name: path_file_name(f),
-            file_path: f,
-            extension: await path_file_extension(f),
-        } 
-    } );
-    let filtered = await list_where(mapped, m => m.extension === '.mjs');
+    let filtered = await file_js_all();
 
     let exact_matches = await list_where(filtered, m => equals(m.name, first));
     if (equals(await list_size(exact_matches), 1)) {
@@ -71,3 +63,16 @@ async function run_line_search(first) {
 
     return matches;
 }
+async function file_js_all() {
+    let files = Array.from(file_list(directory));
+    let mapped = await list_map(files, async (f) => {
+        return {
+            name: path_file_name(f),
+            file_path: f,
+            extension: await path_file_extension(f),
+        };
+    });
+    let filtered = await list_where(mapped, m => m.extension === '.mjs');
+    return filtered;
+}
+
