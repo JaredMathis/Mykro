@@ -79,7 +79,7 @@ export async function lyrics_database_get() {
 
     let propositions = await list_map(proposition_sentences, async s => {
         let split = await string_split(s, ' ');
-        assert(equals)(split.length, 3);
+        await assert(equals)(split.length, 3);
 
         return {
             nouns: [split[0]],
