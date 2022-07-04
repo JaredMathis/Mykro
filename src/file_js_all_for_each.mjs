@@ -11,5 +11,4 @@ export async function file_js_all_for_each(function_name) {
   await for_each(files, async file => {
     await file_js_run(function_name, [file.name], error, noop, error, error);
   });
-  return files;
 }
