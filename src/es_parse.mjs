@@ -6,5 +6,5 @@ import { parseScript } from 'meriyah';
 export async function es_parse(unparsed) {
     await arguments_assert(string_is)(arguments);
 
-    return parseScript(unparsed);
+    return parseScript(unparsed, { module: true });
 }
