@@ -11,11 +11,13 @@ export async function file_js_identifiers_get(function_name) {
   await tree_traverse(ast, node => {
     let values = await js_values(node);
     await list_where(values, v => await has_property(v, 'type') || _.isArray(v))
+  }, node => {
+
   })
 }
 async function js_values(node) {
     let properties = await js_properties(node);
-    let children = await list_map(properties, property_get(node));
+    let children = await list_map(properties, p => await property_get(node, p));
     return children;
 }
 
