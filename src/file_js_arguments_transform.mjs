@@ -43,13 +43,17 @@ export async function file_js_arguments_transform(function_name, transformer_arg
         })
     }
 
+    await file_js_transform(function_name, transformer);
+}
+
+async function file_js_transform(function_name, transformer) {
     let ast = await file_js_parse(function_name);
 
     await transformer(ast);
 
-    let text = await es_unparse(ast)
-    let file_path = await file_js_name_to_path(function_name)
-    await file_overwrite(file_path, text)
+    let text = await es_unparse(ast);
+    let file_path = await file_js_name_to_path(function_name);
+    await file_overwrite(file_path, text);
 }
 
 async function es_function_call_to_is(awaited_first_callee, expected_function_name) {
