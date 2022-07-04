@@ -8,6 +8,6 @@ import { list_size } from "./list_size.mjs";
 export async function list_single(list) {
     await arguments_assert(list_is)(arguments);
 
-    assert(equals)(list_size(list), 1);
+    await assert(equals)(list_size(list), 1);
     return list[0];
 }
