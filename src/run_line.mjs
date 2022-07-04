@@ -9,6 +9,7 @@ import { string_search_matches } from './string_search_matches.mjs';
 import { list_size } from './list_size.mjs';
 import { equals } from './equals.mjs';
 import { list_map } from './list_map.mjs';
+import { equal } from 'assert';
 
 let directory = './src';
 
@@ -57,6 +58,11 @@ async function run_line_search(first) {
             file_path: f,
         } 
     } );
+
+    let exact_matches = await list_where(mapped, m => equals(m.name, first));
+    if (list_size(exact_matches) === 1) {
+        return exact_matches;
+    }
 
     let matches = await list_where(mapped, async m => {
         return await string_search_matches(m.name, first)
