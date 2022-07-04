@@ -12,7 +12,6 @@ export async function tree_traverse(node, children_get, for_each_child) {
     let children = await children_get(node);
     assert(_.isArray)(children);
 
-    console.log({children})
     for (let child of children) {
         await tree_traverse(child, children_get, for_each_child);
     }
