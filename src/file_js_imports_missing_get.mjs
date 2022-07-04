@@ -10,6 +10,9 @@ import { file_js_identifiers_get } from "./file_js_identifiers_get.mjs";
 export async function file_js_imports_missing_get(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
   let imports = await file_js_imports_get(function_name)
+
+
+
   let identifiers = await file_js_identifiers_get(function_name);
   let functions = await file_js_all();
   let function_names = await list_map(functions, f => f.name);
@@ -22,5 +25,5 @@ export async function file_js_imports_missing_get(function_name) {
   //   identifiers_for_functions,
   //   async i => 
   // )
-  return imports;
+  return imports[0].specifiers;
 }
