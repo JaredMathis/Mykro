@@ -36,7 +36,7 @@ export async function file_js_argument_add(function_name, argument_name, argumen
     let awaited_first_callee_callee = await property_get(awaited_first_callee, 'callee');
 
 
-    return awaited_first_callee_callee;
+    return awaited_first_callee;
 }
 
 async function es_function_declaration_param_add(declaration, argument_name) {
