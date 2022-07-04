@@ -9,11 +9,11 @@ export async function file_js_identifiers_get(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
   let ast = await file_js_parse(function_name);
   await es_traverse(ast, async node => {
-
+    console.log(node)
   });
 }
 async function es_traverse(ast, ast_node_for_each) {
-    await tree_traverse(ast, node => {
+    await tree_traverse(ast, async node => {
         let values = await js_values(node);
         await list_where(values, v => await has_property(v, 'type') || _.isArray(v));
     }, ast_node_for_each);
