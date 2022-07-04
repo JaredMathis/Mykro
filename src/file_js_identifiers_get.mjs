@@ -6,6 +6,8 @@ import { property_get } from "./property_get.mjs";
 import { list_where } from "./list_where.mjs";
 import _ from "lodash";
 import { string_identifier_is } from "./string_identifier_is.mjs";
+import { js_properties } from "./js_properties.mjs";
+
 export async function file_js_identifiers_get(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
   let ast = await file_js_parse(function_name);
