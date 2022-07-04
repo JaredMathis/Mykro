@@ -21,8 +21,9 @@ export async function file_js_argument_add(function_name, argument_name, argumen
     await es_function_declaration_param_add(declaration, argument_name);
 
     let body = await property_get(declaration, 'body');
+    let body_block = await property_get(body, 'body');
 
-    return body;
+    return body_block;
 }
 
 async function es_function_declaration_param_add(declaration, argument_name) {
