@@ -8,9 +8,8 @@ import _ from "lodash";
 export async function file_js_identifiers_get(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
   let ast = await file_js_parse(function_name);
-    const ast_node_for_each = node => {
-    };
-  await es_traverse(ast, ast_node_for_each);
+  await es_traverse(ast, node => {
+  });
 }
 async function es_traverse(ast, ast_node_for_each) {
     await tree_traverse(ast, node => {
