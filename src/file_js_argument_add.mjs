@@ -11,12 +11,13 @@ import { assert } from './assert.mjs';
 import { equals } from './equals.mjs';
 import { list_first } from './list_first.mjs';
 import { json_to } from './json_to.mjs';
+import { es_unparse } from './es_unparse.mjs';
 
 export async function file_js_argument_add(function_name, argument_name, argument_type) {
     await arguments_assert(string_is, string_identifier_is, string_is)(arguments)
 
-    let parsed = await file_js_parse(function_name);
-    let function_exported = await es_function_exported(parsed);
+    let ast = await file_js_parse(function_name);
+    let function_exported = await es_function_exported(ast);
 
     let declaration = await property_get(function_exported, 'declaration');
     await es_function_declaration_param_add(declaration, argument_name);
@@ -37,6 +38,8 @@ export async function file_js_argument_add(function_name, argument_name, argumen
     await es_function_call_to_is(awaited_first_callee, arguments_assert.name);
     let awaited_first_callee_arguments = await property_get(awaited_first_callee, 'arguments');
     await list_add(awaited_first_callee_arguments, es_identifier(argument_type))
+
+    let text = await es_unparse(ast)
 
     return awaited_first_callee;
 }
