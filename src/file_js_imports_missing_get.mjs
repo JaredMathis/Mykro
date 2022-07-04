@@ -7,12 +7,17 @@ import { string_identifier_is } from "./string_identifier_is.mjs";
 import { list_contains } from "./list_contains.mjs";
 import { file_js_identifiers_get } from "./file_js_identifiers_get.mjs";
 import { property_get } from "./property_get.mjs";
+import { list_single } from "./list_single.mjs";
+import { assert } from "./assert.mjs";
+import { equals_json } from "./equals_json.mjs";
 export async function file_js_imports_missing_get(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
   let imports = await file_js_imports_get(function_name)
 
   await list_map(imports, async i => {
     let specifiers = await property_get(i, 'specifiers');
+    let specifier = await list_single(specifiers);
+    assert(equals_json)(property_get(specifier, 'local'), property_get(specifier, 'imported'))
   })
 
   let identifiers = await file_js_identifiers_get(function_name);
