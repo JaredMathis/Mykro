@@ -9,7 +9,7 @@ export async function file_js_import_add(function_name, import_name) {
     let file_path = await file_js_name_to_path(function_name);
     await file_prepend(
         file_path, 
-        `import {${import_name}} from './${import_name}';    
+        `import {${import_name}} from './${import_name}.mjs';
 `);
     await msft_vs_code_open(file_path);
 }

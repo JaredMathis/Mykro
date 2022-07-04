@@ -1,4 +1,4 @@
-import {assert} from './assert';    
+import {assert} from './assert.mjs';
 import {arguments_assert} from "./arguments_assert.mjs";
 import {defined_is} from "./defined_is.mjs";
 export async function test(b) {
