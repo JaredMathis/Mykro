@@ -10,8 +10,6 @@ export async function string_search_matches(candidate, query) {
 
     let query_as_list = await string_to_list(query);
 
-    candidate += '$';
-
     let candidate_as_list = await string_to_list(candidate);
 
     let result = true;
