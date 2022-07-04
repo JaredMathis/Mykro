@@ -7,6 +7,7 @@ import {list_size} from './list_size.mjs';
 import { arguments_assert } from "./arguments_assert.mjs";
 import { list_is } from "./list_is.mjs";
 import { string_identifier_is } from "./string_identifier_is.mjs";
+import path from 'path';
 
 export async function file_js_run(function_name, _arguments, on_no_matches, on_success, on_error, on_multiple_matches) {
     await arguments_assert(string_identifier_is, list_is, js_function_is, js_function_is, js_function_is, js_function_is)(arguments);

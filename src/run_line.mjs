@@ -8,6 +8,7 @@ import { list_size } from './list_size.mjs';
 import { equals } from './equals.mjs';
 import { list_map } from './list_map.mjs';
 import { file_js_all } from './file_js_all.mjs';
+import { file_js_run } from './file_js_run.mjs';
 
 export async function run_line(line) {
     let tokens = line.split(' ');
@@ -35,44 +36,4 @@ export async function run_line(line) {
     }
 
     await file_js_run(token_first, tokens_remaining, on_no_matches, on_success, on_error, on_multiple_matches);
-}
-
-async function file_js_run(function_name, _arguments, on_no_matches, on_success, on_error, on_multiple_matches) {
-    let matches = await run_line_search(function_name);
-    let matches_count = await list_size(matches);
-
-    if (equals(matches_count, 0)) {
-        await on_no_matches();
-
-    } else if (equals(matches_count, 1)) {
-        let match = matches[0];
-
-        let import_path = path.resolve(match.file_path);
-        console.log(import_path.blue);
-        let imported = await import("file://" + import_path);
-        let _function = imported[match.name];
-        try {
-            let result = await _function(..._arguments);
-            await on_success(result);
-        } catch (e) {
-            await on_error(e);
-        }
-    } else {
-        await on_multiple_matches(matches);
-    }
-}
-
-async function run_line_search(first) {
-    let filtered = await file_js_all();
-
-    let exact_matches = await list_where(filtered, m => equals(m.name, first));
-    if (equals(await list_size(exact_matches), 1)) {
-        return exact_matches;
-    }
-
-    let matches = await list_where(filtered, async m => {
-        return await string_search_matches(m.name, first)
-    })
-
-    return matches;
 }
