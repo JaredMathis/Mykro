@@ -15,13 +15,13 @@ export async function file_js_identifiers_get(function_name) {
 async function es_traverse(ast, ast_node_for_each) {
     await tree_traverse(ast, async node => {
         let values = await js_values(node);
-        await list_where(values, v => await has_property(v, 'type') || _.isArray(v));
+        await list_where(values, async v => await has_property(v, 'type') || _.isArray(v));
     }, ast_node_for_each);
 }
 
 async function js_values(node) {
     let properties = await js_properties(node);
-    let children = await list_map(properties, p => await property_get(node, p));
+    let children = await list_map(properties, async p => await property_get(node, p));
     return children;
 }
 
