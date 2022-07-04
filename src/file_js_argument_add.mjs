@@ -12,6 +12,8 @@ import { equals } from './equals.mjs';
 import { list_first } from './list_first.mjs';
 import { json_to } from './json_to.mjs';
 import { es_unparse } from './es_unparse.mjs';
+import { file_overwrite } from './file_overwrite.mjs';
+import { file_js_name_to_path } from './file_js_name_to_path.mjs';
 
 export async function file_js_argument_add(function_name, argument_name, argument_type) {
     await arguments_assert(string_is, string_identifier_is, string_is)(arguments)
@@ -40,6 +42,8 @@ export async function file_js_argument_add(function_name, argument_name, argumen
     await list_add(awaited_first_callee_arguments, es_identifier(argument_type))
 
     let text = await es_unparse(ast)
+    let file_path = await file_js_name_to_path(function_name)
+    await file_overwrite(file_path, text)
 
     return text;
 }
