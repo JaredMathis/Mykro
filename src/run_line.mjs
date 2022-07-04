@@ -37,7 +37,7 @@ export async function run_line(line) {
     await file_js_run(token_first, tokens_remaining, on_no_matches, on_success, on_error, on_multiple_matches);
 }
 
-async function file_js_run(function_name, tokens_remaining, on_no_matches, on_success, on_error, on_multiple_matches) {
+async function file_js_run(function_name, _arguments, on_no_matches, on_success, on_error, on_multiple_matches) {
     let matches = await run_line_search(function_name);
     let matches_count = await list_size(matches);
 
@@ -52,7 +52,7 @@ async function file_js_run(function_name, tokens_remaining, on_no_matches, on_su
         let imported = await import("file://" + import_path);
         let _function = imported[match.name];
         try {
-            let result = await _function(...tokens_remaining);
+            let result = await _function(..._arguments);
             await on_success(result);
         } catch (e) {
             await on_error(e);
