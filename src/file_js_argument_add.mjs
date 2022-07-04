@@ -33,8 +33,10 @@ export async function file_js_argument_add(function_name, argument_name, argumen
     await assert(equals)(await json_to(awaited_first_arguments), "[{\"type\":\"Identifier\",\"name\":\"arguments\"}]")
     let awaited_first_callee = await property_get(awaited_first, 'callee');
     await assert(equals)(await property_get(awaited_first_callee, 'type'), 'CallExpression');
+    let awaited_first_callee_callee = await property_get(awaited_first_callee, 'callee');
 
-    return awaited_first_callee;
+
+    return awaited_first_callee_callee;
 }
 
 async function es_function_declaration_param_add(declaration, argument_name) {
