@@ -15,6 +15,6 @@ export async function file_js_argument_remove(function_name, argument_name) {
     let existing_single = await list_single(existing);
     let {index} = await list_remove(params, existing_single);
 
-    await list_add(awaited_first_callee_arguments, es_identifier(argument_type))
+    await list_remove_at(awaited_first_callee_arguments, index);
 })
 }
