@@ -13,11 +13,12 @@ export async function run_line(line) {
     let tokens = line.split(' ');
     let token_first = tokens[0];
 
+    let on_no_matches = async () => console.log(`No matching command: ${token_first}`.red)
+    
     let matches = await run_line_search(token_first);
     let matches_count = await list_size(matches);
 
     if (equals(matches_count, 0)) {
-        let on_no_matches = async () => console.log(`No matching command: ${token_first}`.red)
         await on_no_matches();
 
     } else if (equals(matches_count, 1)) {
