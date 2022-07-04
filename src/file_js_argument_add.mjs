@@ -22,20 +22,20 @@ export async function file_js_argument_add(function_name, argument_name, argumen
     })
 }
 
-async function es_function_declaration_param_add(declaration, argument_name) {
-    let { existing, params } = await es_function_declaration_param_get(declaration, argument_name);
+async function es_function_declaration_param_add(declaration, param_name) {
+    let { existing, params } = await es_function_declaration_param_get(declaration, param_name);
 
     await assert(equals)(await list_size(existing), 0)
 
-    let id = es_identifier(argument_name);
+    let id = es_identifier(param_name);
     await list_add(params, id);
 }
-async function es_function_declaration_param_get(declaration, argument_name) {
+async function es_function_declaration_param_get(declaration, param_name) {
     let params = await property_get(declaration, 'params');
 
     let existing = await list_where(
         params,
-        p => p.type === 'Identifier' && p.name === argument_name);
+        p => p.type === 'Identifier' && p.name === param_name);
     return { existing, params };
 }
 
