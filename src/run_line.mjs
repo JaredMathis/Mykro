@@ -12,6 +12,7 @@ import { file_js_all } from './file_js_all.mjs';
 export async function run_line(line) {
     let tokens = line.split(' ');
     let token_first = tokens[0];
+    let tokens_remaining = tokens.slice(1);
 
     let on_no_matches = async () => console.log(`No matching command: ${token_first}`.red)
 
@@ -27,7 +28,7 @@ export async function run_line(line) {
     }
 
     let on_error = async (e) => console.log(e.stack.red);
-    
+
     let on_multiple_matches = async (matches) => {
         console.log(`Multiple commands matched: `)
         console.log(await list_map(matches, m => m.name))
@@ -46,7 +47,6 @@ export async function run_line(line) {
         console.log(import_path.blue)
         let imported = await import("file://" + import_path);
         let _function = imported[match.name];
-        let tokens_remaining = tokens.slice(1);
         try {
             let result = await _function(...tokens_remaining);
             await on_success(result);
