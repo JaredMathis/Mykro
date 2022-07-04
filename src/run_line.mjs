@@ -44,7 +44,8 @@ export async function run_line(line) {
             let result = await _function(...tokens_remaining);
             await on_success(result);
         } catch (e) {
-            console.log(e.stack.red);
+            let on_error = async (e) => console.log(e.stack.red);
+            await on_error(e);
         }
     } else {
         console.log(`Multiple commands matched: `)
