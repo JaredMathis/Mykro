@@ -8,7 +8,7 @@ export async function for_each(list, for_each_item) {
     await arguments_assert(_.isArray, _.isFunction)(arguments);
     for (let item of list) {
         let result = await for_each_item(item);
-        if (defined_is(result)) {
+        if (await defined_is(result)) {
             if (await true_is(result)) {
                 break;
             }
