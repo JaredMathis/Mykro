@@ -13,7 +13,7 @@ import { property_get } from "./property_get.mjs";
 import { assert } from "./assert.mjs";
 import { equals } from "./equals.mjs";
 
-export async function file_js_arguments_transform(function_name, transformer) {
+export async function file_js_arguments_transform(function_name, transformer_arguments) {
     await arguments_assert(string_identifier_is, _.isFunction)(arguments);
 
     let ast = await file_js_parse(function_name);
@@ -37,7 +37,7 @@ export async function file_js_arguments_transform(function_name, transformer) {
     await es_function_call_to_is(awaited_first_callee, arguments_assert.name);
     let awaited_first_callee_arguments = await property_get(awaited_first_callee, 'arguments');
 
-    await transformer({
+    await transformer_arguments({
         declaration,
         awaited_first_callee_arguments
     })
