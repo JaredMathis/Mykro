@@ -34,6 +34,10 @@ export async function run_line(line) {
         console.log(await list_map(matches, m => m.name))
     }
 
+    await file_js_run(token_first, on_no_matches, tokens_remaining, on_success, on_error, on_multiple_matches);
+}
+
+async function file_js_run(token_first, on_no_matches, tokens_remaining, on_success, on_error, on_multiple_matches) {
     let matches = await run_line_search(token_first);
     let matches_count = await list_size(matches);
 
@@ -43,8 +47,8 @@ export async function run_line(line) {
     } else if (equals(matches_count, 1)) {
         let match = matches[0];
 
-        let import_path = path.resolve(match.file_path)
-        console.log(import_path.blue)
+        let import_path = path.resolve(match.file_path);
+        console.log(import_path.blue);
         let imported = await import("file://" + import_path);
         let _function = imported[match.name];
         try {
