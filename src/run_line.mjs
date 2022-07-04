@@ -20,7 +20,7 @@ export async function run_line(line) {
 
     if (equals(matches_count, 0)) {
         console.log('No matching command.'.red)
-        
+
     } else if (equals(matches_count, 1)) {
         let match = matches[0];
 
@@ -43,7 +43,8 @@ export async function run_line(line) {
             console.log(e.stack.red);
         }
     } else {
-        
+        console.log(`Multiple commands matched: `)
+        console.log(matches)
     }
 }
 
