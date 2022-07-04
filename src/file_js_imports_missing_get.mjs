@@ -31,9 +31,13 @@ export async function file_js_imports_missing_get(function_name) {
     identifiers, 
     async i => await list_contains(function_names, i));
 
+  let identifiers_missing = await list_where(
+    identifiers_for_functions, 
+    async i => !(await list_contains(import_names, i)));
+
   // let identifiers_missing = await list_where(
   //   identifiers_for_functions,
   //   async i => 
   // )
-  return import_names;
+  return identifiers_missing;
 }
