@@ -1,12 +1,15 @@
+import {string_search_matches} from './string_search_matches.mjs';
+import {list_where} from './list_where.mjs';
+import {file_js_all} from './file_js_all.mjs';
+import {js_function_is} from './js_function_is.mjs';
 import {equals} from './equals.mjs';
 import {list_size} from './list_size.mjs';
 import { arguments_assert } from "./arguments_assert.mjs";
 import { list_is } from "./list_is.mjs";
 import { string_identifier_is } from "./string_identifier_is.mjs";
-import _ from 'lodash';
 
 export async function file_js_run(function_name, _arguments, on_no_matches, on_success, on_error, on_multiple_matches) {
-    await arguments_assert(string_identifier_is, list_is, _.isFunction, _.isFunction, _.isFunction, _.isFunction)(arguments);
+    await arguments_assert(string_identifier_is, list_is, js_function_is, js_function_is, js_function_is, js_function_is)(arguments);
     let matches = await run_line_search(function_name);
     let matches_count = await list_size(matches);
 
