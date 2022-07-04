@@ -1,4 +1,1 @@
-
-export function file_remove() {
-    // TODO
-}
+export function file_remove() {}

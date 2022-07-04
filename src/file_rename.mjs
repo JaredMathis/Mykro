@@ -1,4 +1,1 @@
-
-export function file_rename() {
-    // TODO
-}
+export function file_rename() {}

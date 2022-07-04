@@ -1,6 +1,5 @@
-import path from 'path'
-
+import path from "path";
 export function path_file_name(file_path) {
-    var filename = path.parse(file_path).name;
-    return filename;
+  var filename = path.parse(file_path).name;
+  return filename;
 }
