@@ -1,9 +1,7 @@
 import {arguments_assert} from './arguments_assert.mjs';
 import {string_is} from './string_is.mjs';
-import { property_get } from './property_get.mjs';
 import { string_identifier_is } from './string_identifier_is.mjs';
 import { list_add } from './list_add.mjs';
-import { list_where } from './list_where.mjs';
 import { list_size } from './list_size.mjs';
 import { assert } from './assert.mjs';
 import { equals } from './equals.mjs';
