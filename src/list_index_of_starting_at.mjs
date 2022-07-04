@@ -16,7 +16,7 @@ export async function list_index_of_starting_at(list, item, starting_at) {
         return result;
     }
 
-    result += starting_at;
+    result.index += starting_at;
 
     return result;
 }
