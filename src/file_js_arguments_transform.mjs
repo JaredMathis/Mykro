@@ -8,6 +8,7 @@ import { es_unparse } from './es_unparse.mjs';
 import { file_overwrite } from './file_overwrite.mjs';
 import { file_js_name_to_path } from './file_js_name_to_path.mjs';
 import { json_to } from './json_to.mjs';
+import _ from "lodash";
 
 export async function file_js_arguments_transform(function_name, transformer) {
     await arguments_assert(string_identifier_is, _.isFunction)(arguments);
