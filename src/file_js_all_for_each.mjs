@@ -9,6 +9,6 @@ export async function file_js_all_for_each(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
   let files = await file_js_all();
   await for_each(files, async file => {
-    await file_js_run(function_name, [file.name], error, noop, error, error);
+    await file_js_run(function_name, [file.name], error, noop, e => console.log(e.stack.red), error);
   });
 }
