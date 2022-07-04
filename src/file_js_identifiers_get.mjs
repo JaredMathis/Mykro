@@ -9,6 +9,7 @@ import { string_identifier_is } from "./string_identifier_is.mjs";
 import { js_properties } from "./js_properties.mjs";
 import { js_property_has } from "./js_property_has.mjs";
 import { list_add } from "./list_add.mjs";
+import { list_unique } from "./list_unique.mjs";
 
 export async function file_js_identifiers_get(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
