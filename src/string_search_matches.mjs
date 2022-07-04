@@ -12,10 +12,15 @@ export async function string_search_matches(candidate, query) {
 
     let candidate_as_list = string_to_list(candidate);
 
+    let result = true;
+
     let index_previous = -1;
     await for_each(query_as_list, async q => {
         let index = await list_index_of_starting_at(candidate, q, index_previous);
 
+        if (!index.success) {
+            result = false;
+        }
         
     })
 
