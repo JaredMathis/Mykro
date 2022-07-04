@@ -13,6 +13,6 @@ export async function list_index_of(list, item) {
     assert(number_negative_not_is)(index);
 
     return {
-        index
+        index,
     };
 }
