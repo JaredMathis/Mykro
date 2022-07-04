@@ -34,10 +34,10 @@ export async function run_line(line) {
         console.log(await list_map(matches, m => m.name))
     }
 
-    await file_js_run(token_first, on_no_matches, tokens_remaining, on_success, on_error, on_multiple_matches);
+    await file_js_run(token_first, tokens_remaining, on_no_matches, on_success, on_error, on_multiple_matches);
 }
 
-async function file_js_run(token_first, on_no_matches, tokens_remaining, on_success, on_error, on_multiple_matches) {
+async function file_js_run(token_first, tokens_remaining, on_no_matches, on_success, on_error, on_multiple_matches) {
     let matches = await run_line_search(token_first);
     let matches_count = await list_size(matches);
 
