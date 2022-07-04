@@ -8,7 +8,7 @@ export async function list_unique(list) {
 
   let result = [];
 
-  await for_each(list, item => {
+  await for_each(list, async item => {
     if (!await list_contains(result, item)) {
         await list_add(result, item);
     }
