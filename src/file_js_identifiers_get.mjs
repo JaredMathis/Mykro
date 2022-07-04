@@ -10,11 +10,15 @@ export async function file_js_identifiers_get(function_name) {
   let ast = await file_js_parse(function_name);
     const ast_node_for_each = node => {
     };
-  await tree_traverse(ast, node => {
-    let values = await js_values(node);
-    await list_where(values, v => await has_property(v, 'type') || _.isArray(v))
-  }, ast_node_for_each)
+  await es_traverse(ast, ast_node_for_each);
 }
+async function es_traverse(ast, ast_node_for_each) {
+    await tree_traverse(ast, node => {
+        let values = await js_values(node);
+        await list_where(values, v => await has_property(v, 'type') || _.isArray(v));
+    }, ast_node_for_each);
+}
+
 async function js_values(node) {
     let properties = await js_properties(node);
     let children = await list_map(properties, p => await property_get(node, p));
