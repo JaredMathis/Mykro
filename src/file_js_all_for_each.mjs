@@ -9,9 +9,7 @@ export async function file_js_all_for_each(function_name) {
 
   let files = await file_js_all();
   await for_each(files, async file => {
-
     await file_js_run(function_name, [file.name], error, error, error, error);
-
   });
 
   return files;
