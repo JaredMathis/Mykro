@@ -8,6 +8,7 @@ import { list_where } from './list_where.mjs';
 import { string_search_matches } from './string_search_matches.mjs';
 import { list_size } from './list_size.mjs';
 import { equals } from './equals.mjs';
+import { list_map } from './list_map.mjs';
 
 let directory = './src';
 
@@ -44,7 +45,7 @@ export async function run_line(line) {
         }
     } else {
         console.log(`Multiple commands matched: `)
-        console.log(matches)
+        console.log(await list_map(matches, m => m.name))
     }
 }
 
