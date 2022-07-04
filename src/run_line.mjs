@@ -9,9 +9,9 @@ let directory = './src';
 
 export async function run_line(line) {
     let tokens = line.split(' ');
-    let first = tokens[0];
+    let token_first = tokens[0];
     let match;
-    if (match = run_line_search(first)) {
+    if (match = run_line_search(token_first)) {
         let import_path = path.resolve(match.file_path)
         console.log(import_path.blue)
         let imported = await import("file://" + import_path);
