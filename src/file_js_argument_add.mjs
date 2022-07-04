@@ -8,6 +8,7 @@ import { list_size } from './list_size.mjs';
 import { assert } from './assert.mjs';
 import { equals } from './equals.mjs';
 import { file_js_arguments_transform } from './file_js_arguments_transform.mjs';
+import { es_function_declaration_param_get } from './es_function_declaration_param_get.mjs';
 
 export async function file_js_argument_add(function_name, argument_name, argument_type) {
     await arguments_assert(string_is, string_identifier_is, string_is)(arguments)
@@ -29,14 +30,6 @@ async function es_function_declaration_param_add(declaration, param_name) {
 
     let id = es_identifier(param_name);
     await list_add(params, id);
-}
-async function es_function_declaration_param_get(declaration, param_name) {
-    let params = await property_get(declaration, 'params');
-
-    let existing = await list_where(
-        params,
-        p => p.type === 'Identifier' && p.name === param_name);
-    return { existing, params };
 }
 
 function es_identifier(identifier_name) {
