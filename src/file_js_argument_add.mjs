@@ -9,6 +9,7 @@ import { list_where } from './list_where.mjs';
 import { list_size } from './list_size.mjs';
 import { assert } from './assert.mjs';
 import { equals } from './equals.mjs';
+import { list_first } from './list_first.mjs';
 
 export async function file_js_argument_add(function_name, argument_name, argument_type) {
     await arguments_assert(string_is, string_identifier_is, string_is)(arguments)
