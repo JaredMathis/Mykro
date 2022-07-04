@@ -24,8 +24,9 @@ export async function file_js_argument_add(function_name, argument_name, argumen
     let body_block = await property_get(body, 'body');
     let statement_first = await list_first(body_block);
     await assert(equals)(await property_get(statement_first, 'type'), 'ExpressionStatement')
+    let expression_first = await await property_get(statement_first, 'type');
 
-    return statement_first;
+    return expression_first;
 }
 
 async function es_function_declaration_param_add(declaration, argument_name) {
