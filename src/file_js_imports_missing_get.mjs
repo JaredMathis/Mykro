@@ -13,15 +13,14 @@ import { equals_json } from "./equals_json.mjs";
 export async function file_js_imports_missing_get(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
   let imports = await file_js_imports_get(function_name)
-
-  await list_map(imports, async i => {
+  let import_names = await list_map(imports, async i => {
     let specifiers = await property_get(i, 'specifiers');
     let specifier = await list_single(specifiers);
     let local = await property_get(specifier, 'local');
     await assert(equals_json)(
       local, 
       await property_get(specifier, 'imported'))
-    
+    return local.name;
   })
 
   let identifiers = await file_js_identifiers_get(function_name);
@@ -36,5 +35,5 @@ export async function file_js_imports_missing_get(function_name) {
   //   identifiers_for_functions,
   //   async i => 
   // )
-  return imports[0].specifiers;
+  return import_names;
 }
