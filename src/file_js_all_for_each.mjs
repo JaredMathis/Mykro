@@ -4,11 +4,12 @@ import {file_js_all} from "./file_js_all.mjs";
 import {string_identifier_is} from "./string_identifier_is.mjs";
 import {arguments_assert} from "./arguments_assert.mjs";
 import {for_each} from "./for_each.mjs";
+import {noop} from "./noop.mjs";
 export async function file_js_all_for_each(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
   let files = await file_js_all();
   await for_each(files, async file => {
-    await file_js_run(function_name, [file.name], error, error, e => console.error(e), error);
+    await file_js_run(function_name, [file.name], error, noop, error, error);
   });
   return files;
 }
