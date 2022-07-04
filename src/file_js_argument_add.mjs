@@ -10,6 +10,7 @@ import { list_size } from './list_size.mjs';
 import { assert } from './assert.mjs';
 import { equals } from './equals.mjs';
 import { list_first } from './list_first.mjs';
+import { json_to } from './json_to.mjs';
 
 export async function file_js_argument_add(function_name, argument_name, argument_type) {
     await arguments_assert(string_is, string_identifier_is, string_is)(arguments)
@@ -28,6 +29,8 @@ export async function file_js_argument_add(function_name, argument_name, argumen
     await assert(equals)(await property_get(expression_first, 'type'), 'AwaitExpression');
     let awaited_first = await property_get(expression_first, 'argument');
     await assert(equals)(await property_get(awaited_first, 'type'), 'CallExpression');
+    let awaited_first_arguments = await property_get(awaited_first, 'arguments');
+    await assert(equals)(await json_to(awaited_first_arguments), "[{\"type\":\"Identifier\",\"name\":\"arguments\"}]")
 
     return awaited_first;
 }
