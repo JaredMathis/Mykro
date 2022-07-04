@@ -1,6 +1,7 @@
 
 import _ from "lodash";
 import { arguments_assert } from "./arguments_assert.mjs";
+import { assert } from "./assert.mjs";
 import { not } from "./not.mjs";
 
 export async function tree_traverse(node, children_get, for_each_child) {
@@ -9,7 +10,9 @@ export async function tree_traverse(node, children_get, for_each_child) {
     await for_each_child(node);
 
     let children = await children_get(node);
+    assert(_.isArray)(children);
 
+    console.log({children})
     for (let child of children) {
         await tree_traverse(child, children_get, for_each_child);
     }
