@@ -8,9 +8,9 @@ import { number_negative_not_is } from "./number_negative_not_is.mjs";
 export async function list_index_of(list, item) {
     await arguments_assert(list_is, defined_is)(arguments);
     
-    let result = list.indexOf(item);
+    let index = list.indexOf(item);
 
-    assert(number_negative_not_is)(result);
+    assert(number_negative_not_is)(index);
 
-    return result;
+    return index;
 }
