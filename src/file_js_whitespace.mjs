@@ -6,5 +6,5 @@ import { file_js_transform } from "./file_js_transform.mjs";
 export async function file_js_whitespace() {
     await arguments_assert()(arguments);
 
-    file_js_transform(function_name, noop);
+    await file_js_transform(function_name, noop);
 }
