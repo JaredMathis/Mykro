@@ -26,8 +26,6 @@ export async function file_js_argument_add(function_name, argument_name, argumen
         await es_function_declaration_param_add(declaration, argument_name);
         await list_add(awaited_first_callee_arguments, es_identifier(argument_type))
     })
-
-    return text;
 }
 
 async function file_js_arguments_transform(function_name, transformer) {
