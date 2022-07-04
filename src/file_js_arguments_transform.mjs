@@ -12,6 +12,7 @@ import _ from "lodash";
 import { property_get } from "./property_get.mjs";
 import { assert } from "./assert.mjs";
 import { equals } from "./equals.mjs";
+import { file_js_transform } from "./file_js_transform.mjs";
 
 export async function file_js_arguments_transform(function_name, transformer_arguments) {
     await arguments_assert(string_identifier_is, _.isFunction)(arguments);
@@ -44,16 +45,6 @@ export async function file_js_arguments_transform(function_name, transformer_arg
     }
 
     await file_js_transform(function_name, transformer);
-}
-
-async function file_js_transform(function_name, transformer) {
-    let ast = await file_js_parse(function_name);
-
-    await transformer(ast);
-
-    let text = await es_unparse(ast);
-    let file_path = await file_js_name_to_path(function_name);
-    await file_overwrite(file_path, text);
 }
 
 async function es_function_call_to_is(awaited_first_callee, expected_function_name) {
