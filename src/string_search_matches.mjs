@@ -20,6 +20,7 @@ export async function string_search_matches(candidate, query) {
 
         if (!index.success) {
             result = false;
+            return true;
         }
         
     })
