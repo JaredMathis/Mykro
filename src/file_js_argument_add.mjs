@@ -58,6 +58,6 @@ async function es_function_declaration_param_add(declaration, argument_name) {
 
     await assert(equals)(await list_size(existing), 0)
 
-    const id = { type: 'Identifier', name: argument_name };
+    let id = { type: 'Identifier', name: argument_name };
     await list_add(params, id);
 }
