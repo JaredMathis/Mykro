@@ -37,8 +37,8 @@ export async function run_line(line) {
     await file_js_run(token_first, tokens_remaining, on_no_matches, on_success, on_error, on_multiple_matches);
 }
 
-async function file_js_run(token_first, tokens_remaining, on_no_matches, on_success, on_error, on_multiple_matches) {
-    let matches = await run_line_search(token_first);
+async function file_js_run(function_name, tokens_remaining, on_no_matches, on_success, on_error, on_multiple_matches) {
+    let matches = await run_line_search(function_name);
     let matches_count = await list_size(matches);
 
     if (equals(matches_count, 0)) {
