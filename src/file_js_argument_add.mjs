@@ -6,7 +6,6 @@ import { property_get } from './property_get.mjs';
 import { string_identifier_is } from './string_identifier_is.mjs';
 import { list_add } from './list_add.mjs';
 import { list_where } from './list_where.mjs';
-import { number_at_least } from './number_at_least.mjs';
 import { list_size } from './list_size.mjs';
 import { assert } from './assert.mjs';
 import { equals } from './equals.mjs';
