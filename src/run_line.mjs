@@ -9,7 +9,6 @@ import { string_search_matches } from './string_search_matches.mjs';
 import { list_size } from './list_size.mjs';
 import { equals } from './equals.mjs';
 import { list_map } from './list_map.mjs';
-import { equal } from 'assert';
 
 let directory = './src';
 
