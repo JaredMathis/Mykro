@@ -12,7 +12,7 @@ var rl = readline.createInterface({
 rl.on("line", async line => {
   try {
     let config = await mykrodev_config_get();
-    let src_path = config.path.src.mykrodev;
+    let src_path = config.path.src[mykrodev()];
 
     let result = await command_line(`node ${src_path}/run_function.mjs ` + line);
     console.log(result.stdout);
