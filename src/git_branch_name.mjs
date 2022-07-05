@@ -20,4 +20,5 @@ export async function git_branch_name() {
     }
     js_comment(`remove leading space and trailing new line`);  
     stdout = stdout.trim();
+    return stdout;
 }
