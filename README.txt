@@ -19,3 +19,4 @@ To run:
         For example, to run "file_js_new", you could write "fjew" instead. It will look for functions containing an 'f' followed by 'j' followed by 'e' etc. [f]ile_[j]s_n[e][w] satisfies this.
 
     To create a new javascript file, type: file_js_new file_name
+
