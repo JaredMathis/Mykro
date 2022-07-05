@@ -5,4 +5,5 @@ export async function file_js_folderize(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
 
   let files = await file_js_all();
+  return files;
 }
