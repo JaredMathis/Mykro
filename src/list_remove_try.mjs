@@ -10,7 +10,9 @@ export async function list_remove_try(list, item) {
   await arguments_assert(list_is, defined_is)(arguments);
   let index_of = await list_index_of(list, item);
     const success = await property_get(index_of, "success");
-  await assert(true_is)(success);
+    if (!success) {
+        return index_of;
+    }
   let index = await property_get(index_of, "index");
   await list_remove_at(list, index);
   return {
