@@ -27,9 +27,7 @@ export async function run_line(line) {
     } else {
       let message = `${line}`;
       let prefix_expected = `${match.name} `;
-      if (!await string_starts_with(message, prefix_expected)) {
-        message = prefix_expected + message;
-      }
+      message = await string_starts_with_ensure(message, prefix_expected);
       let git_result = await git_acp(message);
       if (_.isUndefined(git_result)) {
         console.log(`${git_acp.name} ran successfully`.magenta);
@@ -50,3 +48,10 @@ export async function run_line(line) {
   };
   await file_js_run(token_first, tokens_remaining, on_no_matches, on_success, on_error, on_multiple_matches, on_match);
 }
+async function string_starts_with_ensure(message, prefix_expected) {
+  if (!await string_starts_with(message, prefix_expected)) {
+    message = prefix_expected + message;
+  }
+  return message;
+}
+
