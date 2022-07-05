@@ -7,5 +7,5 @@ export async function mykrodev_config_save(config) {
   await arguments_assert(defined_is)(arguments);
   let file_path = await mykrodev_config_path();
   let json = await json_to(config)
-  file_overwrite()
+  await file_overwrite(file_path, json);
 }
