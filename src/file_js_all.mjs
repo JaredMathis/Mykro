@@ -7,6 +7,7 @@ import {list_where} from "./list_where.mjs";
 export async function file_js_all() {
   await arguments_assert()(arguments);
   let directory = "./src";
+  //await mykrodev_config_get();
   let files = Array.from(file_list(directory));
   let mapped = await list_map(files, async f => {
     return {
