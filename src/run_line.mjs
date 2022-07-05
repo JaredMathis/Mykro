@@ -28,9 +28,10 @@ export async function run_line(line) {
       console.log(`${match.name} starts with ${git_prefix}. Not running ${git_acp.name}`.magenta);
     } else {
       let branch_name = await git_branch_name();
-      let message = `${line} ${branch_name}`;
+      let message = `${line}`;
       let prefix_expected = `${match.name} `;
       message = await string_starts_with_ensure(message, prefix_expected);
+      message = `${branch_name} ${message}`;
       let git_result = await git_acp(message);
       if (_.isUndefined(git_result)) {
         console.log(`${git_acp.name} ran successfully`.magenta);
