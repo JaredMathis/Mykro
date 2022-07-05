@@ -1,6 +1,6 @@
 {
   "name": "mykrodev",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "scripts": {
     "start": "node src/run.mjs",
     "pub": "npm version patch --force && npm publish"
