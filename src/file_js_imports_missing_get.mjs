@@ -16,7 +16,7 @@ import { defined_is } from "./defined_is.mjs";
 export async function file_js_imports_missing_get(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
   let imports = await file_js_imports_get(function_name);
-  list_where();
+  list_where(imports);
   let import_names = await list_map(imports, async i => {
     let specifiers = await property_get(i, "specifiers");
     let specifier = await list_single(specifiers);
