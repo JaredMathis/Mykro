@@ -3,8 +3,5 @@
         "src": {
             "mykrodev": "./src"
         }
-    },
-    "branch": {
-        "main": "main"
     }
 }
