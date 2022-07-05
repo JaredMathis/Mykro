@@ -4,5 +4,6 @@ import { arguments_assert } from "./arguments_assert.mjs";
 
 export async function git_branch_name() {
     await arguments_assert()(arguments);
-    return await command_line(`git branch`);
+    let result = await command_line(`git branch`);
+    return result.stdout
 }
