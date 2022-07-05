@@ -7,7 +7,7 @@ import { arguments_assert } from "./arguments_assert.mjs";
 
 export async function mykrodev_config_get() {
     await arguments_assert()(arguments);
-    const config_path = `./${await constant_mykrodev()}.json`;
+    const config_path = `./${await constant_mykrodev()}_config.json`;
     if (!await file_exists(config_path)) {
       await file_overwrite(config_path, `
   {
