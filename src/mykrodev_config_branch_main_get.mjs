@@ -1,4 +1,3 @@
-import {main} from './main.mjs';
 import {mykrodev_config_save} from './mykrodev_config_save.mjs';
 import {mykrodev_config_get} from './mykrodev_config_get.mjs';
 
