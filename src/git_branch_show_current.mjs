@@ -13,7 +13,7 @@ export async function git_branch_show_current() {
     let result = await command_line(`git branch --show-current`);
     let stdout = result.stdout
     const prefix = '*';
-    if (string_starts_with(stdout, prefix)) {
+    if (await string_starts_with(stdout, prefix)) {
         let stdout_as_list = await string_to_list(stdout)
         let sublist = await list_starting_at(stdout_as_list, await string_size(prefix));
         stdout = await string_from_list(sublist);
