@@ -9,6 +9,10 @@ export async function mykrodev_config_branch_main_get() {
     let config = await mykrodev_config_get();
     let branch_property_name = 'branch';
     let object = config;
+    await mykrodev_config_property_exists_ensure(object, branch_property_name, config);
+}
+
+async function mykrodev_config_property_exists_ensure(object, branch_property_name, config) {
     if (!await js_property_has(object, branch_property_name)) {
         object[branch_property_name] = {};
         await mykrodev_config_save(config);
