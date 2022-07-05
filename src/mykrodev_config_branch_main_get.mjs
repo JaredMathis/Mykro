@@ -12,9 +12,9 @@ export async function mykrodev_config_branch_main_get() {
     await mykrodev_config_property_exists_ensure(object, branch_property_name, config);
 }
 
-async function mykrodev_config_property_exists_ensure(object, branch_property_name, config) {
-    if (!await js_property_has(object, branch_property_name)) {
-        object[branch_property_name] = {};
+async function mykrodev_config_property_exists_ensure(object, property_name, config) {
+    if (!await js_property_has(object, property_name)) {
+        object[property_name] = {};
         await mykrodev_config_save(config);
     }
 }
