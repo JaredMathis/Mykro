@@ -22,20 +22,5 @@ rl.on("line", async line => {
     await js_log_error(e);
   }
 });
-async function mykrodev_config_get() {
-  const config_path = `./${await constant_mykrodev()}.json`;
-  if (!await file_exists(config_path)) {
-    await file_overwrite(config_path, `
-{
-    "path": {
-        "src": {
-            "${await constant_mykrodev()}": "./node_modules/${await constant_mykrodev()}/src"
-        }
-    }
-}
-      `);
-  }
-  let config = await file_json_read(config_path);
-  return config;
-}
+
 
