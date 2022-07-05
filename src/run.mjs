@@ -1,3 +1,4 @@
+import {file_exists} from './file_exists.mjs';
 import readline from "readline";
 import {command_line} from "./command_line.mjs";
 import { file_json_read } from "./file_json_read.mjs";
@@ -10,6 +11,9 @@ var rl = readline.createInterface({
 rl.on("line", async line => {
   try {
     const config_path = "./mykrodev_config.json";
+    if (!await file_exists(config_path)) {
+
+    }
     let config = await file_json_read(config_path);
     let src_path = config.path.src.mykrodev;
 
