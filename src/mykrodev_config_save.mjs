@@ -9,8 +9,3 @@ export async function mykrodev_config_save(config) {
   let file_path = await mykrodev_config_path();
   await file_json_save(config, file_path);
 }
-async function file_json_save(config, file_path) {
-    let json = await json_to(config);
-    await file_overwrite(file_path, json);
-}
-
