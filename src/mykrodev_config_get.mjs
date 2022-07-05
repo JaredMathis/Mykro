@@ -23,7 +23,3 @@ export async function mykrodev_config_get() {
     let config = await file_json_read(config_path);
     return config;
 }
-
-async function mykrodev_config_path() {
-    return `./${await constant_mykrodev()}_config.json`;
-}
