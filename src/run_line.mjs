@@ -28,7 +28,7 @@ export async function run_line(line) {
       let message = `${line}`;
       let prefix_expected = `${match.name} `;
       if (!await string_starts_with(message, prefix_expected)) {
-        
+        message = prefix_expected + message;
       }
       let git_result = await git_acp(message);
       if (_.isUndefined(git_result)) {
