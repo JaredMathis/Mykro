@@ -1,3 +1,4 @@
+import {file_overwrite} from './file_overwrite.mjs';
 import {file_exists} from './file_exists.mjs';
 import readline from "readline";
 import {command_line} from "./command_line.mjs";
@@ -12,7 +13,15 @@ rl.on("line", async line => {
   try {
     const config_path = "./mykrodev_config.json";
     if (!await file_exists(config_path)) {
-
+      await file_overwrite(config_path, `
+{
+    "path": {
+        "src": {
+            "mykrodev": "./node_modules/mykrodev/src"
+        }
+    }
+}
+      `)
     }
     let config = await file_json_read(config_path);
     let src_path = config.path.src.mykrodev;
