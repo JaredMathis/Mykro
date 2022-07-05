@@ -7,8 +7,8 @@ import { js_comment } from './js_comment.mjs';
 export async function git_checkout_merge(merge_from, merge_into) {
   await arguments_assert(string_is, string_is)(arguments);
   await js_comment(`make sure both branches are up to date`)
-  await for_each([merge_into, merge_from], async branch_name => {
+  await for_each([merge_from, merge_into], async branch_name => {
     await git_checkout_pull(branch_name)
   })
-  await git_merge(merge_into)
+  await git_merge(merge_from)
 }
