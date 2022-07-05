@@ -9,5 +9,5 @@ import {true_is} from "./true_is.mjs";
 export async function probability_is(p) {
   await arguments_assert(defined_is)(arguments);
   let requirements = [_.isNumber(p), await number_negative_not_is(p), await number_at_most(p, 1)];
-  return _.every(list_where(requirements, true_is));
+  return _.every(await list_where(requirements, true_is));
 }
