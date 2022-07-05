@@ -1,3 +1,4 @@
+import {file_js_parse} from './file_js_parse.mjs';
 import {file_js_all} from './file_js_all.mjs';
 import {file_js_all_for_each} from './file_js_all_for_each.mjs';
 
@@ -9,6 +10,6 @@ export async function file_js_all_identifiers_get() {
     
     let files = await file_js_all();
     await for_each(files, async file => {
-        console.log(file);
+        await file_js_parse(file.name);
     })
 }
