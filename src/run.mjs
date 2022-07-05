@@ -10,6 +10,7 @@ var rl = readline.createInterface({
 rl.on("line", async line => {
   try {
     let config = await file_json_read("./mykcrodev_config.json");
+    let src_path = config.path.src.mykrodev;
 
     let result = await command_line(`node src/run_function.mjs ` + line);
     console.log(result.stdout);
