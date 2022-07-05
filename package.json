@@ -2,7 +2,8 @@
   "name": "mykrodev",
   "version": "0.0.0",
   "scripts": {
-    "start": "node src/run.mjs"
+    "start": "node src/run.mjs",
+    "pub": "npm version patch --force && npm publish"
   },
   "dependencies": {
     "astring": "^1.8.3",
