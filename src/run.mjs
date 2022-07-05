@@ -11,19 +11,7 @@ var rl = readline.createInterface({
 });
 rl.on("line", async line => {
   try {
-    const config_path = "./mykrodev_config.json";
-    if (!await file_exists(config_path)) {
-      await file_overwrite(config_path, `
-{
-    "path": {
-        "src": {
-            "mykrodev": "./node_modules/mykrodev/src"
-        }
-    }
-}
-      `)
-    }
-    let config = await file_json_read(config_path);
+    let config = await mykrodev_config_get();
     let src_path = config.path.src.mykrodev;
 
     let result = await command_line(`node ${src_path}/run_function.mjs ` + line);
@@ -32,3 +20,20 @@ rl.on("line", async line => {
     await js_log_error(e);
   }
 });
+async function mykrodev_config_get() {
+  const config_path = "./mykrodev_config.json";
+  if (!await file_exists(config_path)) {
+    await file_overwrite(config_path, `
+{
+    "path": {
+        "src": {
+            "mykrodev": "./node_modules/mykrodev/src"
+        }
+    }
+}
+      `);
+  }
+  let config = await file_json_read(config_path);
+  return config;
+}
+
