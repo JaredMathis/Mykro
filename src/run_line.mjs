@@ -31,7 +31,6 @@ export async function run_line(line) {
       let message = `${line}`;
       let prefix_expected = `${match.name} `;
       message = await string_starts_with_ensure(message, prefix_expected);
-      console.log({branch_name,message})
       message = `${branch_name} ${message}`;
       let git_result = await git_acp(message);
       if (_.isUndefined(git_result)) {
