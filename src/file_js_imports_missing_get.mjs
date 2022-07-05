@@ -22,6 +22,7 @@ export async function file_js_imports_missing_get(function_name) {
     if (await list_size(specifiers, 1)) {
       return false;
     }
+    return true;
   });
   let import_names = await list_map(imports, async i => {
     let specifiers = await property_get(i, "specifiers");
