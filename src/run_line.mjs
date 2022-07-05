@@ -18,7 +18,6 @@ export async function run_line(line) {
   let on_no_matches = async () => console.log(`No matching command: ${token_first}`.red);
   let on_success = async result => {
     console.log(result);
-    await file_js_all_for_each(file_js_imports_missing_add.name);
     let git_result = await git_acp(`${line}`);
     if (_.isUndefined(git_result)) {
       console.log(`${git_acp.name} ran successfully`.magenta);
@@ -34,6 +33,7 @@ export async function run_line(line) {
   };
   let on_match = async import_path => {
     console.log(import_path.blue + " " + tokens_remaining.map(a => a.toString()).join(" "));
+    await file_js_all_for_each(file_js_imports_missing_add.name);
   };
   await file_js_run(token_first, tokens_remaining, on_no_matches, on_success, on_error, on_multiple_matches, on_match);
 }
