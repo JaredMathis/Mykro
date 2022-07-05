@@ -1,4 +1,4 @@
-import {tree_traverse} from './tree_traverse.mjs';
+import {tree_traverse} from "./tree_traverse.mjs";
 import axios from "axios";
 import {parse} from "node-html-parser";
 import {tree_traverse} from "./tree_traverse.mjs";

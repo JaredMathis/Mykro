@@ -11,10 +11,10 @@ import {list_single} from "./list_single.mjs";
 import {assert} from "./assert.mjs";
 import {equals_json} from "./equals_json.mjs";
 import {list_remove} from "./list_remove.mjs";
-import { for_each } from "./for_each.mjs";
-import { defined_is } from "./defined_is.mjs";
-import { list_size } from "./list_size.mjs";
-import { equals } from "./equals.mjs";
+import {for_each} from "./for_each.mjs";
+import {defined_is} from "./defined_is.mjs";
+import {list_size} from "./list_size.mjs";
+import {equals} from "./equals.mjs";
 export async function file_js_imports_missing_get(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
   let imports = await file_js_imports_get(function_name);
@@ -24,7 +24,7 @@ export async function file_js_imports_missing_get(function_name) {
       return false;
     }
     let specifier = await list_single(specifiers);
-    if (equals(await property_get(specifier, 'type'), 'ImportDefaultSpecifier')) {
+    if (equals(await property_get(specifier, "type"), "ImportDefaultSpecifier")) {
       return false;
     }
     return true;
@@ -35,9 +35,13 @@ export async function file_js_imports_missing_get(function_name) {
     let local = await property_get(specifier, "local");
     let imported = await property_get(specifier, "imported");
     await for_each([local, imported], async i => {
-      await assert(defined_is, {specifier})(i);
-    })
-    await assert(equals_json, {specifier})(local, imported);
+      await assert(defined_is, {
+        specifier
+      })(i);
+    });
+    await assert(equals_json, {
+      specifier
+    })(local, imported);
     return local.name;
   });
   let identifiers = await file_js_identifiers_get(function_name);
