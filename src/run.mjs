@@ -21,13 +21,14 @@ rl.on("line", async line => {
   }
 });
 async function mykrodev_config_get() {
-  const config_path = `./mykrodev_config.json`;
+  let mykrodev = `mykrodev`;
+  const config_path = `./${mykrodev}.json`;
   if (!await file_exists(config_path)) {
     await file_overwrite(config_path, `
 {
     "path": {
         "src": {
-            "mykrodev": "./node_modules/mykrodev/src"
+            "${mykrodev}": "./node_modules/${mykrodev}/src"
         }
     }
 }
