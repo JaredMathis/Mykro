@@ -14,6 +14,7 @@ import {list_remove} from "./list_remove.mjs";
 import { for_each } from "./for_each.mjs";
 import { defined_is } from "./defined_is.mjs";
 import { list_size } from "./list_size.mjs";
+import { equals } from "./equals.mjs";
 export async function file_js_imports_missing_get(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
   let imports = await file_js_imports_get(function_name);
