@@ -9,7 +9,8 @@ import {arguments_assert} from "./arguments_assert.mjs";
 export async function list_remove_try(list, item) {
   await arguments_assert(list_is, defined_is)(arguments);
   let index_of = await list_index_of(list, item);
-  await assert(true_is)(await property_get(index_of, "success"));
+    const success = await property_get(index_of, "success");
+  await assert(true_is)(success);
   let index = await property_get(index_of, "index");
   await list_remove_at(list, index);
   return {
