@@ -10,7 +10,7 @@ import { string_to_list } from './string_to_list.mjs';
 
 export async function git_branch_name() {
     await arguments_assert()(arguments);
-    let result = await command_line(`git branch`);
+    let result = await command_line(`git branch --show-current`);
     let stdout = result.stdout
     const prefix = '*';
     if (string_starts_with(stdout, prefix)) {
