@@ -8,8 +8,8 @@ var rl = readline.createInterface({
 });
 rl.on("line", async line => {
   try {
-
     
+
     let result = await command_line(`node src/run_function.mjs ` + line);
     console.log(result.stdout);
   } catch (e) {
