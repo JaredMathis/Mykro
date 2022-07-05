@@ -13,11 +13,15 @@ import {equals_json} from "./equals_json.mjs";
 import {list_remove} from "./list_remove.mjs";
 import { for_each } from "./for_each.mjs";
 import { defined_is } from "./defined_is.mjs";
+import { list_size } from "./list_size.mjs";
 export async function file_js_imports_missing_get(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
   let imports = await file_js_imports_get(function_name);
   await list_where(imports, i => {
-
+    let specifiers = await property_get(i, "specifiers");
+    if (await list_size(specifiers, 1)) {
+      return false;
+    }
   });
   let import_names = await list_map(imports, async i => {
     let specifiers = await property_get(i, "specifiers");
