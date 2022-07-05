@@ -32,5 +32,8 @@ export async function run_line(line) {
     console.log(`Multiple commands matched: `);
     console.log(await list_map(matches, m => m.name));
   };
-  await file_js_run(token_first, tokens_remaining, on_no_matches, on_success, on_error, on_multiple_matches);
+  let on_match = async () => {
+    
+  }
+  await file_js_run(token_first, tokens_remaining, on_no_matches, on_success, on_error, on_multiple_matches, on_match);
 }

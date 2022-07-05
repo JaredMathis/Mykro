@@ -8,8 +8,8 @@ import {arguments_assert} from "./arguments_assert.mjs";
 import {list_is} from "./list_is.mjs";
 import {string_identifier_is} from "./string_identifier_is.mjs";
 import {file_path_resolve} from "./file_path_resolve.mjs";
-export async function file_js_run(function_name, _arguments, on_no_matches, on_success, on_error, on_multiple_matches) {
-  await arguments_assert(string_identifier_is, list_is, js_function_is, js_function_is, js_function_is, js_function_is)(arguments);
+export async function file_js_run(function_name, _arguments, on_no_matches, on_success, on_error, on_multiple_matches, on_match) {
+  await arguments_assert(string_identifier_is, list_is, js_function_is, js_function_is, js_function_is, js_function_is, js_function_is)(arguments);
   let matches = await run_line_search(function_name);
   let matches_count = await list_size(matches);
   if (equals(matches_count, 0)) {
@@ -17,6 +17,7 @@ export async function file_js_run(function_name, _arguments, on_no_matches, on_s
   } else if (equals(matches_count, 1)) {
     let match = matches[0];
     let import_path = await file_path_resolve(match.file_path);
+    await on_match();
     console.log(import_path.blue + " " + _arguments.map(a => a.toString()).join(" "));
     let imported = await import("file://" + import_path);
     let _function = imported[match.name];
