@@ -15,7 +15,7 @@ import {for_each} from "./for_each.mjs";
 import {defined_is} from "./defined_is.mjs";
 import {list_size} from "./list_size.mjs";
 import {equals} from "./equals.mjs";
-import { list_remove_try } from "./list_remove_try.mjs";
+import {list_remove_try} from "./list_remove_try.mjs";
 export async function file_js_imports_missing_get(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
   let imports = await file_js_imports_get(function_name);
@@ -46,7 +46,6 @@ export async function file_js_imports_missing_get(function_name) {
     return local.name;
   });
   let identifiers = await file_js_identifiers_get(function_name);
-  // It's possible the file doesn't have a function (i.e. it's a script with no exports)
   await list_remove_try(identifiers, function_name);
   let functions = await file_js_all();
   let function_names = await list_map(functions, f => f.name);
