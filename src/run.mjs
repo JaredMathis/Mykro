@@ -13,14 +13,16 @@ var rl = readline.createInterface({
 });
 rl.on("line", async line => {
   try {
-    let config = await mykrodev_config_get();
-    let src_path = config.path.src[await constant_mykrodev()];
-
+    let src_path = await mykrodev_config_src_path_get();
     let result = await command_line(`node ${src_path}/run_function.mjs ` + line);
     console.log(result.stdout);
   } catch (e) {
     await js_log_error(e);
   }
 });
-
+async function mykrodev_config_src_path_get() {
+  let config = await mykrodev_config_get();
+  let src_path = config.path.src[await constant_mykrodev()];
+  return src_path;
+}
 
