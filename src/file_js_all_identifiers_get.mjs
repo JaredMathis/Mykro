@@ -10,6 +10,6 @@ export async function file_js_all_identifiers_get() {
     
     let files = await file_js_all();
     await for_each(files, async file => {
-        await file_js_parse(file.name);
+        let ast = await file_js_parse(file.name);
     })
 }
