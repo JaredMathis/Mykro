@@ -19,6 +19,7 @@ export async function run_line(line) {
   let on_no_matches = async () => console.log(`No matching command: ${token_first}`.red);
   let on_success = async result => {
     console.log(result);
+    await auto()
     let git_result = await git_acp(`${line}`);
     if (_.isUndefined(git_result)) {
       console.log(`${git_acp.name} ran successfully`.magenta);
