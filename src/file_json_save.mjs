@@ -5,6 +5,6 @@ import {defined_is} from "./defined_is.mjs";
 import {arguments_assert} from "./arguments_assert.mjs";
 export async function file_json_save(value, file_path) {
   await arguments_assert(defined_is, string_is)(arguments);
-  let json = await json_to(config);
+  let json = await json_to(value);
   await file_overwrite(file_path, json);
 }
