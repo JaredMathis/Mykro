@@ -13,6 +13,7 @@ import {file_js_all} from "./file_js_all.mjs";
 import {file_js_run} from "./file_js_run.mjs";
 import {file_js_all_for_each} from "./file_js_all_for_each.mjs";
 import {file_js_imports_missing_add} from "./file_js_imports_missing_add.mjs";
+import { git_branch_name } from './git_branch_name.mjs';
 export async function run_line(line) {
   let tokens = line.split(" ");
   let token_first = tokens[0];
@@ -26,7 +27,7 @@ export async function run_line(line) {
     if (await string_starts_with(match.name, git_prefix)) {
       console.log(`${match.name} starts with ${git_prefix}. Not running ${git_acp.name}`.magenta);
     } else {
-      let branch_name = '';
+      let branch_name = await git_branch_name();
       let message = `${line} ${branch_name}`;
       let prefix_expected = `${match.name} `;
       message = await string_starts_with_ensure(message, prefix_expected);
