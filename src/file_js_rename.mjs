@@ -1,3 +1,4 @@
+import {file_js_all_identifiers_get} from './file_js_all_identifiers_get.mjs';
 import {not} from './not.mjs';
 import {arguments_assert} from "./arguments_assert.mjs";
 import { assert } from "./assert.mjs";
