@@ -7,9 +7,9 @@ import { js_property_has } from "./js_property_has.mjs";
 export async function mykrodev_config_branch_main_get() {
     await arguments_assert()(arguments);
     let config = await mykrodev_config_get();
-    let branch = 'branch';
-    if (!await js_property_has(config, branch)) {
-        config[branch] = {};
+    let branch_property_name = 'branch';
+    if (!await js_property_has(config, branch_property_name)) {
+        config[branch_property_name] = {};
         await mykrodev_config_save(config);
     }
 }
