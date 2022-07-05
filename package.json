@@ -1,4 +1,5 @@
 {
+  "name": "mykrodev",
   "scripts": {
     "start": "node src/run.mjs"
   },
