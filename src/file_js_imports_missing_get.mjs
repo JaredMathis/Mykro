@@ -17,9 +17,13 @@ import { list_size } from "./list_size.mjs";
 export async function file_js_imports_missing_get(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
   let imports = await file_js_imports_get(function_name);
-  await list_where(imports, i => {
+  let imports_with_single_non_default_specifier = await list_where(imports, i => {
     let specifiers = await property_get(i, "specifiers");
     if (await list_size(specifiers, 1)) {
+      return false;
+    }
+    let specifier = await list_single(specifiers);
+    if (equals(await property_get(specifier, 'type'), 'ImportDefaultSpecifier')) {
       return false;
     }
     return true;
