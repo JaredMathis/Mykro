@@ -1,6 +1,5 @@
 import {arguments_assert} from "./arguments_assert.mjs";
 import {string_identifier_is} from "./string_identifier_is.mjs";
-import {file_js_parse} from "./file_js_parse.mjs";
 import {es_function_exported} from "./es_function_exported.mjs";
 import {list_first} from "./list_first.mjs";
 import {es_unparse} from "./es_unparse.mjs";

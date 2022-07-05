@@ -12,7 +12,7 @@ import {list_add} from "./list_add.mjs";
 import {list_unique} from "./list_unique.mjs";
 export async function file_js_identifiers_get(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
-  let ast = await file_js_parse(function_name);
+  let {ast} = await file_js_parse(function_name);
   let result = [];
   await es_traverse(ast, async node => {
     if (node.type === "Identifier") {

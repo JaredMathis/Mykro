@@ -7,7 +7,7 @@ import {js_function_is} from "./js_function_is.mjs";
 import {string_identifier_is} from "./string_identifier_is.mjs";
 export async function file_js_transform(function_name, transformer) {
   await arguments_assert(string_identifier_is, js_function_is)(arguments);
-  let ast = await file_js_parse(function_name);
+  let {ast} = await file_js_parse(function_name);
   await transformer(ast);
   let text = await es_unparse(ast);
   let file_path = await file_js_name_to_path(function_name);
