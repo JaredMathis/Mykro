@@ -9,7 +9,8 @@ var rl = readline.createInterface({
 });
 rl.on("line", async line => {
   try {
-    let config = await file_json_read("./mykrodev_config.json");
+    const config_path = "./mykrodev_config.json";
+    let config = await file_json_read(config_path);
     let src_path = config.path.src.mykrodev;
 
     let result = await command_line(`node ${src_path}/run_function.mjs ` + line);
