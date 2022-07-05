@@ -26,6 +26,9 @@ export async function run_line(line) {
       console.log(`${match.name} starts with ${git_prefix}. Not running ${git_acp.name}`.magenta);
     } else {
       let message = `${line}`;
+      if (!await string_starts_with(message, `${match.name} `)) {
+        
+      }
       let git_result = await git_acp(message);
       if (_.isUndefined(git_result)) {
         console.log(`${git_acp.name} ran successfully`.magenta);
