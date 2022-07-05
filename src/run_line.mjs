@@ -1,3 +1,4 @@
+import {string_starts_with} from './string_starts_with.mjs';
 import _ from "lodash";
 import {git_acp} from "./git_acp.mjs";
 import path from "path";
@@ -20,12 +21,17 @@ export async function run_line(line) {
   let on_success = async (result, match) => {
     console.log(result);
     await auto()
-    let git_result = await git_acp(`${line}`);
-    if (_.isUndefined(git_result)) {
-      console.log(`${git_acp.name} ran successfully`.magenta);
+    let git_prefix = 'git_'
+    if (await string_starts_with(match.name, git_prefix)) {
+      console.log(`${match.name} starts with ${git_prefix}. Not running ${git_acp.name}`.magenta);
     } else {
-      console.log(`${git_acp.name} errored. Maybe there was nothing to commit?`.magenta);
-      console.log(git_result.stack.red);
+      let git_result = await git_acp(`${line}`);
+      if (_.isUndefined(git_result)) {
+        console.log(`${git_acp.name} ran successfully`.magenta);
+      } else {
+        console.log(`${git_acp.name} errored. Maybe there was nothing to commit?`.magenta);
+        console.log(git_result.stack.red);
+      }
     }
   };
   let on_error = async e => console.log(e.stack.red);
