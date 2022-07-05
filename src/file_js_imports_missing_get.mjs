@@ -18,7 +18,7 @@ export async function file_js_imports_missing_get(function_name) {
     let specifiers = await property_get(i, "specifiers");
     let specifier = await list_single(specifiers);
     let local = await property_get(specifier, "local");
-    const imported = await property_get(specifier, "imported");
+    let imported = await property_get(specifier, "imported");
     await assert(equals_json, {specifier})(local, imported);
     return local.name;
   });
