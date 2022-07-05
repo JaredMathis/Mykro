@@ -24,7 +24,7 @@ export async function file_js_run(
     let _function = imported[match.name];
     try {
       let result = await _function(..._arguments);
-      await on_success(result);
+      await on_success(result, match);
     } catch (e) {
       await on_error(e);
     }
