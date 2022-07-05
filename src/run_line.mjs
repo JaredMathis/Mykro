@@ -9,6 +9,8 @@ import {equals} from "./equals.mjs";
 import {list_map} from "./list_map.mjs";
 import {file_js_all} from "./file_js_all.mjs";
 import {file_js_run} from "./file_js_run.mjs";
+import { file_js_all_for_each } from "./file_js_all_for_each.mjs";
+import { file_js_imports_missing_add } from "./file_js_imports_missing_add.mjs";
 export async function run_line(line) {
   let tokens = line.split(" ");
   let token_first = tokens[0];
@@ -16,6 +18,9 @@ export async function run_line(line) {
   let on_no_matches = async () => console.log(`No matching command: ${token_first}`.red);
   let on_success = async result => {
     console.log(result);
+
+    await file_js_all_for_each(file_js_imports_missing_add.name);
+
     let git_result = await git_acp(`${line}`);
     if (_.isUndefined(git_result)) {
       console.log(`${git_acp.name} ran successfully`.magenta);
