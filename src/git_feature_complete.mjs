@@ -8,6 +8,5 @@ export async function git_feature_complete() {
     await arguments_assert()(arguments);
     let current_branch = await git_branch_show_current();
     let main_branch = await mykrodev_config_branch_main_get();
-
-    git_checkout_merge()
+    await git_checkout_merge(current_branch, main_branch);
 }
