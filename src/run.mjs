@@ -21,9 +21,3 @@ rl.on("line", async line => {
     await js_log_error(e);
   }
 });
-async function mykrodev_config_src_path_get() {
-  let config = await mykrodev_config_get();
-  let src_path = config.path.src[await constant_mykrodev()];
-  return src_path;
-}
-
