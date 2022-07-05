@@ -16,4 +16,6 @@ let result = [];
         let identifiers = await file_js_all_identifiers_get(file.name);
         await list_add_all(result, identifiers);
     });
+
+    return result;
 }
