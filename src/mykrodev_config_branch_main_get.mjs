@@ -1,3 +1,4 @@
+import {main} from './main.mjs';
 import {mykrodev_config_save} from './mykrodev_config_save.mjs';
 import {mykrodev_config_get} from './mykrodev_config_get.mjs';
 
@@ -11,6 +12,7 @@ export async function mykrodev_config_branch_main_get() {
         config, config, 'branch', {});
     await mykrodev_config_property_exists_ensure(
         config, config.branch, 'main', 'main');
+    return config.branch.main;
 }
 
 async function mykrodev_config_property_exists_ensure(
