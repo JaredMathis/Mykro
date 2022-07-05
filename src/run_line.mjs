@@ -17,7 +17,7 @@ export async function run_line(line) {
   let tokens_remaining = tokens.slice(1);
   let auto = async () => await file_js_all_for_each(file_js_imports_missing_add.name);
   let on_no_matches = async () => console.log(`No matching command: ${token_first}`.red);
-  let on_success = async result => {
+  let on_success = async (result, match) => {
     console.log(result);
     await auto()
     let git_result = await git_acp(`${line}`);
