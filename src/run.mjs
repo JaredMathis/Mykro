@@ -12,7 +12,7 @@ rl.on("line", async line => {
     let config = await file_json_read("./mykcrodev_config.json");
     let src_path = config.path.src.mykrodev;
 
-    let result = await command_line(`node src/run_function.mjs ` + line);
+    let result = await command_line(`node ${src_path}/run_function.mjs ` + line);
     console.log(result.stdout);
   } catch (e) {
     await js_log_error(e);
