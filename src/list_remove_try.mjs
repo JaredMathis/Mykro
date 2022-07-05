@@ -15,7 +15,5 @@ export async function list_remove_try(list, item) {
   }
   let index = await property_get(index_of, "index");
   await list_remove_at(list, index);
-  return {
-    index
-  };
+  return index_of;
 }
