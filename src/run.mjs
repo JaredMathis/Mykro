@@ -13,7 +13,7 @@ var rl = readline.createInterface({
 rl.on("line", async line => {
   try {
     let config = await mykrodev_config_get();
-    let src_path = config.path.src[constant_mykrodev()];
+    let src_path = config.path.src[await constant_mykrodev()];
 
     let result = await command_line(`node ${src_path}/run_function.mjs ` + line);
     console.log(result.stdout);
@@ -21,18 +21,14 @@ rl.on("line", async line => {
     await js_log_error(e);
   }
 });
-function constant_mykrodev() {
-  let result = `mykrodev`;
-  return result;
-}
 async function mykrodev_config_get() {
-  const config_path = `./${constant_mykrodev()}.json`;
+  const config_path = `./${await constant_mykrodev()}.json`;
   if (!await file_exists(config_path)) {
     await file_overwrite(config_path, `
 {
     "path": {
         "src": {
-            "${constant_mykrodev()}": "./node_modules/${constant_mykrodev()}/src"
+            "${await constant_mykrodev()}": "./node_modules/${await constant_mykrodev()}/src"
         }
     }
 }
