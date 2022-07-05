@@ -8,7 +8,7 @@ import { string_starts_with } from './string_starts_with.mjs';
 import { list_starting_at } from './list_starting_at.mjs';
 import { string_to_list } from './string_to_list.mjs';
 
-export async function git_branch_name() {
+export async function git_branch_show_current() {
     await arguments_assert()(arguments);
     let result = await command_line(`git branch --show-current`);
     let stdout = result.stdout
