@@ -19,12 +19,3 @@ export async function git_branch_show_current() {
     stdout = stdout.trim();
     return stdout;
 }
-
-async function string_prefix_if_remove(s, prefix) {
-    if (await string_starts_with(s, prefix)) {
-        let stdout_as_list = await string_to_list(s);
-        let sublist = await list_starting_at(stdout_as_list, await string_size(prefix));
-        s = await string_from_list(sublist);
-    }
-    return s;
-}
