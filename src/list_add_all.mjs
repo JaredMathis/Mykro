@@ -7,4 +7,5 @@ export async function list_add_all(list, other) {
   await for_each(other, async o => {
     await list_add(list, o);
   });
+  return list;
 }
