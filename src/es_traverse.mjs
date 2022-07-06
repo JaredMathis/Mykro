@@ -1,16 +1,15 @@
-
 import _ from "lodash";
-import { arguments_assert } from "./arguments_assert.mjs";
-import { defined_is } from "./defined_is.mjs";
-import { js_function_is } from "./js_function_is.mjs";
-import { js_properties } from "./js_properties.mjs";
-import { js_property_has } from "./js_property_has.mjs";
-import { list_map } from "./list_map.mjs";
-import { list_where } from "./list_where.mjs";
-import { property_get } from "./property_get.mjs";
-import { tree_traverse } from "./tree_traverse.mjs";
+import {arguments_assert} from "./arguments_assert.mjs";
+import {defined_is} from "./defined_is.mjs";
+import {js_function_is} from "./js_function_is.mjs";
+import {js_properties} from "./js_properties.mjs";
+import {js_property_has} from "./js_property_has.mjs";
+import {list_map} from "./list_map.mjs";
+import {list_where} from "./list_where.mjs";
+import {property_get} from "./property_get.mjs";
+import {tree_traverse} from "./tree_traverse.mjs";
 export async function es_traverse(ast, ast_node_for_each) {
-    await arguments_assert(defined_is, js_function_is)(arguments);
+  await arguments_assert(defined_is, js_function_is)(arguments);
   await tree_traverse(ast, async node => {
     let values = await js_values(node);
     return await list_where(values, async v => v !== null && (await js_property_has(v, "type") || _.isArray(v)));
