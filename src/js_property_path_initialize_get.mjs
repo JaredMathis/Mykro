@@ -25,7 +25,7 @@ export async function js_property_path_initialize_get(object, path, default_valu
       } else {
         value = {};
       }
-      await mykro_config_property_exists_ensure(config, current, path_part, value);
+      await mykro_config_property_exists_ensure(object, current, path_part, value);
     }
   }
   
