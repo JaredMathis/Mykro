@@ -14,5 +14,5 @@ export async function file_js_move(function_name, file_path_new) {
   let matches = await list_where(await file_js_all(), f => equals(f.name, function_name));
   let match = await list_single(matches);
 
-  return matches;
+  return match;
 }
