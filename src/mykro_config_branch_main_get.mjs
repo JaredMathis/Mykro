@@ -13,13 +13,7 @@ export async function mykro_config_branch_main_get() {
   let index_last = await list_index_last(path);
   let current = config;
   await for_each(path, async (path_part, index) => {
-    let value;
-    if (equals(index, index_last)) {
-      value = default_value
-    } else {
-      value = {};
-    }
-    await mykro_config_property_exists_ensure(config, current, path_part, value);
+    await for_each_lambda(path_part, index);
     current = property_get(current, path_part);
   })
 
@@ -29,4 +23,14 @@ export async function mykro_config_branch_main_get() {
   })
 
   return current2;
+
+  async function for_each_lambda(path_part, index) {
+    let value;
+    if (equals(index, index_last)) {
+      value = default_value;
+    } else {
+      value = {};
+    }
+    await mykro_config_property_exists_ensure(config, current, path_part, value);
+  }
 }
