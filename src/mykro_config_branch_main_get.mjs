@@ -10,6 +10,7 @@ export async function mykro_config_branch_main_get() {
   let path = ['branch', 'main'];
   let default_value = "main";
   let index_last = await list_index_last(path);
+  let current = config;
   await for_each(path, async (path_part, index) => {
     let value;
     if (equals(index, index_last)) {
