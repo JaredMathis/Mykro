@@ -5,6 +5,7 @@ import {arguments_assert} from "./arguments_assert.mjs";
 import { for_each } from './for_each.mjs';
 import { equals } from './equals.mjs';
 import { property_get } from './property_get.mjs';
+import { noop } from './noop.mjs';
 export async function mykro_config_branch_main_get() {
   await arguments_assert()(arguments);
   let config = await mykro_config_get();
@@ -13,10 +14,7 @@ export async function mykro_config_branch_main_get() {
   let index_last = await list_index_last(path);
   let current = await js_property_path_get_generic(config, path, for_each_lambda);
 
-  let current2 = config;
-  await for_each(path, async (path_part) => {
-    current = property_get(current, path_part);
-  })
+  let current2 = await js_property_path_get_generic(config, path, noop);
 
   return current2;
 
