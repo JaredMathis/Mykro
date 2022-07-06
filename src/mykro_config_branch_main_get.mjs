@@ -6,7 +6,7 @@ export async function mykro_config_branch_main_get() {
   await arguments_assert()(arguments);
   let config = await mykro_config_get();
   let path = ['branch', 'main'];
-  await for_each(path, async path_part => {
+  await for_each(path, async (path_part, index) => {
 
   })
   await mykro_config_property_exists_ensure(config, config, "branch", {});
