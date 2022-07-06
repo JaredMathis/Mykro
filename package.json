@@ -6,7 +6,7 @@
     "pub": "npm version patch --force && npm publish"
   },
   "bin": {
-    "mykro": "node ./node_modules/mykro/src/run.mjs"
+    "mykro": "src/run.mjs"
   },
   "dependencies": {
     "astring": "^1.8.3",
