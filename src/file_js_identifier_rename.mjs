@@ -12,7 +12,7 @@ export async function file_js_identifier_rename(function_name, name_from, name_t
   let identifiers = await file_js_all_identifiers_get();
   await assert(not(list_contains))(identifiers, name_to);
   await file_js_transform(function_name, ast => {
-    es_traverse(ast, node => {
+    await es_traverse(ast, async node => {
       
     });
   });
