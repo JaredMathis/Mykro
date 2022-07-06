@@ -11,7 +11,8 @@ export async function file_js_move(function_name, file_path_new) {
 
   let directory = await mykrodev_config_src_path_get();
   
-  let matches = await list_where(await file_js_all(), f => equals(f.name, function_name));
+  const files = await file_js_all();
+  let matches = await list_where(files, f => equals(f.name, function_name));
   let match = await list_single(matches);
 
   return match;
