@@ -8,7 +8,7 @@ import {file_js_run} from "./file_js_run.mjs";
 import {file_js_all_for_each} from "./file_js_all_for_each.mjs";
 import {file_js_imports_missing_add} from "./file_js_imports_missing_add.mjs";
 import {git_branch_show_current} from "./git_branch_show_current.mjs";
-import {mykrodev_config_get} from "./mykro_config_get.mjs";
+import {mykro_config_get} from "./mykro_config_get.mjs";
 import {command_line} from "./command_line.mjs";
 export async function run_line(line) {
   let tokens = line.split(" ");
@@ -19,7 +19,7 @@ export async function run_line(line) {
   let on_success = async (result, match) => {
     console.log(result);
     await auto();
-    let config = await mykrodev_config_get();
+    let config = await mykro_config_get();
     if (config?.on_success) {
       await command_line(config.on_success);
     }

@@ -1,4 +1,4 @@
-import {mykrodev_config_src_path_get} from "./mykrodev_config_src_path_get.mjs";
+import {mykro_config_src_path_get} from "./mykro_config_src_path_get.mjs";
 import readline from "readline";
 import {command_line} from "./command_line.mjs";
 import {js_log_error} from "./js_log_error.mjs";
@@ -9,7 +9,7 @@ var rl = readline.createInterface({
 });
 rl.on("line", async line => {
   try {
-    let src_path = await mykrodev_config_src_path_get();
+    let src_path = await mykro_config_src_path_get();
     let result = await command_line(`node ${src_path}/run_function.mjs ` + line);
     console.log(result.stdout);
   } catch (e) {
