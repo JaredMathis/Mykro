@@ -1,4 +1,5 @@
-import {path_combine} from './path_combine.mjs';
+import {file_path_join} from './file_path_join.mjs';
+import {file_path_join, path_combine} from './file_path_join.mjs';
 import {list_single} from './list_single.mjs';
 import {arguments_assert} from "./arguments_assert.mjs";
 import { equals } from "./equals.mjs";
@@ -11,7 +12,7 @@ export async function file_js_move(function_name, file_path_new) {
   await arguments_assert(string_identifier_is, string_is)(arguments);
 
   let directory = await mykrodev_config_src_path_get();
-  file_path_new = await path_combine(directory, file_path_new);
+  file_path_new = await file_path_join(directory, file_path_new);
   
   const files = await file_js_all();
   let matches = await list_where(files, f => equals(f.name, function_name));
