@@ -39,6 +39,7 @@ export async function js_property_path_initialize_get(object, path, default_valu
     await for_each(path, async (path_part, index) => {
       await for_each_lambda(path_part, index, object, current);
       current = property_get(current, path_part);
+      console.log(path_part)
     });
     return current;
   }
