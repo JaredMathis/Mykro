@@ -2,6 +2,11 @@
 import { arguments_assert } from "./arguments_assert.mjs";
 import { defined_is } from "./defined_is.mjs";
 import { js_function_is } from "./js_function_is.mjs";
+import { js_properties } from "./js_properties.mjs";
+import { js_property_has } from "./js_property_has.mjs";
+import { list_map } from "./list_map.mjs";
+import { list_where } from "./list_where.mjs";
+import { property_get } from "./property_get.mjs";
 import { tree_traverse } from "./tree_traverse.mjs";
 export async function es_traverse(ast, ast_node_for_each) {
     await arguments_assert(defined_is, js_function_is)(arguments);
