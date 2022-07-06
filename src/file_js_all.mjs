@@ -4,7 +4,7 @@ import {path_file_name} from "./path_file_name.mjs";
 import {path_file_extension} from "./path_file_extension.mjs";
 import {list_map} from "./list_map.mjs";
 import {list_where} from "./list_where.mjs";
-import { mykrodev_config_src_path_get } from "./mykrodev_config_src_path_get.mjs";
+import {mykrodev_config_src_path_get} from "./mykrodev_config_src_path_get.mjs";
 export async function file_js_all() {
   await arguments_assert()(arguments);
   let directory = await mykrodev_config_src_path_get();

@@ -1,4 +1,4 @@
-import {mykrodev_config_src_path_get} from './mykrodev_config_src_path_get.mjs';
+import {mykrodev_config_src_path_get} from "./mykrodev_config_src_path_get.mjs";
 import readline from "readline";
 import {command_line} from "./command_line.mjs";
 import {js_log_error} from "./js_log_error.mjs";
