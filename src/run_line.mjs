@@ -22,7 +22,7 @@ export async function run_line(line) {
     console.log(result);
     if (!await mykro_config_auto_disabled_get()) {
       await auto();
-      console.log(`${auto.name} ran successfully`.bgCyan);
+      console.log(`${auto.name} ran successfully`.cyan);
     } else {
       console.log(`${auto.name} is disabled in ${await mykro_config_path()}. Not running ${auto.name}`.cyan);
     }
