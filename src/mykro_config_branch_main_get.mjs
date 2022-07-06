@@ -9,9 +9,7 @@ import { noop } from './noop.mjs';
 export async function mykro_config_branch_main_get() {
   await arguments_assert()(arguments);
   let config = await mykro_config_get();
-  let path = ['branch', 'main'];
-  let default_value = "main";
-  return await js_property_initialize_get(config, path, default_value);
+  return await js_property_initialize_get(config, ['branch', 'main'], "main");
 }
 async function js_property_initialize_get(config, path, default_value) {
   await js_property_path_initialize(config, path, default_value);
