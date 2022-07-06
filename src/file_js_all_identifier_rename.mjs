@@ -11,7 +11,7 @@ import {equals} from "./equals.mjs";
 import { file_js_all_for_each } from "./file_js_all_for_each.mjs";
 import { file_js_identifier_rename } from "./file_js_identifier_rename.mjs";
 export async function file_js_all_identifier_rename(name_from, name_to) {
-  await arguments_assert(string_identifier_is, string_is, string_is)(arguments);
+  await arguments_assert(string_is, string_is)(arguments);
   let identifiers = await file_js_all_identifiers_get();
   await assert(not(list_contains))(identifiers, name_to);
   await file_js_all_for_each(file_js_identifier_rename.name, name_from, name_to)
