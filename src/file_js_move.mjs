@@ -18,7 +18,10 @@ export async function file_js_move(function_name, file_path_new) {
   let matches = await list_where(files, f => equals(f.name, function_name));
   let match = await list_single(matches);
 
-  await file_move(match.file_path, file_path_new);
+  if (false) {
 
+    await file_move(match.file_path, file_path_new);
+
+  }
   return match;
 }
