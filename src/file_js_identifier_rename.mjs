@@ -15,9 +15,6 @@ export async function file_js_identifier_rename(function_name, name_from, name_t
   await file_js_transform(function_name, async _ast => {
     await es_traverse(_ast, async node => {
       if (equals(node.type, "Identifier")) {
-        console.log({
-          node
-        });
         if (equals(node.name, name_from)) {
           node.name = name_to;
         }
