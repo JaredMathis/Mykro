@@ -10,7 +10,8 @@ export async function file_js_move(function_name, file_path_new) {
 
   let directory = await mykrodev_config_src_path_get();
   
-  let filtered = await list_where(await file_js_all(), f => equals(f.name, function_name));
+  let matches = await list_where(await file_js_all(), f => equals(f.name, function_name));
+  
 
-  return filtered;
+  return matches;
 }
