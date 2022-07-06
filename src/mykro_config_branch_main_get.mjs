@@ -4,6 +4,7 @@ import {mykro_config_get} from "./mykro_config_get.mjs";
 import {arguments_assert} from "./arguments_assert.mjs";
 import { for_each } from './for_each.mjs';
 import { equals } from './equals.mjs';
+import { property_get } from './property_get.mjs';
 export async function mykro_config_branch_main_get() {
   await arguments_assert()(arguments);
   let config = await mykro_config_get();
@@ -18,8 +19,8 @@ export async function mykro_config_branch_main_get() {
     } else {
       value = {};
     }
+    await mykro_config_property_exists_ensure(config, current, path_part, value);
+    current = property_get(current, path_part);
   })
-  await mykro_config_property_exists_ensure(config, config, "branch", {});
-  await mykro_config_property_exists_ensure(config, config.branch, "main", default_value);
   return config.branch.main;
 }
