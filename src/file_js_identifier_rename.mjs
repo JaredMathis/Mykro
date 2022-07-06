@@ -13,8 +13,8 @@ export async function file_js_identifier_rename(function_name, name_from, name_t
   await arguments_assert(string_identifier_is, string_is, string_is)(arguments);
   let identifiers = await file_js_identifiers_get(function_name);
   await assert(not(list_contains))(identifiers, name_to);
-  await file_js_transform(function_name, async ___ast => {
-    await es_traverse(___ast, async node => {
+  await file_js_transform(function_name, async ast => {
+    await es_traverse(ast, async node => {
       if (equals(node.type, "Identifier")) {
         if (equals(node.name, name_from)) {
           node.name = name_to;
