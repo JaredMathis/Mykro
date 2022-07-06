@@ -1,7 +1,7 @@
 {
     "path": {
         "src": {
-            "mykrodev": "./src"
+            "mykro": "./src"
         }
     }
 }
