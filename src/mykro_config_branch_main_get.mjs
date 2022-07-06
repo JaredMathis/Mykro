@@ -22,5 +22,11 @@ export async function mykro_config_branch_main_get() {
     await mykro_config_property_exists_ensure(config, current, path_part, value);
     current = property_get(current, path_part);
   })
-  return config.branch.main;
+
+  let current2 = config;
+  await for_each(path, async (path_part) => {
+    current = property_get(current, path_part);
+  })
+
+  return current2;
 }
