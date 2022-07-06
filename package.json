@@ -1,5 +1,5 @@
 {
-  "name": "mykrodev",
+  "name": "mykro",
   "version": "0.0.17",
   "scripts": {
     "start": "node src/run.mjs",
