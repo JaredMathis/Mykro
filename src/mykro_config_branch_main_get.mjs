@@ -11,9 +11,13 @@ export async function mykro_config_branch_main_get() {
   let config = await mykro_config_get();
   let path = ['branch', 'main'];
   let default_value = "main";
+  return await js_property_initialize_get(config, path, default_value);
+}
+async function js_property_initialize_get(config, path, default_value) {
   await js_property_path_initialize(config, path, default_value);
   return await js_property_path_get(config, path);
 }
+
 async function js_property_path_initialize(config, path, default_value) {
   let index_last = await list_index_last(path);
   let current = await js_property_path_get_generic(config, path, for_each_lambda);
