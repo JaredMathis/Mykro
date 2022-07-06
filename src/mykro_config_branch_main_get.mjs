@@ -1,3 +1,4 @@
+import {js_property_path_initialize_get} from './js_property_path_initialize_get.mjs';
 import {list_index_last} from './list_index_last.mjs';
 import {mykro_config_property_exists_ensure} from './mykro_config_property_exists_ensure.mjs';
 import {mykro_config_get} from "./mykro_config_get.mjs";
