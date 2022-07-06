@@ -13,7 +13,9 @@ export async function file_js_identifier_rename(function_name, name_from, name_t
   await assert(not(list_contains))(identifiers, name_to);
   await file_js_transform(function_name, async ast => {
     await es_traverse(ast, async node => {
-      
+      if (node.type === 'Literal') {
+        
+      }
     });
   });
 }
