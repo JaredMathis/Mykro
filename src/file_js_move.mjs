@@ -1,3 +1,4 @@
+import {list_single} from './list_single.mjs';
 import {arguments_assert} from "./arguments_assert.mjs";
 import { equals } from "./equals.mjs";
 import { file_js_all } from "./file_js_all.mjs";
@@ -11,7 +12,7 @@ export async function file_js_move(function_name, file_path_new) {
   let directory = await mykrodev_config_src_path_get();
   
   let matches = await list_where(await file_js_all(), f => equals(f.name, function_name));
-  
+  let match = await list_single(matches);
 
   return matches;
 }
