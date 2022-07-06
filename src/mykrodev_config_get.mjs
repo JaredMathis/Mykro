@@ -2,7 +2,7 @@ import {mykrodev_config_path} from "./mykrodev_config_path.mjs";
 import {file_json_read} from "./file_json_read.mjs";
 import {file_overwrite} from "./file_overwrite.mjs";
 import {file_exists} from "./file_exists.mjs";
-import {constant_mykrodev} from "./constant_mykro.mjs";
+import {constant_mykro} from "./constant_mykro.mjs";
 import {arguments_assert} from "./arguments_assert.mjs";
 export async function mykrodev_config_get() {
   await arguments_assert()(arguments);
@@ -12,7 +12,7 @@ export async function mykrodev_config_get() {
   {
       "path": {
           "src": {
-              "${await constant_mykrodev()}": "./node_modules/${await constant_mykrodev()}/src"
+              "${await constant_mykro()}": "./node_modules/${await constant_mykro()}/src"
           }
       }
   }
