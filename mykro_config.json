@@ -4,5 +4,7 @@
       "mykro": "./src"
     }
   },
-  "auto": {}
+  "auto": {
+    "disabled": false
+  }
 }
