@@ -16,16 +16,18 @@ export async function run_line(line) {
   let tokens = line.split(" ");
   let token_first = tokens[0];
   let tokens_remaining = tokens.slice(1);
-  let auto = async () => await file_js_all_for_each(file_js_imports_missing_add.name);
+  let auto = async () => {
+    if (await mykro_config_auto_disabled_get()) {
+      console.log(`${auto.name} is disabled in ${await mykro_config_path()}. Not running ${auto.name}`.cyan);
+      return;
+    }
+    await file_js_all_for_each(file_js_imports_missing_add.name);
+    console.log(`${auto.name} ran successfully`.cyan);
+  }
   let on_no_matches = async () => console.log(`No matching command: ${token_first}`.red);
   let on_success = async (result, match) => {
     console.log(result);
-    if (!await mykro_config_auto_disabled_get()) {
-      await auto();
-      console.log(`${auto.name} ran successfully`.cyan);
-    } else {
-      console.log(`${auto.name} is disabled in ${await mykro_config_path()}. Not running ${auto.name}`.cyan);
-    }
+    await auto();
     let config = await mykro_config_get();
     if (config?.on_success) {
       await command_line(config.on_success);
