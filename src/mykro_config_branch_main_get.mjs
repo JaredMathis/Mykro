@@ -22,9 +22,7 @@ export async function mykro_config_branch_main_get() {
     }
     await mykro_config_property_exists_ensure(config, current, path_part, value);
   }
-
   let current2 = await js_property_path_get_generic(config, path, noop);
-
   return current2;
 }
 async function js_property_path_get_generic(config, path, for_each_lambda) {
