@@ -13,11 +13,6 @@ export async function mykro_config_branch_main_get() {
   let default_value = "main";
   let index_last = await list_index_last(path);
   let current = await js_property_path_get_generic(config, path, for_each_lambda);
-
-  let current2 = await js_property_path_get_generic(config, path, noop);
-
-  return current2;
-
   async function for_each_lambda(path_part, index) {
     let value;
     if (equals(index, index_last)) {
@@ -27,6 +22,10 @@ export async function mykro_config_branch_main_get() {
     }
     await mykro_config_property_exists_ensure(config, current, path_part, value);
   }
+
+  let current2 = await js_property_path_get_generic(config, path, noop);
+
+  return current2;
 }
 async function js_property_path_get_generic(config, path, for_each_lambda) {
   let current = config;
