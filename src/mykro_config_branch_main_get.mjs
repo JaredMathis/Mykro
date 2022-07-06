@@ -25,8 +25,8 @@ export async function mykro_config_branch_main_get() {
   return await js_property_path_get(config, path);
 }
 async function js_property_path_get(object, path) {
-  let current2 = await js_property_path_get_generic(object, path, noop);
-  return current2;
+  let result = await js_property_path_get_generic(object, path, noop);
+  return result;
 }
 
 async function js_property_path_get_generic(config, path, for_each_lambda) {
