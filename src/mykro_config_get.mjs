@@ -1,4 +1,4 @@
-import {mykrodev_config_path} from "./mykrodev_config_path.mjs";
+import {mykrodev_config_path} from "./mykro_config_path.mjs";
 import {file_json_read} from "./file_json_read.mjs";
 import {file_overwrite} from "./file_overwrite.mjs";
 import {file_exists} from "./file_exists.mjs";
