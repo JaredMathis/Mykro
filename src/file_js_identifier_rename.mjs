@@ -8,12 +8,13 @@ import {list_contains} from "./list_contains.mjs";
 import {file_js_transform} from "./file_js_transform.mjs";
 import {string_identifier_is} from "./string_identifier_is.mjs";
 import {equals} from "./equals.mjs";
+import {file_js_identifiers_get} from "./file_js_identifiers_get.mjs";
 export async function file_js_identifier_rename(function_name, name_from, name_to) {
   await arguments_assert(string_identifier_is, string_is, string_is)(arguments);
-  let identifiers = await file_js_all_identifiers_get();
+  let identifiers = await file_js_identifiers_get(function_name);
   await assert(not(list_contains))(identifiers, name_to);
-  await file_js_transform(function_name, async _ast => {
-    await es_traverse(_ast, async node => {
+  await file_js_transform(function_name, async ast => {
+    await es_traverse(ast, async node => {
       if (equals(node.type, "Identifier")) {
         if (equals(node.name, name_from)) {
           node.name = name_to;
