@@ -13,8 +13,8 @@ import {equals} from "./equals.mjs";
 import {file_js_transform} from "./file_js_transform.mjs";
 export async function file_js_arguments_transform(function_name, transformer_arguments) {
   await arguments_assert(string_identifier_is, _.isFunction)(arguments);
-  let transformer = async ast => {
-    let function_exported = await es_function_exported(ast);
+  let transformer = async ___ast => {
+    let function_exported = await es_function_exported(___ast);
     let declaration = await property_get(function_exported, "declaration");
     let body = await property_get(declaration, "body");
     let body_block = await property_get(body, "body");

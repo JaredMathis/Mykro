@@ -3,7 +3,7 @@ import {file_js_all} from "./file_js_all.mjs";
 import {file_js_identifiers_get} from "./file_js_identifiers_get.mjs";
 import {arguments_assert} from "./arguments_assert.mjs";
 import {for_each} from "./for_each.mjs";
-import { list_unique } from "./list_unique.mjs";
+import {list_unique} from "./list_unique.mjs";
 export async function file_js_all_identifiers_get() {
   await arguments_assert()(arguments);
   let result = [];
