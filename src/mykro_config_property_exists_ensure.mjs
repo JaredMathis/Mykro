@@ -7,12 +7,8 @@ import { string_is } from './string_is.mjs';
 
 export async function mykro_config_property_exists_ensure(config, object, property_name, default_value) {
     await arguments_assert(defined_is, defined_is, string_is, defined_is)(arguments);
-    // TODO
-}
-
-async function mykro_config_property_exists_ensure(config, object, property_name, default_value) {
     if (!await js_property_has(object, property_name)) {
-      object[property_name] = default_value;
-      await mykro_config_save(config);
-    }
-  }
+        object[property_name] = default_value;
+        await mykro_config_save(config);
+      }
+}
