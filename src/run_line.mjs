@@ -10,6 +10,8 @@ import {file_js_imports_missing_add} from "./file_js_imports_missing_add.mjs";
 import {git_branch_show_current} from "./git_branch_show_current.mjs";
 import {mykro_config_get} from "./mykro_config_get.mjs";
 import {command_line} from "./command_line.mjs";
+import { mykro_config_auto_disabled_get } from "./mykro_config_auto_disabled_get.mjs";
+import { mykro_config_path } from "./mykro_config_path.mjs";
 export async function run_line(line) {
   let tokens = line.split(" ");
   let token_first = tokens[0];
@@ -18,7 +20,12 @@ export async function run_line(line) {
   let on_no_matches = async () => console.log(`No matching command: ${token_first}`.red);
   let on_success = async (result, match) => {
     console.log(result);
-    await auto();
+    if (!await mykro_config_auto_disabled_get()) {
+      await auto();
+      console.log(`${auto.name} ran successfully`.bgCyan);
+    } else {
+      console.log(`${auto.name} is disabled in ${await mykro_config_path()}. Not running ${auto.name}`.bgCyan);
+    }
     let config = await mykro_config_get();
     if (config?.on_success) {
       await command_line(config.on_success);

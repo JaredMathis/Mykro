@@ -1,7 +1,1 @@
-{
-    "path": {
-        "src": {
-            "mykro": "./src"
-        }
-    }
-}
+{"path":{"src":{"mykro":"./src"}},"auto":{}}

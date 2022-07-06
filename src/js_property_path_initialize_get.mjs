@@ -18,7 +18,7 @@ export async function js_property_path_initialize_get(object, path, default_valu
   async function js_property_path_initialize(config, path, default_value) {
     let index_last = await list_index_last(path);
     let current = await js_property_path_get_generic(config, path, for_each_lambda);
-    async function for_each_lambda(path_part, index) {
+    async function for_each_lambda(path_part, index, object, current) {
       let value;
       if (equals(index, index_last)) {
         value = default_value;
@@ -37,7 +37,7 @@ export async function js_property_path_initialize_get(object, path, default_valu
   async function js_property_path_get_generic(object, path, for_each_lambda) {
     let current = object;
     await for_each(path, async (path_part, index) => {
-      await for_each_lambda(path_part, index);
+      await for_each_lambda(path_part, index, object, current);
       current = property_get(current, path_part);
     });
     return current;
