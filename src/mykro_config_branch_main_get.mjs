@@ -10,7 +10,7 @@ export async function mykro_config_branch_main_get() {
   let default_value = "main";
   let index_last = await list_index_last(path);
   await for_each(path, async (path_part, index) => {
-
+    
   })
   await mykro_config_property_exists_ensure(config, config, "branch", {});
   await mykro_config_property_exists_ensure(config, config.branch, "main", default_value);
