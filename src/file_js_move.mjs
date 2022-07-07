@@ -22,5 +22,5 @@ export async function file_js_move(function_name, function_name_new) {
   if (false) {
     await file_move(match.file_path, function_name_new);
   }
-  return function_new_path;
+  return {function_new_path,match};
 }
