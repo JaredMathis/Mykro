@@ -9,15 +9,15 @@ import {list_where} from "./list_where.mjs";
 import {mykro_config_src_path_get} from "./mykro_config_src_path_get.mjs";
 import {string_identifier_is} from "./string_identifier_is.mjs";
 import {string_is} from "./string_is.mjs";
-export async function file_js_move(function_name, file_path_new) {
+export async function file_js_move(function_name, function_name_new) {
   await arguments_assert(string_identifier_is, string_is)(arguments);
   let directory = await mykro_config_src_path_get();
-  file_path_new = await file_path_join(directory, file_path_new);
+  function_name_new = await file_path_join(directory, function_name_new);
   const files = await file_js_all();
   let matches = await list_where(files, f => equals(f.name, function_name));
   let match = await list_single(matches);
   if (false) {
-    await file_move(match.file_path, file_path_new);
+    await file_move(match.file_path, function_name_new);
   }
   return match;
 }
