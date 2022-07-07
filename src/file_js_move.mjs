@@ -16,9 +16,14 @@ export async function file_js_move(function_name, function_name_new) {
   let function_new_path = await string_replace_all(function_name_new, '_', '/');
   function_new_path = await file_path_join([directory, function_new_path]);
   function_new_path += await file_js_extension();
-  const files = await file_js_all();
-  let matches = await list_where(files, f => equals(f.name, function_name));
-  let match = await list_single(matches);
+  let match = await file_js_all_match_exact(function_name);
   await file_move(match.file_path, function_new_path);
   return {function_new_path,match};
 }
+async function file_js_all_match_exact(function_name) {
+  const files = await file_js_all();
+  let matches = await list_where(files, f => equals(f.name, function_name));
+  let match = await list_single(matches);
+  return match;
+}
+
