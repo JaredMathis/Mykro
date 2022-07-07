@@ -17,7 +17,7 @@ export async function file_js_run(function_name, _arguments, on_no_matches, on_s
   } else if (equals(matches_count, 1)) {
     let match = matches[0];
     let import_path = await file_path_resolve(match.file_path);
-    await on_match(import_path);
+    await on_match(import_path, match);
     let imported = await import("file://" + import_path);
     let _function = imported[match.name];
     try {

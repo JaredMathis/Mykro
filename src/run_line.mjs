@@ -16,6 +16,7 @@ export async function run_line(line) {
   let tokens = line.split(" ");
   let token_first = tokens[0];
   let tokens_remaining = tokens.slice(1);
+  let config = await mykro_config_get();
   let auto = async () => {
     if (await mykro_config_auto_disabled_get()) {
       console.log(`${auto.name} is disabled in ${await mykro_config_path()}. Not running ${auto.name}`.cyan);
@@ -28,14 +29,8 @@ export async function run_line(line) {
   let on_success = async (result, match) => {
     console.log(result);
     await auto();
-    let config = await mykro_config_get();
     if (config?.on_success) {
       await command_line(config.on_success);
-    }
-    let on_token_first = (config?.on || {})[match.name];
-    if (on_token_first) {
-      console.log(`Running ${on_token_first}`.green);
-      await command_line(on_token_first);
     }
     let git_prefix = "git_";
     if (await string_starts_with(match.name, git_prefix)) {
@@ -60,7 +55,12 @@ export async function run_line(line) {
     console.log(`Multiple commands matched: `);
     console.log(await list_map(matches, m => m.name));
   };
-  let on_match = async import_path => {
+  let on_match = async (import_path, match) => {
+    let on_token_first = (config?.on || {})[match.name];
+    if (on_token_first) {
+      console.log(`Running ${on_token_first}`.green);
+      await command_line(on_token_first);
+    }
     console.log(import_path.blue + " " + tokens_remaining.map(a => a.toString()).join(" "));
     await auto();
   };
