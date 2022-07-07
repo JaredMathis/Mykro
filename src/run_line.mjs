@@ -34,6 +34,7 @@ export async function run_line(line) {
     }
     let on_token_first = (config?.on || {})[token_first];
     if (on_token_first) {
+      console.log(`Running ${on_token_first}`.green);
       await command_line(on_token_first);
     }
     let git_prefix = "git_";
