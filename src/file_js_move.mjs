@@ -1,3 +1,4 @@
+import {file_js_all_match_exact} from './file_js_all_match_exact.mjs';
 import {string_replace_all} from './string_replace_all.mjs';
 import {file_move} from './file_move.mjs';
 import {file_path_join} from "./file_path_join.mjs";
@@ -19,11 +20,5 @@ export async function file_js_move(function_name, function_name_new) {
   let match = await file_js_all_match_exact(function_name);
   await file_move(match.file_path, function_new_path);
   return {function_new_path,match};
-}
-async function file_js_all_match_exact(function_name) {
-  const files = await file_js_all();
-  let matches = await list_where(files, f => equals(f.name, function_name));
-  let match = await list_single(matches);
-  return match;
 }
 
