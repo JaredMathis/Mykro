@@ -1,3 +1,5 @@
+import {json_from} from './json_from.mjs';
+import {equals_json} from './equals_json.mjs';
 import {arguments_assert} from "./arguments_assert.mjs";
 import {string_identifier_is} from "./string_identifier_is.mjs";
 import {es_function_exported} from "./es_function_exported.mjs";
@@ -25,7 +27,7 @@ export async function file_js_arguments_transform(function_name, transformer_arg
     let awaited_first = await property_get(expression_first, "argument");
     await assert(equals)(await property_get(awaited_first, "type"), "CallExpression");
     let awaited_first_arguments = await property_get(awaited_first, "arguments");
-    await assert(equals)(await json_to(awaited_first_arguments), "[{\"type\":\"Identifier\",\"name\":\"arguments\"}]");
+    await assert(equals_json)(await awaited_first_arguments, await json_from("[{\"type\":\"Identifier\",\"name\":\"arguments\"}]"));
     let awaited_first_callee = await property_get(awaited_first, "callee");
     await es_function_call_to_is(awaited_first_callee, arguments_assert.name);
     let awaited_first_callee_arguments = await property_get(awaited_first_callee, "arguments");
