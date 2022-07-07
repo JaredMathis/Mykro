@@ -1,3 +1,4 @@
+import {npm_install} from './npm_install.mjs';
 
 import { arguments_assert } from "./arguments_assert.mjs";
 

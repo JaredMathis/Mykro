@@ -5,6 +5,6 @@
     }
   },
   "auto": {
-    "disabled": true
+    "disabled": false
   }
 }
