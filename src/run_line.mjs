@@ -32,7 +32,7 @@ export async function run_line(line) {
     if (config?.on_success) {
       await command_line(config.on_success);
     }
-    let on_token_first = (config?.on || {})[token_first];
+    let on_token_first = (config?.on || {})[match.name];
     if (on_token_first) {
       console.log(`Running ${on_token_first}`.green);
       await command_line(on_token_first);
