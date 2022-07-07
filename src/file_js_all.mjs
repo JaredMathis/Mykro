@@ -5,6 +5,7 @@ import {path_file_extension} from "./path_file_extension.mjs";
 import {list_map} from "./list_map.mjs";
 import {list_where} from "./list_where.mjs";
 import {mykro_config_src_path_get} from "./mykro_config_src_path_get.mjs";
+import {file_js_extension} from "./file_js_extension.mjs";
 export async function file_js_all() {
   await arguments_assert()(arguments);
   let directory = await mykro_config_src_path_get();
@@ -16,6 +17,6 @@ export async function file_js_all() {
       extension: await path_file_extension(f)
     };
   });
-  let filtered = await list_where(mapped, m => m.extension === ".mjs");
+  let filtered = await list_where(mapped, async m => m.extension === await file_js_extension());
   return filtered;
 }
