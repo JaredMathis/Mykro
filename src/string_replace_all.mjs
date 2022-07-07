@@ -1,3 +1,4 @@
+import {string_join} from './string_join.mjs';
 import {string_is} from "./string_is.mjs";
 import {arguments_assert} from "./arguments_assert.mjs";
 import { string_split } from "./string_split.mjs";
