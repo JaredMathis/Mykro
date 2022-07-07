@@ -10,6 +10,7 @@ export async function file_js_all_match_exact(function_name) {
     await arguments_assert(string_identifier_is)(arguments);
     const files = await file_js_all();
     let matches = await list_where(files, f => equals(f.name, function_name));
+    console.log(matches)
     let match = await list_single(matches);
     return match;
 }
