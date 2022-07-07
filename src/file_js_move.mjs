@@ -12,13 +12,13 @@ import {string_is} from "./string_is.mjs";
 export async function file_js_move(function_name, function_name_new) {
   await arguments_assert(string_identifier_is, string_is)(arguments);
   let directory = await mykro_config_src_path_get();
-  let function_path_new = await string_replace_all(function_name_new, '_', '/');
-  function_path_new = await file_path_join([directory, function_path_new]);
+  let function_new_path = await string_replace_all(function_name_new, '_', '/');
+  function_new_path = await file_path_join([directory, function_new_path]);
   const files = await file_js_all();
   let matches = await list_where(files, f => equals(f.name, function_name));
   let match = await list_single(matches);
   if (false) {
     await file_move(match.file_path, function_name_new);
   }
-  return match;
+  return function_new_path;
 }
