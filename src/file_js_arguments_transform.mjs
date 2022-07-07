@@ -41,5 +41,5 @@ export async function file_js_arguments_transform(function_name, transformer_arg
 async function es_function_call_to_is(awaited_first_callee, expected_function_name) {
   await assert(equals)(await property_get(awaited_first_callee, "type"), "CallExpression");
   let awaited_first_callee_callee = await property_get(awaited_first_callee, "callee");
-  await assert(equals)(await json_to(awaited_first_callee_callee), `{\"type\":\"Identifier\",\"name\":\"${expected_function_name}\"}`);
+  await assert(equals_json)(await (awaited_first_callee_callee), json_from(`{\"type\":\"Identifier\",\"name\":\"${expected_function_name}\"}`));
 }
