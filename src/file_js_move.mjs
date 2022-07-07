@@ -13,7 +13,7 @@ export async function file_js_move(function_name, function_name_new) {
   await arguments_assert(string_identifier_is, string_is)(arguments);
   let directory = await mykro_config_src_path_get();
   let function_path_new = await string_replace_all(function_name_new, '_', '/');
-  function_path_new = await file_path_join(directory, function_path_new);
+  function_path_new = await file_path_join([directory, function_path_new]);
   const files = await file_js_all();
   let matches = await list_where(files, f => equals(f.name, function_name));
   let match = await list_single(matches);
