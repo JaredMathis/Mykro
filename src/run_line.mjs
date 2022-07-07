@@ -32,6 +32,10 @@ export async function run_line(line) {
     if (config?.on_success) {
       await command_line(config.on_success);
     }
+    let on_token_first = (config?.on || {})[token_first];
+    if (on_token_first) {
+      await command_line(on_token_first);
+    }
     let git_prefix = "git_";
     if (await string_starts_with(match.name, git_prefix)) {
       console.log(`${match.name} starts with ${git_prefix}. Not running ${git_acp.name}`.magenta);
