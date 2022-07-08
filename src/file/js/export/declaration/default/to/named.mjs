@@ -18,8 +18,8 @@ export async function file_js_export_declaration_default_to_named(file_name) {
     }
   });
   let function_names = await file_js_all_function_names();
-  await js_for_each(function_names, async function_name => {
-    await file_js_transform_ast(function_name, async node => {
+  await js_for_each(function_names, async function_name_other => {
+    await file_js_transform_ast(function_name_other, async node => {
 
     });
   });
