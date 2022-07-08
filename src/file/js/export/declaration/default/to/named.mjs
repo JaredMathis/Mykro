@@ -9,7 +9,7 @@ export async function file_js_export_declaration_default_to_named(file_name) {
         d: node
       });
     } 
-    if (node.type === "ExportDefaultDeclaration") {
+    if (node.type === "ExportNamedDeclaration") {
       console.log({
         n: node
       });
