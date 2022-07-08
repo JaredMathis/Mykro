@@ -21,7 +21,7 @@ export async function file_js_imports_fix(function_name) {
       if (node.type === 'ImportDeclaration') {
         let name = await es_node_import_declaration_single_name_get(node);
         let match2 = await file_js_all_match_exact(name)
-        console.log({relative: path.relative(match_file_path, match2.file_path), name});
+        console.log({relative: path.relative(match_file_path, match2.file_path), name, match_file_path});
       }
     })
   });
