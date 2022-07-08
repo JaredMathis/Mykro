@@ -1,6 +1,10 @@
 
 import { arguments_assert } from "./arguments_assert.mjs";
+import { assert } from "./assert.mjs";
 import { defined_is } from "./defined_is.mjs";
+import { for_each } from "./for_each.mjs";
+import { list_single } from "./list_single.mjs";
+import { property_get } from "./property_get.mjs";
 
 export async function es_node_import_specifier_single_name_get(es_node_import_specifier) {
     await arguments_assert(defined_is)(arguments);
