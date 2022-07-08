@@ -5,10 +5,10 @@ import {mykro_config_property_exists_ensure} from "./../../../../mykro/config/pr
 import {equals} from "./../../../../equals.mjs";
 import {list_index_last} from "./../../../../list/index/last.mjs";
 import {js_arguments_assert} from "./../../../arguments/assert.mjs";
-import {defined_is} from "./../../../../defined/is.mjs";
+import {js_defined_is} from "./../../../defined/is.mjs";
 import {list_is} from "./../../../../list/is.mjs";
 export async function js_property_path_initialize_get(object, path, default_value) {
-  await js_arguments_assert(defined_is, list_is, defined_is)(arguments);
+  await js_arguments_assert(js_defined_is, list_is, js_defined_is)(arguments);
   await js_property_path_initialize(object, path, default_value);
   return await js_property_path_get(object, path);
 }
