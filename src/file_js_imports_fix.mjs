@@ -18,7 +18,6 @@ import { assert } from './assert.mjs';
 import { string_replace_all } from './string_replace_all.mjs';
 export async function file_js_imports_fix(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
-  let files = await file_js_all();
   let match = await file_js_all_match_exact(function_name)
   let match_file_path = await property_get(match, 'file_path');
   await file_js_transform(function_name, async ast => {
