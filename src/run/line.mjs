@@ -6,7 +6,6 @@ import "colors";
 import {list_map} from "./../list/map.mjs";
 import {file_js_run} from "./../file/js/run.mjs";
 import {file_js_all_for_each} from "./../file/js/all/for/each.mjs";
-import {file_js_imports_missing_add} from "./../file/js/imports/missing/add.mjs";
 import {git_branch_show_current} from "./../git/branch/show/current.mjs";
 import {mykro_config_get} from "./../mykro/config/get.mjs";
 import {command_line} from "./../command/line.mjs";
@@ -16,6 +15,7 @@ import {file_overwrite} from "./../file/overwrite.mjs";
 import {string_is} from "./../string/is.mjs";
 import {json_to} from "./../json/to.mjs";
 import {defined_is} from "./../defined/is.mjs";
+import { file_js_auto } from "../file/js/auto.mjs";
 export async function run_line(line) {
   let tokens = line.split(" ");
   let token_first = tokens[0];
@@ -26,7 +26,7 @@ export async function run_line(line) {
       console.log(`${auto.name} is disabled in ${await mykro_config_path()}. Not running ${auto.name}`.cyan);
       return;
     }
-    await file_js_all_for_each(file_js_imports_missing_add.name);
+    await file_js_all_for_each(file_js_auto.name);
     console.log(`${auto.name} ran successfully`.cyan);
   };
   let on_no_matches = async () => console.log(`No matching command: ${token_first}`.red);
