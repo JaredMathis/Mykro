@@ -29,6 +29,13 @@ export async function file_js_export_declaration_default_to_named(function_name)
           if (specifier.type === 'ImportDefaultSpecifier') {
             const local = specifier.local;
             await js_assert(js_equals)(local.type, 'Identifier');
+            if (local.name === function_name) {
+              let imported = await js_clone(local);
+              await js_merge(specifier, {
+                type: 'ImportSpecifier',
+                imported,
+              })
+            }
           }
         }
       }
