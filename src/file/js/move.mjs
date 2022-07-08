@@ -1,5 +1,5 @@
 import {file_js_imports_resolve} from "./imports/resolve.mjs";
-import {for_each} from "./../../for/each.mjs";
+import {js_for_each} from "./../../js/for/each.mjs";
 import {file_js_all} from "./all.mjs";
 import {file_js_all_match_exact} from "./all/match/exact.mjs";
 import {file_move} from "./../move.mjs";
@@ -13,7 +13,7 @@ export async function file_js_move(function_name, function_name_new) {
   let function_new_path = await file_js_path_get(function_name_new);
   await file_move(match.file_path, function_new_path);
   let files = await file_js_all();
-  await for_each(files, async file => {
+  await js_for_each(files, async file => {
     await file_js_imports_resolve(file.name);
   });
   return {

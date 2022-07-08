@@ -1,5 +1,5 @@
 import {property_get} from "./../../../../property/get.mjs";
-import {for_each} from "./../../../../for/each.mjs";
+import {js_for_each} from "./../../../for/each.mjs";
 import {noop} from "./../../../../noop.mjs";
 import {mykro_config_property_exists_ensure} from "./../../../../mykro/config/property/exists/ensure.mjs";
 import {js_equals} from "./../../../equals.mjs";
@@ -31,7 +31,7 @@ async function js_property_path_get(object, path) {
 }
 async function js_property_path_get_generic(object, path, for_each_lambda) {
   let current = object;
-  await for_each(path, async (path_part, index) => {
+  await js_for_each(path, async (path_part, index) => {
     await for_each_lambda(path_part, index, object, current);
     current = await property_get(current, path_part);
   });

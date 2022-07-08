@@ -6,12 +6,12 @@ import {lyrics_database_get} from "./lyrics/database/get.mjs";
 import {lyrics_paragraph} from "./lyrics/paragraph.mjs";
 import {list_add_all} from "./list/add/all.mjs";
 import {list_where} from "./list/where.mjs";
-import {for_each} from "./for/each.mjs";
+import {js_for_each} from "./js/for/each.mjs";
 export async function lyrics() {
   await js_arguments_assert()(arguments);
   let database = await lyrics_database_get();
   let result = [];
-  await for_each(_.range(0, 12), async item => {
+  await js_for_each(_.range(0, 12), async item => {
     let subjects = ["god", "me"];
     let subject = await list_item_random(subjects);
     let paragraph = await lyrics_paragraph(database, subject);
