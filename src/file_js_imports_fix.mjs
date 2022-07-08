@@ -13,7 +13,9 @@ export async function file_js_imports_fix(function_name) {
   await file_js_transform(function_name, async ast => {
     await es_traverse(ast, async node => {
       if (node.type === 'ImportDeclaration') {
-        console.log(await es_node_import_declaration_single_name_get(node))
+        let name = await es_node_import_declaration_single_name_get(node);
+        let match2 = await file_js_all_match_exact(name)
+        console.log(match2)
       }
     })
   });
