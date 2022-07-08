@@ -1,5 +1,5 @@
 import {equals} from "./equals.mjs";
-import {function_call} from "./function_call.mjs";
+import {function_call} from "./function/call.mjs";
 import {error} from "./error.mjs";
 import _ from "lodash";
 export function returns(_function, expected, data) {
