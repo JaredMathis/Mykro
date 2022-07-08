@@ -12,6 +12,9 @@ import {mykro_config_get} from "./mykro_config_get.mjs";
 import {command_line} from "./command_line.mjs";
 import {mykro_config_auto_disabled_get} from "./mykro_config_auto_disabled_get.mjs";
 import {mykro_config_path} from "./mykro_config_path.mjs";
+import { file_overwrite } from "./file_overwrite.mjs";
+import { string_is } from "./string_is.mjs";
+import { json_to } from "./json_to.mjs";
 export async function run_line(line) {
   let tokens = line.split(" ");
   let token_first = tokens[0];
@@ -28,6 +31,7 @@ export async function run_line(line) {
   let on_no_matches = async () => console.log(`No matching command: ${token_first}`.red);
   let on_success = async (result, match) => {
     console.log(result);
+    await file_overwrite('./gitignore/out.txt', string_is(result) ? result : await json_to(result));
     await auto();
     if (config?.on_success) {
       await command_line(config.on_success);
