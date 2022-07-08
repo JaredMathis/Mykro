@@ -1,5 +1,4 @@
 import {file_overwrite} from "./../overwrite.mjs";
-import {file_js_name_to_path} from "./name/to/path.mjs";
 import {es_unparse} from "./../../es/unparse.mjs";
 import {file_js_parse} from "./parse.mjs";
 import {arguments_assert} from "./../../arguments/assert.mjs";
