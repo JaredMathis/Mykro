@@ -16,7 +16,7 @@ import {equals} from "./../../../equals.mjs";
 import {assert} from "./../../../assert.mjs";
 import {string_replace_all} from "./../../../string/replace/all.mjs";
 import {string_starts_with} from "./../../../string/starts/with.mjs";
-export async function file_js_imports_fix(function_name) {
+export async function file_js_imports_resolve(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
   let match = await file_js_all_match_exact(function_name);
   let match_file_path = await property_get(match, "file_path");
