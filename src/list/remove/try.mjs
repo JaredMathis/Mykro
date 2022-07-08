@@ -1,6 +1,6 @@
 import {list_remove_at} from "./at.mjs";
 import {property_get} from "./../../property/get.mjs";
-import {true_is} from "./../../true/is.mjs";
+import {js_true_is} from "./../../js/true/is.mjs";
 import {assert} from "./../../assert.mjs";
 import {list_index_of} from "./../index/of.mjs";
 import {defined_is} from "./../../defined/is.mjs";
