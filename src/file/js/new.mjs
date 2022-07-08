@@ -2,9 +2,7 @@ import {not} from "./../../not.mjs";
 import {assert} from "./../../assert.mjs";
 import {file_exists} from "./../exists.mjs";
 import {file_overwrite} from "./../overwrite.mjs";
-import {file_js_name_to_path} from "./name/to/path.mjs";
 import {msft_vs_code_open} from "./../../msft/vs/code/open.mjs";
-import {file_js_folderize} from "./folderize.mjs";
 import { file_js_path_get } from "./path/get.mjs";
 import { file_js_imports_fix } from "./imports/fix.mjs";
 export async function file_js_new(function_name) {
