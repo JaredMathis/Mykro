@@ -1,4 +1,10 @@
+import { string_identifier_is } from "../../../string/identifier/is.mjs";
 import {arguments_assert} from "./../../../arguments/assert.mjs";
-export async function file_js_path_get() {
-  await arguments_assert()(arguments);
+export async function file_js_path_get(function_name) {
+  await arguments_assert(string_identifier_is)(arguments);
+  let directory = await mykro_config_src_path_get();
+  let function_new_path = await string_replace_all(function_name, "_", "/");
+  function_new_path = await file_path_join([directory, function_new_path]);
+  function_new_path += await file_js_extension();
+  return function_new_path;
 }

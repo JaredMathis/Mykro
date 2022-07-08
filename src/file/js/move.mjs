@@ -24,10 +24,3 @@ export async function file_js_move(function_name, function_name_new) {
     match
   };
 }
-async function file_js_path_get(function_name_new) {
-  let directory = await mykro_config_src_path_get();
-  let function_new_path = await string_replace_all(function_name_new, "_", "/");
-  function_new_path = await file_path_join([directory, function_new_path]);
-  function_new_path += await file_js_extension();
-  return function_new_path;
-}
