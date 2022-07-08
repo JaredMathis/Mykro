@@ -1,5 +1,5 @@
 import {es_node_import_declaration_single_name_get} from "./../../../../es/node/import/declaration/single/name/get.mjs";
-import {arguments_assert} from "./../../../../arguments/assert.mjs";
+import {js_arguments_assert} from "./../../../../js/arguments/assert.mjs";
 import {file_js_all} from "./../../all.mjs";
 import {file_js_imports_get} from "./../get.mjs";
 import {list_map} from "./../../../../list/map.mjs";
@@ -13,7 +13,7 @@ import {list_size} from "./../../../../list/size.mjs";
 import {equals} from "./../../../../equals.mjs";
 import {list_remove_try} from "./../../../../list/remove/try.mjs";
 export async function file_js_imports_missing_get(function_name) {
-  await arguments_assert(string_identifier_is)(arguments);
+  await js_arguments_assert(string_identifier_is)(arguments);
   let imports = await file_js_imports_get(function_name);
   let imports_with_single_non_default_specifier = await list_where(imports, async i => {
     let specifiers = await property_get(i, "specifiers");

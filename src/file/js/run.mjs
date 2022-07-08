@@ -4,12 +4,12 @@ import {file_js_all} from "./all.mjs";
 import {js_function_is} from "./../../js/function/is.mjs";
 import {equals} from "./../../equals.mjs";
 import {list_size} from "./../../list/size.mjs";
-import {arguments_assert} from "./../../arguments/assert.mjs";
+import {js_arguments_assert} from "./../../js/arguments/assert.mjs";
 import {list_is} from "./../../list/is.mjs";
 import {string_identifier_is} from "./../../string/identifier/is.mjs";
 import {file_path_resolve} from "./../path/resolve.mjs";
 export async function file_js_run(function_name, _arguments, on_no_matches, on_success, on_error, on_multiple_matches, on_match) {
-  await arguments_assert(string_identifier_is, list_is, js_function_is, js_function_is, js_function_is, js_function_is, js_function_is)(arguments);
+  await js_arguments_assert(string_identifier_is, list_is, js_function_is, js_function_is, js_function_is, js_function_is, js_function_is)(arguments);
   let matches = await run_line_search(function_name);
   let matches_count = await list_size(matches);
   if (equals(matches_count, 0)) {

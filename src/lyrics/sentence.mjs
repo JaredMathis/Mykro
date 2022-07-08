@@ -1,12 +1,12 @@
 import _ from "lodash";
-import {arguments_assert} from "./../arguments/assert.mjs";
+import {js_arguments_assert} from "./../js/arguments/assert.mjs";
 import {list_item_random} from "./../list/item/random.mjs";
 import {lyrics_that_clause} from "./that/clause.mjs";
 import {random_with_probability} from "./../random/with/probability.mjs";
 import {tautology} from "./../tautology.mjs";
 import {equals_json} from "./../equals/json.mjs";
 export async function lyrics_sentence(_arguments) {
-  await arguments_assert(tautology)(arguments);
+  await js_arguments_assert(tautology)(arguments);
   let {database} = _arguments;
   let {group} = _arguments;
   let noun = await list_item_random(group.nouns);

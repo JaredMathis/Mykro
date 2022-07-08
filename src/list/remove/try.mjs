@@ -5,9 +5,9 @@ import {assert} from "./../../assert.mjs";
 import {list_index_of} from "./../index/of.mjs";
 import {defined_is} from "./../../defined/is.mjs";
 import {list_is} from "./../is.mjs";
-import {arguments_assert} from "./../../arguments/assert.mjs";
+import {js_arguments_assert} from "./../../js/arguments/assert.mjs";
 export async function list_remove_try(list, item) {
-  await arguments_assert(list_is, defined_is)(arguments);
+  await js_arguments_assert(list_is, defined_is)(arguments);
   let index_of = await list_index_of(list, item);
   const success = await property_get(index_of, "success");
   if (!success) {

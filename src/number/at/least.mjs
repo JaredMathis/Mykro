@@ -1,6 +1,6 @@
 import _ from "lodash";
-import {arguments_assert} from "./../../arguments/assert.mjs";
+import {js_arguments_assert} from "./../../js/arguments/assert.mjs";
 export async function number_at_least(value, minimum) {
-  await arguments_assert(_.isNumber, _.isNumber)(arguments);
+  await js_arguments_assert(_.isNumber, _.isNumber)(arguments);
   return value >= minimum;
 }

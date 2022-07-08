@@ -1,10 +1,10 @@
-import {arguments_assert} from "./../../arguments/assert.mjs";
+import {js_arguments_assert} from "./../../js/arguments/assert.mjs";
 import {assert} from "./../../assert.mjs";
 import {equals} from "./../../equals.mjs";
 import {list_map} from "./../../list/map.mjs";
 import {string_split} from "./../../string/split.mjs";
 export async function lyrics_database_get() {
-  await arguments_assert()(arguments);
+  await js_arguments_assert()(arguments);
   let god_attribute_adjectives = ["abundant", "amazing", "unending", "endless"];
   let sub_group1 = {
     adjectives: ["sweet", "pleasant"],

@@ -1,5 +1,5 @@
 import _ from "lodash";
-import {arguments_assert} from "./arguments/assert.mjs";
+import {js_arguments_assert} from "./js/arguments/assert.mjs";
 import {list_item_random} from "./list/item/random.mjs";
 import {list_size} from "./list/size.mjs";
 import {lyrics_database_get} from "./lyrics/database/get.mjs";
@@ -8,7 +8,7 @@ import {list_add_all} from "./list/add/all.mjs";
 import {list_where} from "./list/where.mjs";
 import {for_each} from "./for/each.mjs";
 export async function lyrics() {
-  await arguments_assert()(arguments);
+  await js_arguments_assert()(arguments);
   let database = await lyrics_database_get();
   let result = [];
   await for_each(_.range(0, 12), async item => {

@@ -1,7 +1,7 @@
 import {es_node_import_declaration_single_name_get} from "./../../../es/node/import/declaration/single/name/get.mjs";
 import {es_traverse} from "./../../../es/traverse.mjs";
 import {string_identifier_is} from "./../../../string/identifier/is.mjs";
-import {arguments_assert} from "./../../../arguments/assert.mjs";
+import {js_arguments_assert} from "./../../../js/arguments/assert.mjs";
 import {file_js_transform} from "./../transform.mjs";
 import {file_js_all_match_exact} from "./../all/match/exact.mjs";
 import {file_js_all} from "./../all.mjs";
@@ -17,7 +17,7 @@ import {assert} from "./../../../assert.mjs";
 import {string_replace_all} from "./../../../string/replace/all.mjs";
 import {string_starts_with} from "./../../../string/starts/with.mjs";
 export async function file_js_imports_resolve(function_name) {
-  await arguments_assert(string_identifier_is)(arguments);
+  await js_arguments_assert(string_identifier_is)(arguments);
   let match = await file_js_all_match_exact(function_name);
   let match_file_path = await property_get(match, "file_path");
   await file_js_transform(function_name, async ast => {

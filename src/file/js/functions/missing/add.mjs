@@ -1,4 +1,4 @@
-import {arguments_assert} from "./../../../../arguments/assert.mjs";
+import {js_arguments_assert} from "./../../../../js/arguments/assert.mjs";
 export async function file_js_functions_missing_add() {
-  await arguments_assert()(arguments);
+  await js_arguments_assert()(arguments);
 }

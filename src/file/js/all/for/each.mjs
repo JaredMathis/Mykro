@@ -2,7 +2,7 @@ import {error} from "./../../../../error.mjs";
 import {file_js_run} from "./../../run.mjs";
 import {file_js_all} from "./../../all.mjs";
 import {string_identifier_is} from "./../../../../string/identifier/is.mjs";
-import {arguments_assert} from "./../../../../arguments/assert.mjs";
+import {js_arguments_assert} from "./../../../../js/arguments/assert.mjs";
 import {for_each} from "./../../../../for/each.mjs";
 import {noop} from "./../../../../noop.mjs";
 import {js_log_error} from "./../../../../js/log/error.mjs";
