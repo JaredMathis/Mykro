@@ -1,6 +1,2 @@
 export default function test() {}
-
-
-export function test3() {
-    
-}
+export function test3() {}
