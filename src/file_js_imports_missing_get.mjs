@@ -31,19 +31,7 @@ export async function file_js_imports_missing_get(function_name) {
     return true;
   });
   let import_names = await list_map(imports_with_single_non_default_specifier, async i => {
-    let specifiers = await property_get(i, "specifiers");
-    let specifier = await list_single(specifiers);
-    let local = await property_get(specifier, "local");
-    let imported = await property_get(specifier, "imported");
-    await for_each([local, imported], async i => {
-      await assert(defined_is, {
-        specifier
-      })(i);
-    });
-    await assert(equals_json, {
-      specifier
-    })(local, imported);
-    return local.name;
+    return await es_node_import_specifier_single_name_get(i);
   });
   let identifiers = await file_js_identifiers_get(function_name);
   await list_remove_try(identifiers, function_name);
@@ -55,3 +43,19 @@ export async function file_js_imports_missing_get(function_name) {
     imports_missing
   };
 }
+async function es_node_import_specifier_single_name_get(i) {
+  let specifiers = await property_get(i, "specifiers");
+  let specifier = await list_single(specifiers);
+  let local = await property_get(specifier, "local");
+  let imported = await property_get(specifier, "imported");
+  await for_each([local, imported], async (i) => {
+    await assert(defined_is, {
+      specifier
+    })(i);
+  });
+  await assert(equals_json, {
+    specifier
+  })(local, imported);
+  return local.name;
+}
+
