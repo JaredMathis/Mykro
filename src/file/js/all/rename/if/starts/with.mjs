@@ -5,7 +5,7 @@ import {js_string_is} from "./../../../../../../js/string/is.mjs";
 import {js_arguments_assert} from "./../../../../../../js/arguments/assert.mjs";
 import {js_for_each} from "./../../../../../../js/for/each.mjs";
 import {js_string_starts_with} from "./../../../../../../js/string/starts/with.mjs";
-import { file_js_all_function_names } from "../../../function/names.mjs";
+import {file_js_all_function_names} from "../../../function/names.mjs";
 export async function file_js_all_rename_if_starts_with(prefix_old, prefix_new) {
   await js_arguments_assert(js_string_is, js_string_is)(arguments);
   let function_names = await file_js_all_function_names();
