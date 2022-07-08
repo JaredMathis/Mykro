@@ -12,10 +12,7 @@ import {string_is} from "./../../string/is.mjs";
 import {file_js_extension} from "./extension.mjs";
 export async function file_js_move(function_name, function_name_new) {
   await arguments_assert(string_identifier_is, string_is)(arguments);
-  let directory = await mykro_config_src_path_get();
-  let function_new_path = await string_replace_all(function_name_new, "_", "/");
-  function_new_path = await file_path_join([directory, function_new_path]);
-  function_new_path += await file_js_extension();
+  let function_new_path = await file_js_path_get(function_name_new);
   let match = await file_js_all_match_exact(function_name);
   await file_move(match.file_path, function_new_path);
   let files = await file_js_all();
@@ -27,3 +24,11 @@ export async function file_js_move(function_name, function_name_new) {
     match
   };
 }
+async function file_js_path_get(function_name_new) {
+  let directory = await mykro_config_src_path_get();
+  let function_new_path = await string_replace_all(function_name_new, "_", "/");
+  function_new_path = await file_path_join([directory, function_new_path]);
+  function_new_path += await file_js_extension();
+  return function_new_path;
+}
+
