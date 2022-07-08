@@ -1,8 +1,8 @@
-import {js_equals} from "./js/equals.mjs";
-import {function_call} from "./function/call.mjs";
-import {js_error} from "./js/error.mjs";
+import {js_equals} from "./equals.mjs";
+import {function_call} from "./../function/call.mjs";
+import {js_error} from "./error.mjs";
 import _ from "lodash";
-export function returns(_function, expected, data) {
+export function js_returns(_function, expected, data) {
   return async function wrapped() {
     let actual = await function_call(_function, arguments);
     if (!js_equals(actual, expected)) {
