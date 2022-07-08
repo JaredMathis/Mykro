@@ -31,6 +31,9 @@ export async function file_js_run(function_name, _arguments, on_no_matches, on_s
   }
 }
 async function run_line_search(first) {
+  if (false) {
+    file_js_all_function_name;
+  }
   let function_names = await file_js_all();
   let exact_matches = await list_where(function_names, m => js_equals(m.name, first));
   if (js_equals(await list_size(exact_matches), 1)) {
