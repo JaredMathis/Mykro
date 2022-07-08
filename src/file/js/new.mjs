@@ -4,6 +4,7 @@ import {file_exists} from "./../exists.mjs";
 import {file_overwrite} from "./../overwrite.mjs";
 import {file_js_name_to_path} from "./name/to/path.mjs";
 import {msft_vs_code_open} from "./../../msft/vs/code/open.mjs";
+import { file_js_folderize } from "./folderize.mjs";
 export async function file_js_new(function_name) {
   let file_path = await file_js_name_to_path(function_name);
   await assert(not(file_exists))(file_path);
@@ -14,5 +15,6 @@ export async function ${function_name}() {
     await arguments_assert()(arguments);
     // TODO
 }`);
+  await file_js_folderize(function_name);
   await msft_vs_code_open(file_path);
 }
