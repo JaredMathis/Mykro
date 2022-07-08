@@ -9,13 +9,12 @@ import {equals} from "./equals.mjs";
 import {js_comment} from "./js_comment.mjs";
 export async function file_js_transform(function_name, transformer) {
   await arguments_assert(string_identifier_is, js_function_is)(arguments);
-  let {ast, unparsed} = await file_js_parse(function_name);
+  let {ast, unparsed, file_path} = await file_js_parse(function_name);
   await transformer(ast);
   let text = await es_unparse(ast);
   if (equals(text, unparsed)) {
     await js_comment(`There were no changes to the AST, so we're returning rather than saving`);
     return;
   }
-  let file_path = await file_js_name_to_path(function_name);
   await file_overwrite(file_path, text);
 }
