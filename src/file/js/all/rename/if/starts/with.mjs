@@ -1,3 +1,4 @@
+import {string_prefix_replace} from "./../../../../../../string/prefix/replace.mjs";
 import {file_js_rename} from "./../../../../rename.mjs";
 import {file_js_all} from "./../../../../all.mjs";
 import {string_is} from "./../../../../../../string/is.mjs";
