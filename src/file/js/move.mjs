@@ -31,4 +31,3 @@ async function file_js_path_get(function_name_new) {
   function_new_path += await file_js_extension();
   return function_new_path;
 }
-
