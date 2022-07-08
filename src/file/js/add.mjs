@@ -6,7 +6,7 @@ import {msft_vs_code_open} from "./../../msft/vs/code/open.mjs";
 import {file_js_path_get} from "./path/get.mjs";
 import {file_js_imports_resolve} from "./imports/resolve.mjs";
 import {js_arguments_assert} from "./../../js/arguments/assert.mjs";
-export async function file_js_new(function_name) {
+export async function file_js_add(function_name) {
   let file_path = await file_js_path_get(function_name);
   await js_assert(js_not(file_exists))(file_path);
   await file_overwrite(file_path, `
