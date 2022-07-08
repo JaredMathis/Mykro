@@ -4,7 +4,7 @@ import {file_js_all} from "./../../all.mjs";
 import {file_js_imports_get} from "./../get.mjs";
 import {list_map} from "./../../../../list/map.mjs";
 import {list_where} from "./../../../../list/where.mjs";
-import {string_identifier_is} from "./../../../../string/identifier/is.mjs";
+import {js_string_identifier_is} from "./../../../../js/string/identifier/is.mjs";
 import {list_contains} from "./../../../../list/contains.mjs";
 import {file_js_identifiers_get} from "./../../identifiers/get.mjs";
 import {property_get} from "./../../../../property/get.mjs";
@@ -13,7 +13,7 @@ import {list_size} from "./../../../../list/size.mjs";
 import {js_equals} from "./../../../../js/equals.mjs";
 import {list_remove_try} from "./../../../../list/remove/try.mjs";
 export async function file_js_imports_missing_get(function_name) {
-  await js_arguments_assert(string_identifier_is)(arguments);
+  await js_arguments_assert(js_string_identifier_is)(arguments);
   let imports = await file_js_imports_get(function_name);
   let imports_with_single_non_default_specifier = await list_where(imports, async i => {
     let specifiers = await property_get(i, "specifiers");

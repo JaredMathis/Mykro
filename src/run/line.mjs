@@ -1,5 +1,5 @@
-import {string_starts_with_ensure} from "./../string/starts/with/ensure.mjs";
-import {string_starts_with} from "./../string/starts/with.mjs";
+import {js_string_starts_with_ensure} from "./../js/string/starts/with/ensure.mjs";
+import {js_string_starts_with} from "./../js/string/starts/with.mjs";
 import _ from "lodash";
 import {git_acp} from "./../git/acp.mjs";
 import "colors";
@@ -12,7 +12,7 @@ import {command_line} from "./../command/line.mjs";
 import {mykro_config_auto_disabled_get} from "./../mykro/config/auto/disabled/get.mjs";
 import {mykro_config_path} from "./../mykro/config/path.mjs";
 import {file_overwrite} from "./../file/overwrite.mjs";
-import {string_is} from "./../string/is.mjs";
+import {js_string_is} from "./../js/string/is.mjs";
 import {json_to} from "./../json/to.mjs";
 import {js_defined_is} from "./../js/defined/is.mjs";
 import {file_js_auto} from "./../file/js/auto.mjs";
@@ -33,20 +33,20 @@ export async function run_line(line) {
   let on_success = async (result, match) => {
     console.log(result);
     if (await js_defined_is(result)) {
-      await file_overwrite("./gitignore/out.txt", string_is(result) ? result : await json_to(result));
+      await file_overwrite("./gitignore/out.txt", js_string_is(result) ? result : await json_to(result));
     }
     await auto();
     if (config?.on_success) {
       await command_line(config.on_success);
     }
     let git_prefix = "git_";
-    if (await string_starts_with(match.name, git_prefix)) {
+    if (await js_string_starts_with(match.name, git_prefix)) {
       console.log(`${match.name} starts with ${git_prefix}. Not running ${git_acp.name}`.magenta);
     } else {
       let branch_name = await git_branch_show_current();
       let message = `${line}`;
       let prefix_expected = `${match.name} `;
-      message = await string_starts_with_ensure(message, prefix_expected);
+      message = await js_string_starts_with_ensure(message, prefix_expected);
       message = `${branch_name} ${message}`;
       let git_result = await git_acp(message);
       if (_.isUndefined(git_result)) {

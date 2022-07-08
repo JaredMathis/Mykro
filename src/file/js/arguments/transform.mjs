@@ -1,7 +1,7 @@
 import {json_from} from "./../../../json/from.mjs";
 import {js_equals_json} from "./../../../js/equals/json.mjs";
 import {js_arguments_assert} from "./../../../js/arguments/assert.mjs";
-import {string_identifier_is} from "./../../../string/identifier/is.mjs";
+import {js_string_identifier_is} from "./../../../js/string/identifier/is.mjs";
 import {es_function_exported} from "./../../../es/function/exported.mjs";
 import {list_first} from "./../../../list/first.mjs";
 import _ from "lodash";
@@ -10,7 +10,7 @@ import {js_assert} from "./../../../js/assert.mjs";
 import {js_equals} from "./../../../js/equals.mjs";
 import {file_js_transform} from "./../transform.mjs";
 export async function file_js_arguments_transform(function_name, transformer_arguments) {
-  await js_arguments_assert(string_identifier_is, _.isFunction)(arguments);
+  await js_arguments_assert(js_string_identifier_is, _.isFunction)(arguments);
   let transformer = async ast => {
     let function_exported = await es_function_exported(ast);
     let declaration = await property_get(function_exported, "declaration");

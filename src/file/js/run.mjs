@@ -1,4 +1,4 @@
-import {string_search_matches} from "./../../string/search/matches.mjs";
+import {js_string_search_matches} from "./../../js/string/search/matches.mjs";
 import {list_where} from "./../../list/where.mjs";
 import {file_js_all} from "./all.mjs";
 import {js_function_is} from "./../../js/function/is.mjs";
@@ -6,10 +6,10 @@ import {js_equals} from "./../../js/equals.mjs";
 import {list_size} from "./../../list/size.mjs";
 import {js_arguments_assert} from "./../../js/arguments/assert.mjs";
 import {list_is} from "./../../list/is.mjs";
-import {string_identifier_is} from "./../../string/identifier/is.mjs";
+import {js_string_identifier_is} from "./../../js/string/identifier/is.mjs";
 import {file_path_resolve} from "./../path/resolve.mjs";
 export async function file_js_run(function_name, _arguments, on_no_matches, on_success, on_error, on_multiple_matches, on_match) {
-  await js_arguments_assert(string_identifier_is, list_is, js_function_is, js_function_is, js_function_is, js_function_is, js_function_is)(arguments);
+  await js_arguments_assert(js_string_identifier_is, list_is, js_function_is, js_function_is, js_function_is, js_function_is, js_function_is)(arguments);
   let matches = await run_line_search(function_name);
   let matches_count = await list_size(matches);
   if (js_equals(matches_count, 0)) {
@@ -37,7 +37,7 @@ async function run_line_search(first) {
     return exact_matches;
   }
   let matches = await list_where(filtered, async m => {
-    return await string_search_matches(m.name, first);
+    return await js_string_search_matches(m.name, first);
   });
   return matches;
 }

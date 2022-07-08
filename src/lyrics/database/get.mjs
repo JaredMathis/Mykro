@@ -2,7 +2,7 @@ import {js_arguments_assert} from "./../../js/arguments/assert.mjs";
 import {js_assert} from "./../../js/assert.mjs";
 import {js_equals} from "./../../js/equals.mjs";
 import {list_map} from "./../../list/map.mjs";
-import {string_split} from "./../../string/split.mjs";
+import {js_string_split} from "./../../js/string/split.mjs";
 export async function lyrics_database_get() {
   await js_arguments_assert()(arguments);
   let god_attribute_adjectives = ["abundant", "amazing", "unending", "endless"];
@@ -33,7 +33,7 @@ export async function lyrics_database_get() {
   };
   let proposition_sentences = ["grace saved me"];
   let propositions = await list_map(proposition_sentences, async s => {
-    let split = await string_split(s, " ");
+    let split = await js_string_split(s, " ");
     await js_assert(js_equals)(split.length, 3);
     return {
       nouns: [split[0]],

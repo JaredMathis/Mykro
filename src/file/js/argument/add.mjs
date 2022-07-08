@@ -1,6 +1,6 @@
 import {js_arguments_assert} from "./../../../js/arguments/assert.mjs";
-import {string_is} from "./../../../string/is.mjs";
-import {string_identifier_is} from "./../../../string/identifier/is.mjs";
+import {js_string_is} from "./../../../js/string/is.mjs";
+import {js_string_identifier_is} from "./../../../js/string/identifier/is.mjs";
 import {list_add} from "./../../../list/add.mjs";
 import {list_size} from "./../../../list/size.mjs";
 import {js_assert} from "./../../../js/assert.mjs";
@@ -8,7 +8,7 @@ import {js_equals} from "./../../../js/equals.mjs";
 import {file_js_arguments_transform} from "./../arguments/transform.mjs";
 import {es_function_declaration_param_get} from "./../../../es/function/declaration/param/get.mjs";
 export async function file_js_argument_add(function_name, argument_name, argument_type) {
-  await js_arguments_assert(string_is, string_identifier_is, string_is)(arguments);
+  await js_arguments_assert(js_string_is, js_string_identifier_is, js_string_is)(arguments);
   await file_js_arguments_transform(function_name, async _arguments => {
     let {declaration, awaited_first_callee_arguments} = _arguments;
     await es_function_declaration_param_add(declaration, argument_name);
