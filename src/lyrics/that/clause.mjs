@@ -5,9 +5,9 @@ import {list_where} from "./../../list/where.mjs";
 import {lyrics_group_is_about} from "./../group/is/about.mjs";
 import {random_with_probability} from "./../../random/with/probability.mjs";
 import {string_is} from "./../../string/is.mjs";
-import {tautology} from "./../../tautology.mjs";
+import {js_tautology} from "./../../js/tautology.mjs";
 export async function lyrics_that_clause(database, noun) {
-  await js_arguments_assert(tautology, string_is)(arguments);
+  await js_arguments_assert(js_tautology, string_is)(arguments);
   let probability_that_clause = 0.5;
   let that_clause = "";
   let propositions_for_noun = await list_where(database.propositions, p => p.nouns.includes(noun));
