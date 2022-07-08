@@ -1,4 +1,4 @@
-import {a} from './a.mjs';
+
 import {es_node_import_declaration_single_name_get} from './es_node_import_declaration_single_name_get.mjs';
 import {es_traverse} from './es_traverse.mjs';
 import {string_identifier_is} from './string_identifier_is.mjs';
