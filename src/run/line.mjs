@@ -15,7 +15,7 @@ import {file_overwrite} from "./../file/overwrite.mjs";
 import {string_is} from "./../string/is.mjs";
 import {json_to} from "./../json/to.mjs";
 import {defined_is} from "./../defined/is.mjs";
-import {file_js_auto} from "../file/js/auto.mjs";
+import {file_js_auto} from "./../file/js/auto.mjs";
 export async function run_line(line) {
   let tokens = line.split(" ");
   let token_first = tokens[0];
