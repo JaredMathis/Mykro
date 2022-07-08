@@ -1,4 +1,4 @@
-import {es_node_import_specifier_single_name_get} from './es_node_import_specifier_single_name_get.mjs';
+import {es_node_import_declaration_single_name_get} from './es_node_import_declaration_single_name_get.mjs';
 import {arguments_assert} from "./arguments_assert.mjs";
 import {file_js_all} from "./file_js_all.mjs";
 import {file_js_imports_get} from "./file_js_imports_get.mjs";
@@ -27,7 +27,7 @@ export async function file_js_imports_missing_get(function_name) {
     return true;
   });
   let import_names = await list_map(imports_with_single_non_default_specifier, async i => {
-    return await es_node_import_specifier_single_name_get(i);
+    return await es_node_import_declaration_single_name_get(i);
   });
   let identifiers = await file_js_identifiers_get(function_name);
   await list_remove_try(identifiers, function_name);

@@ -7,7 +7,7 @@ import { for_each } from "./for_each.mjs";
 import { list_single } from "./list_single.mjs";
 import { property_get } from "./property_get.mjs";
 
-export async function es_node_import_specifier_single_name_get(es_node_import_specifier) {
+export async function es_node_import_declaration_single_name_get(es_node_import_specifier) {
     await arguments_assert(defined_is)(arguments);
     let specifiers = await property_get(es_node_import_specifier, "specifiers");
     let specifier = await list_single(specifiers);
