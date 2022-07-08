@@ -1,7 +1,7 @@
-import {mykro_config_src_path_get} from "./mykro_config_src_path_get.mjs";
+import {mykro_config_src_path_get} from "./mykro/config/src/path/get.mjs";
 import readline from "readline";
-import {command_line} from "./command_line.mjs";
-import {js_log_error} from "./js_log_error.mjs";
+import {command_line} from "./command/line.mjs";
+import {js_log_error} from "./js/log/error.mjs";
 var rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -10,7 +10,7 @@ var rl = readline.createInterface({
 rl.on("line", async line => {
   try {
     let src_path = await mykro_config_src_path_get();
-    let result = await command_line(`node ${src_path}/run_function.mjs ` + line);
+    let result = await command_line(`node ${src_path}/run/function.mjs ` + line);
     console.log(result.stdout);
   } catch (e) {
     await js_log_error(e);
