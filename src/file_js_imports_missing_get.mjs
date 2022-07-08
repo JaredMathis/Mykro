@@ -44,19 +44,3 @@ export async function file_js_imports_missing_get(function_name) {
     imports_missing
   };
 }
-async function es_node_import_specifier_single_name_get(i) {
-  let specifiers = await property_get(i, "specifiers");
-  let specifier = await list_single(specifiers);
-  let local = await property_get(specifier, "local");
-  let imported = await property_get(specifier, "imported");
-  await for_each([local, imported], async (i) => {
-    await assert(defined_is, {
-      specifier
-    })(i);
-  });
-  await assert(equals_json, {
-    specifier
-  })(local, imported);
-  return local.name;
-}
-
