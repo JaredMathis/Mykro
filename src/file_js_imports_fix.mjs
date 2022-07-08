@@ -16,6 +16,7 @@ import { json_to } from './json_to.mjs';
 import { equals } from './equals.mjs';
 import { assert } from './assert.mjs';
 import { string_replace_all } from './string_replace_all.mjs';
+import { string_starts_with } from './string_starts_with.mjs';
 export async function file_js_imports_fix(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
   let match = await file_js_all_match_exact(function_name)
@@ -23,12 +24,11 @@ export async function file_js_imports_fix(function_name) {
   await file_js_transform(function_name, async ast => {
     await es_traverse(ast, async node => {
       if (node.type === 'ImportDeclaration') {
-        let name;
-        try {
-          name = await es_node_import_declaration_single_name_get(node);
-        } catch (e) {
+        if (!await string_starts_with(node.source.value, '.')) {
           return;
         }
+        let name;
+          name = await es_node_import_declaration_single_name_get(node);
         let match_import = await file_js_all_match_exact(name)
         let import_path = path.relative(await file_path_dirname(match_file_path), match_import.file_path);
         import_path = ".\\" + import_path;
