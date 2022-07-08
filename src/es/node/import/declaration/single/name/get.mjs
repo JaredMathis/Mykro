@@ -1,5 +1,5 @@
 import {js_arguments_assert} from "./../../../../../../js/arguments/assert.mjs";
-import {assert} from "./../../../../../../assert.mjs";
+import {js_assert} from "./../../../../../../js/assert.mjs";
 import {js_defined_is} from "./../../../../../../js/defined/is.mjs";
 import {equals_json} from "./../../../../../../equals/json.mjs";
 import {for_each} from "./../../../../../../for/each.mjs";
@@ -12,11 +12,11 @@ export async function es_node_import_declaration_single_name_get(es_node_import_
   let local = await property_get(specifier, "local");
   let imported = await property_get(specifier, "imported");
   await for_each([local, imported], async i => {
-    await assert(js_defined_is, {
+    await js_assert(js_defined_is, {
       specifier
     })(i);
   });
-  await assert(equals_json, {
+  await js_assert(equals_json, {
     specifier
   })(local, imported);
   return local.name;

@@ -3,7 +3,7 @@ import {string_is} from "./../../../string/is.mjs";
 import {string_identifier_is} from "./../../../string/identifier/is.mjs";
 import {list_add} from "./../../../list/add.mjs";
 import {list_size} from "./../../../list/size.mjs";
-import {assert} from "./../../../assert.mjs";
+import {js_assert} from "./../../../js/assert.mjs";
 import {equals} from "./../../../equals.mjs";
 import {file_js_arguments_transform} from "./../arguments/transform.mjs";
 import {es_function_declaration_param_get} from "./../../../es/function/declaration/param/get.mjs";
@@ -17,7 +17,7 @@ export async function file_js_argument_add(function_name, argument_name, argumen
 }
 async function es_function_declaration_param_add(declaration, param_name) {
   let {existing, params} = await es_function_declaration_param_get(declaration, param_name);
-  await assert(equals)(await list_size(existing), 0);
+  await js_assert(equals)(await list_size(existing), 0);
   let id = es_identifier(param_name);
   await list_add(params, id);
 }

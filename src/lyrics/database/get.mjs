@@ -1,5 +1,5 @@
 import {js_arguments_assert} from "./../../js/arguments/assert.mjs";
-import {assert} from "./../../assert.mjs";
+import {js_assert} from "./../../js/assert.mjs";
 import {equals} from "./../../equals.mjs";
 import {list_map} from "./../../list/map.mjs";
 import {string_split} from "./../../string/split.mjs";
@@ -34,7 +34,7 @@ export async function lyrics_database_get() {
   let proposition_sentences = ["grace saved me"];
   let propositions = await list_map(proposition_sentences, async s => {
     let split = await string_split(s, " ");
-    await assert(equals)(split.length, 3);
+    await js_assert(equals)(split.length, 3);
     return {
       nouns: [split[0]],
       verbs: [split[1]],
