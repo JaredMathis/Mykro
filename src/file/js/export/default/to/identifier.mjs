@@ -6,6 +6,8 @@ export async function file_js_export_default_to_identifier(file_name) {
   await file_js_transform_ast(file_name, async node => {
     if (node.type === 'ExportDefaultDeclaration') {
       console.log({n:node.declaration})
+    } else {
+      console.log({node})
     }
   });
 }
