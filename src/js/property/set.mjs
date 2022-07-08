@@ -1,4 +1,4 @@
 import {js_arguments_assert} from "./../arguments/assert.mjs";
-export async function js_property_set(object) {
-  await js_arguments_assert(defined_is)(arguments);
+export async function js_property_set(object, property_name) {
+  await js_arguments_assert(js_defined_is, js_string_is)(arguments);
 }
