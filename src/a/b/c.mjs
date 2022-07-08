@@ -1,3 +1,3 @@
-export function c() {
+export function a_b_c() {
     return "c"
 }
