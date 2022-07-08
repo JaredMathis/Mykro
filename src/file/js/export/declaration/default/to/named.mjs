@@ -6,12 +6,13 @@ export async function file_js_export_declaration_default_to_named(file_name) {
   await file_js_transform_ast(file_name, async node => {
     if (node.type === "ExportDefaultDeclaration") {
       console.log({
-        n: node.declaration
+        d: node
       });
-    } else {
-      // console.log({
-      //   node
-      // });
+    } 
+    if (node.type === "ExportDefaultDeclaration") {
+      console.log({
+        n: node
+      });
     }
   });
 }
