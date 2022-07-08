@@ -11,6 +11,7 @@ import { list_size } from './list_size.mjs';
 import { list_where } from './list_where.mjs';
 import { string_to_list } from './string_to_list.mjs';
 import path from 'path'
+import { file_path_dirname } from './file_path_dirname.mjs';
 export async function file_js_imports_fix(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
   let files = await file_js_all();
@@ -21,7 +22,7 @@ export async function file_js_imports_fix(function_name) {
       if (node.type === 'ImportDeclaration') {
         let name = await es_node_import_declaration_single_name_get(node);
         let match2 = await file_js_all_match_exact(name)
-        console.log({relative: path.relative(match_file_path, match2.file_path), name, match_file_path, m2:match2.file_path});
+        console.log({relative: path.relative(await file_path_dirname(match_file_path), match2.file_path), name, match_file_path, m2:match2.file_path});
       }
     })
   });
