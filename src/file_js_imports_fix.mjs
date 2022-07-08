@@ -24,7 +24,11 @@ export async function file_js_imports_fix(function_name) {
     await es_traverse(ast, async node => {
       if (node.type === 'ImportDeclaration') {
         let name;
-        name = await es_node_import_declaration_single_name_get(node);
+        try {
+          name = await es_node_import_declaration_single_name_get(node);
+        } catch (e) {
+          return;
+        }
         let match_import = await file_js_all_match_exact(name)
         let import_path = path.relative(await file_path_dirname(match_file_path), match_import.file_path);
         import_path = ".\\" + import_path;
