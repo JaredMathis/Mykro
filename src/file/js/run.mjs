@@ -1,4 +1,3 @@
-import {file_js_all_function_names} from "./all/function/names.mjs";
 import {js_string_search_matches} from "./../../js/string/search/matches.mjs";
 import {list_where} from "./../../list/where.mjs";
 import {file_js_all} from "./all.mjs";
@@ -32,15 +31,12 @@ export async function file_js_run(function_name, _arguments, on_no_matches, on_s
   }
 }
 async function run_line_search(first) {
-  if (false) {
-    file_js_all_function_names;
-  }
-  let function_names = await file_js_all();
-  let exact_matches = await list_where(function_names, m => js_equals(m.name, first));
+  let filtered = await file_js_all();
+  let exact_matches = await list_where(filtered, m => js_equals(m.name, first));
   if (js_equals(await list_size(exact_matches), 1)) {
     return exact_matches;
   }
-  let matches = await list_where(function_names, async m => {
+  let matches = await list_where(filtered, async m => {
     return await js_string_search_matches(m.name, first);
   });
   return matches;
