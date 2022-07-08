@@ -1,5 +1,4 @@
 import test from "./test.mjs";
-
-export default function testb() {
-    test()
+export function testb() {
+  test();
 }
