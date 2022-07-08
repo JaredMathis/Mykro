@@ -9,7 +9,7 @@ import {file_js_extension} from "./file_js_extension.mjs";
 export async function file_js_all() {
   await arguments_assert()(arguments);
   let directory = await mykro_config_src_path_get();
-  let files = Array.from(file_list(directory));
+  let files = await file_list(directory);
   let mapped = await list_map(files, async f => {
     return {
       name: path_file_name(f),
