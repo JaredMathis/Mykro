@@ -9,9 +9,9 @@ export async function file_js_export_declaration_default_to_named(file_name) {
         n: node.declaration
       });
     } else {
-      console.log({
-        node
-      });
+      // console.log({
+      //   node
+      // });
     }
   });
 }
