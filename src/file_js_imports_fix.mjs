@@ -15,6 +15,7 @@ import { file_path_dirname } from './file_path_dirname.mjs';
 import { json_to } from './json_to.mjs';
 import { equals } from './equals.mjs';
 import { assert } from './assert.mjs';
+import { string_replace_all } from './string_replace_all.mjs';
 export async function file_js_imports_fix(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
   let files = await file_js_all();
@@ -27,6 +28,7 @@ export async function file_js_imports_fix(function_name) {
         let match_import = await file_js_all_match_exact(name)
         let import_path = path.relative(await file_path_dirname(match_file_path), match_import.file_path);
         import_path = ".\\" + import_path;
+        import_path = await string_replace_all(import_path, '\\', '/');
         await assert(equals)(node.source.type, 'Literal');
         node.source.value = import_path;
       }
