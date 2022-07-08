@@ -9,7 +9,7 @@ import {js_equals} from "./../../../js/equals.mjs";
 import {js_assert} from "./../../../js/assert.mjs";
 import {js_string_replace_all} from "./../../../js/string/replace/all.mjs";
 import {js_string_starts_with} from "./../../../js/string/starts/with.mjs";
-import { file_js_transform_ast } from "../transform/ast.mjs";
+import {file_js_transform_ast} from "./../transform/ast.mjs";
 export async function file_js_imports_resolve(function_name) {
   await js_arguments_assert(js_string_identifier_is)(arguments);
   let match = await file_js_all_match_exact(function_name);
