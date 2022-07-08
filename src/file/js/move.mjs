@@ -15,6 +15,10 @@ export async function file_js_move(function_name, function_name_new) {
   function_new_path += await file_js_extension();
   let match = await file_js_all_match_exact(function_name);
   await file_move(match.file_path, function_new_path);
+  let files = await file_js_all();
+  await for_each(files, async file => {
+    await file_js_imports_fix(file.name);
+  });
   return {
     function_new_path,
     match

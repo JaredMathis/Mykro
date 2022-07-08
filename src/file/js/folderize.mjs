@@ -7,8 +7,4 @@ import {for_each} from "./../../for/each.mjs";
 export async function file_js_folderize(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
   await file_js_move(function_name, function_name);
-  let files = await file_js_all();
-  await for_each(files, async file => {
-    await file_js_imports_fix(file.name);
-  });
 }
