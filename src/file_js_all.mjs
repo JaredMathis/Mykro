@@ -1,3 +1,4 @@
+import {string_prefix_remove} from './string_prefix_remove.mjs';
 import {arguments_assert} from "./arguments_assert.mjs";
 import {file_list} from "./file_list.mjs";
 import {path_file_name} from "./path_file_name.mjs";
@@ -6,11 +7,18 @@ import {list_map} from "./list_map.mjs";
 import {list_where} from "./list_where.mjs";
 import {mykro_config_src_path_get} from "./mykro_config_src_path_get.mjs";
 import {file_js_extension} from "./file_js_extension.mjs";
+import {file_path_dirname} from "./file_path_dirname.mjs";
 export async function file_js_all() {
   await arguments_assert()(arguments);
   let directory = await mykro_config_src_path_get();
   let files = await file_list(directory);
   let mapped = await list_map(files, async f => {
+    if (false) {
+      let dir_name = await file_path_dirname(f);
+      dir_name = await string_prefix_remove(dir_name, directory + '/')
+      console.log({dir_name})
+      let name_new = dir_name + '_' + path_file_name(f);
+    }
     return {
       name: path_file_name(f),
       file_path: f,
