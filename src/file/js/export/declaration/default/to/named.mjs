@@ -27,7 +27,8 @@ export async function file_js_export_declaration_default_to_named(function_name)
         if (await list_size(node.specifiers) === 1) {
           let specifier = await list_single(node.specifiers);
           if (specifier.type === 'ImportDefaultSpecifier') {
-            await js_assert(js_equals)(specifier.local.type, 'Identifier');
+            const local = specifier.local;
+            await js_assert(js_equals)(local.type, 'Identifier');
           }
         }
       }
