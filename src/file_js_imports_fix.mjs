@@ -22,7 +22,6 @@ export async function file_js_imports_fix(function_name) {
         let name = await es_node_import_declaration_single_name_get(node);
         let match2 = await file_js_all_match_exact(name)
         console.log({a: path.relative(match_file_path, match2.file_path)});
-        console.log({b: path.relative(match2.file_path, match_file_path)});
       }
     })
   });
