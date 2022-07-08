@@ -2,7 +2,7 @@ import {property_get} from "./../../../../property/get.mjs";
 import {for_each} from "./../../../../for/each.mjs";
 import {noop} from "./../../../../noop.mjs";
 import {mykro_config_property_exists_ensure} from "./../../../../mykro/config/property/exists/ensure.mjs";
-import {equals} from "./../../../../equals.mjs";
+import {js_equals} from "./../../../equals.mjs";
 import {list_index_last} from "./../../../../list/index/last.mjs";
 import {js_arguments_assert} from "./../../../arguments/assert.mjs";
 import {js_defined_is} from "./../../../defined/is.mjs";
@@ -17,7 +17,7 @@ async function js_property_path_initialize(config, path, default_value) {
   let current = await js_property_path_get_generic(config, path, for_each_lambda);
   async function for_each_lambda(path_part, index, object, current) {
     let value;
-    if (equals(index, index_last)) {
+    if (js_equals(index, index_last)) {
       value = default_value;
     } else {
       value = {};

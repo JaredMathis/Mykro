@@ -10,18 +10,18 @@ import {file_js_identifiers_get} from "./../../identifiers/get.mjs";
 import {property_get} from "./../../../../property/get.mjs";
 import {list_single} from "./../../../../list/single.mjs";
 import {list_size} from "./../../../../list/size.mjs";
-import {equals} from "./../../../../equals.mjs";
+import {js_equals} from "./../../../../js/equals.mjs";
 import {list_remove_try} from "./../../../../list/remove/try.mjs";
 export async function file_js_imports_missing_get(function_name) {
   await js_arguments_assert(string_identifier_is)(arguments);
   let imports = await file_js_imports_get(function_name);
   let imports_with_single_non_default_specifier = await list_where(imports, async i => {
     let specifiers = await property_get(i, "specifiers");
-    if (!equals(await list_size(specifiers), 1)) {
+    if (!js_equals(await list_size(specifiers), 1)) {
       return false;
     }
     let specifier = await list_single(specifiers);
-    if (equals(await property_get(specifier, "type"), "ImportDefaultSpecifier")) {
+    if (js_equals(await property_get(specifier, "type"), "ImportDefaultSpecifier")) {
       return false;
     }
     return true;

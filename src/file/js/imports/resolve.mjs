@@ -12,7 +12,7 @@ import {string_to_list} from "./../../../string/to/list.mjs";
 import path from "path";
 import {file_path_dirname} from "./../../path/dirname.mjs";
 import {json_to} from "./../../../json/to.mjs";
-import {equals} from "./../../../equals.mjs";
+import {js_equals} from "./../../../js/equals.mjs";
 import {js_assert} from "./../../../js/assert.mjs";
 import {string_replace_all} from "./../../../string/replace/all.mjs";
 import {string_starts_with} from "./../../../string/starts/with.mjs";
@@ -32,7 +32,7 @@ export async function file_js_imports_resolve(function_name) {
         let import_path = path.relative(await file_path_dirname(match_file_path), match_import.file_path);
         import_path = ".\\" + import_path;
         import_path = await string_replace_all(import_path, "\\", "/");
-        await js_assert(equals)(node.source.type, "Literal");
+        await js_assert(js_equals)(node.source.type, "Literal");
         node.source.value = import_path;
       }
     });
