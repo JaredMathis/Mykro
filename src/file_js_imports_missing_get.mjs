@@ -1,3 +1,4 @@
+import {es_node_import_specifier_single_name_get} from './es_node_import_specifier_single_name_get.mjs';
 import {arguments_assert} from "./arguments_assert.mjs";
 import {file_js_all} from "./file_js_all.mjs";
 import {file_js_imports_get} from "./file_js_imports_get.mjs";
