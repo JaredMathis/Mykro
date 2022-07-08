@@ -1,4 +1,4 @@
-import {error} from "./../../../../error.mjs";
+import {js_error} from "./../../../../js/error.mjs";
 import {file_js_run} from "./../../run.mjs";
 import {file_js_all} from "./../../all.mjs";
 import {string_identifier_is} from "./../../../../string/identifier/is.mjs";
@@ -13,6 +13,6 @@ export async function file_js_all_for_each() {
   let remaining = await list_starting_at(Array.from(arguments), 1);
   let files = await file_js_all();
   await for_each(files, async file => {
-    await file_js_run(function_name, await list_add_all([file.name], remaining), error, noop, js_log_error, error, noop);
+    await file_js_run(function_name, await list_add_all([file.name], remaining), js_error, noop, js_log_error, js_error, noop);
   });
 }
