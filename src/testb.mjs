@@ -1,5 +1,5 @@
 import test from "./test.mjs";
 
-export default function test2() {
+export default function testb() {
     test();    
 }
