@@ -2,14 +2,10 @@ import {file_js_imports_fix} from "./imports/fix.mjs";
 import {for_each} from "./../../for/each.mjs";
 import {file_js_all} from "./all.mjs";
 import {file_js_all_match_exact} from "./all/match/exact.mjs";
-import {string_replace_all} from "./../../string/replace/all.mjs";
 import {file_move} from "./../move.mjs";
-import {file_path_join} from "./../path/join.mjs";
 import {arguments_assert} from "./../../arguments/assert.mjs";
-import {mykro_config_src_path_get} from "./../../mykro/config/src/path/get.mjs";
 import {string_identifier_is} from "./../../string/identifier/is.mjs";
 import {string_is} from "./../../string/is.mjs";
-import {file_js_extension} from "./extension.mjs";
 export async function file_js_move(function_name, function_name_new) {
   await arguments_assert(string_identifier_is, string_is)(arguments);
   let function_new_path = await file_js_path_get(function_name_new);
