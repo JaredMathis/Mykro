@@ -8,8 +8,8 @@ import {string_identifier_is} from "./../../string/identifier/is.mjs";
 import {string_is} from "./../../string/is.mjs";
 export async function file_js_move(function_name, function_name_new) {
   await arguments_assert(string_identifier_is, string_is)(arguments);
-  let function_new_path = await file_js_path_get(function_name_new);
   let match = await file_js_all_match_exact(function_name);
+  let function_new_path = await file_js_path_get(function_name_new);
   await file_move(match.file_path, function_new_path);
   let files = await file_js_all();
   await for_each(files, async file => {
