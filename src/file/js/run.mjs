@@ -31,12 +31,12 @@ export async function file_js_run(function_name, _arguments, on_no_matches, on_s
   }
 }
 async function run_line_search(first) {
-  let filtered = await file_js_all();
-  let exact_matches = await list_where(filtered, m => js_equals(m.name, first));
+  let function_names = await file_js_all();
+  let exact_matches = await list_where(function_names, m => js_equals(m.name, first));
   if (js_equals(await list_size(exact_matches), 1)) {
     return exact_matches;
   }
-  let matches = await list_where(filtered, async m => {
+  let matches = await list_where(function_names, async m => {
     return await js_string_search_matches(m.name, first);
   });
   return matches;
