@@ -5,14 +5,12 @@ export async function file_js_export_declaration_default_to_named(file_name) {
   await js_arguments_assert(js_string_identifier_is)(arguments);
   await file_js_transform_ast(file_name, async node => {
     if (node.type === "ExportDefaultDeclaration") {
-      console.log({
-        d: node
-      });
-    } 
-    if (node.type === "ExportNamedDeclaration") {
-      console.log({
-        n: node
-      });
+      return;
+      node.type = "ExportNamedDeclaration";
+      let merged = {
+        specifiers: [],
+        source: null
+      }
     }
   });
 }
