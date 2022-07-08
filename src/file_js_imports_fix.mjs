@@ -5,11 +5,18 @@ import {arguments_assert} from "./arguments_assert.mjs";
 import { file_js_transform } from './file_js_transform.mjs';
 import { file_js_all_match_exact } from './file_js_all_match_exact.mjs';
 import { file_js_all } from './file_js_all.mjs';
+import { property_get } from './property_get.mjs';
+import { list_size } from './list_size.mjs';
+import { list_where } from './list_where.mjs';
+import { string_to_list } from './string_to_list.mjs';
 export async function file_js_imports_fix(function_name) {
   await arguments_assert(string_identifier_is)(arguments);
   let files = await file_js_all();
   let match = await file_js_all_match_exact(function_name)
-  console.log({match})
+  let match_file_path = await property_get(match, 'file_path');
+  let match_file_path_as_list = await string_to_list(match_file_path)
+  let count = await list_size(await list_where(match_file_path_as_list, f => f === '\\'))
+  console.log(count)
   await file_js_transform(function_name, async ast => {
     await es_traverse(ast, async node => {
       if (node.type === 'ImportDeclaration') {
