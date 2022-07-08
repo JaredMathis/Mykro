@@ -9,7 +9,7 @@ export async function file_js_imports_fix(function_name) {
   await file_js_transform(function_name, async ast => {
     await es_traverse(ast, async node => {
       if (node.type === 'ImportDeclaration') {
-        
+        console.log(node)
       }
     })
   });
