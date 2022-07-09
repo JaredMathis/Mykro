@@ -23,6 +23,7 @@ export async function file_js_imports_mykroify(function_name) {
             await js_assert(js_number_at_most)(await list_size(matches), 1);
             if (equals(await list_size(matches), 1)) {
               await js_assert(js_equals)(node.source.type, 'Literal')
+              node.source.value = 
             }
           }
         }
