@@ -6,9 +6,6 @@ import path from "path";
 export async function mykro_config_src_path_get() {
   await js_arguments_assert()(arguments);
   let config = await mykro_config_get();
-  let src_path = config.path.src[await constant_mykro()];
-  if (false) {
-    let src_path = await js_property_path_initialize_get(config, ["path", "src", await constant_mykro()], `./node_modules/${await constant_mykro()}/src`);
-  }
+  let src_path = await js_property_path_initialize_get(config, ["path", "src", await constant_mykro()], `./node_modules/${await constant_mykro()}/src`);
   return path.normalize(src_path);
 }
