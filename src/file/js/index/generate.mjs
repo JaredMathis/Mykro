@@ -17,7 +17,7 @@ import {${file.name}} from "./${await js_string_replace_all(file.file_path, "\\"
 
   await js_for_each(files, async file => {
     result += `
-export {${file.name}};`;
+export ${file.name};`;
   });
 
   let output_file_path = await file_path_join([await mykro_config_src_path_get(), "index" + await file_js_extension()]);
