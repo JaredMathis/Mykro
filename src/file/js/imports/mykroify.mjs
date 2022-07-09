@@ -13,6 +13,8 @@ import { js_equals } from "../../../js/equals.mjs";
 import { file_path_relative } from "../../path/relative.mjs";
 export async function file_js_imports_mykroify(function_name) {
   await js_arguments_assert(js_string_identifier_is)(arguments);
+  let match = await file_js_all_match_exact(function_name);
+  let match_file_path = await property_get(match, "file_path");
   let files_mykro = await file_js_all_mykro();
   await file_js_transform_ast(function_name, async node => {
     if (node.type === "ImportDeclaration") {
@@ -24,8 +26,9 @@ export async function file_js_imports_mykroify(function_name) {
             await js_assert(js_number_at_most)(await list_size(imported_matches), 1);
             if (equals(await list_size(imported_matches), 1)) {
               await js_assert(js_equals)(node.source.type, 'Literal')
-              let match = await list_single(match);
-              node.source.value = await file_path_relative()
+              let imported_match = await list_single(imported_match);
+              console.log({imported_match, match_file_path})        
+      
             }
           }
         }
