@@ -1,3 +1,4 @@
+import {list_join} from "./../../../../list/join.mjs";
 import {list_add_all} from "./../../../../list/add/all.mjs";
 import {list_add} from "./../../../../list/add.mjs";
 import {mykro_config_src_other_get} from "./../other/get.mjs";
@@ -7,6 +8,6 @@ export async function mykro_config_src_paths_get() {
   await js_arguments_assert()(arguments);
   let mykro_directory = await mykro_config_src_path_get();
   let other_direcories = await mykro_config_src_other_get();
-  let result = await list_join([[mykro_directory], other_direcories])
+  let result = await list_join([[mykro_directory], other_direcories]);
   return result;
 }
