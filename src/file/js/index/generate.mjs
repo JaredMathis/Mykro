@@ -11,7 +11,7 @@ export async function file_js_index_generate() {
 
   let result = ``;
 
-  await js_for_each(files, file => {
+  await js_for_each(files, async file => {
     result += `
 import {${file.name}} from "./${await js_string_replace_all(file.file_path, '\\', '/')}";`
   })
