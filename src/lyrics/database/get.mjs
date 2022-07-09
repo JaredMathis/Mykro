@@ -1,10 +1,10 @@
-import {js_arguments_assert} from "./../../js/arguments/assert.mjs";
-import {js_assert} from "./../../js/assert.mjs";
-import {js_equals} from "./../../js/equals.mjs";
+import {m_js_arguments_assert} from "./../../m/js/arguments/assert.mjs";
+import {m_js_assert} from "./../../m/js/assert.mjs";
+import {m_js_equals} from "./../../m/js/equals.mjs";
 import {list_map} from "./../../list/map.mjs";
-import {js_string_split} from "./../../js/string/split.mjs";
+import {m_js_string_split} from "./../../m/js/string/split.mjs";
 export async function lyrics_database_get() {
-  await js_arguments_assert()(arguments);
+  await m_js_arguments_assert()(arguments);
   let god_attribute_adjectives = ["abundant", "amazing", "unending", "endless"];
   let sub_group1 = {
     adjectives: ["sweet", "pleasant"],
@@ -33,8 +33,8 @@ export async function lyrics_database_get() {
   };
   let proposition_sentences = ["grace saved me"];
   let propositions = await list_map(proposition_sentences, async s => {
-    let split = await js_string_split(s, " ");
-    await js_assert(js_equals)(split.length, 3);
+    let split = await m_js_string_split(s, " ");
+    await m_js_assert(m_js_equals)(split.length, 3);
     return {
       nouns: [split[0]],
       verbs: [split[1]],

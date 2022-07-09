@@ -1,10 +1,10 @@
-import {js_arguments_assert} from "./../js/arguments/assert.mjs";
-import {js_assert} from "./../js/assert.mjs";
+import {m_js_arguments_assert} from "./../m/js/arguments/assert.mjs";
+import {m_js_assert} from "./../m/js/assert.mjs";
 import {list_is} from "./is.mjs";
 import {list_size} from "./size.mjs";
-import {js_number_at_least} from "./../js/number/at/least.mjs";
+import {m_js_number_at_least} from "./../m/js/number/at/least.mjs";
 export async function list_first(list) {
-  await js_arguments_assert(list_is)(arguments);
-  await js_assert(js_number_at_least)(await list_size(list), 1);
+  await m_js_arguments_assert(list_is)(arguments);
+  await m_js_assert(m_js_number_at_least)(await list_size(list), 1);
   return list[0];
 }

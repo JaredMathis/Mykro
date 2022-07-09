@@ -1,0 +1,7 @@
+import {m_js_string_is} from "./../is.mjs";
+import {m_js_arguments_assert} from "./../../arguments/assert.mjs";
+export async function m_js_string_starts_with(s, prefix) {
+  await m_js_arguments_assert(m_js_string_is, m_js_string_is)(arguments);
+  let result = s.startsWith(prefix);
+  return result;
+}

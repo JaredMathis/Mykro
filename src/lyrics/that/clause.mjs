@@ -1,13 +1,13 @@
 import _ from "lodash";
-import {js_arguments_assert} from "./../../js/arguments/assert.mjs";
+import {m_js_arguments_assert} from "./../../m/js/arguments/assert.mjs";
 import {list_item_random} from "./../../list/item/random.mjs";
 import {list_where} from "./../../list/where.mjs";
 import {lyrics_group_is_about} from "./../group/is/about.mjs";
 import {random_with_probability} from "./../../random/with/probability.mjs";
-import {js_string_is} from "./../../js/string/is.mjs";
-import {js_tautology} from "./../../js/tautology.mjs";
+import {m_js_string_is} from "./../../m/js/string/is.mjs";
+import {m_js_tautology} from "./../../m/js/tautology.mjs";
 export async function lyrics_that_clause(database, noun) {
-  await js_arguments_assert(js_tautology, js_string_is)(arguments);
+  await m_js_arguments_assert(m_js_tautology, m_js_string_is)(arguments);
   let probability_that_clause = 0.5;
   let that_clause = "";
   let propositions_for_noun = await list_where(database.propositions, p => p.nouns.includes(noun));

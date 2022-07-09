@@ -1,11 +1,11 @@
 import {list_add_all} from "./add/all.mjs";
 import {list_is} from "./is.mjs";
-import {js_for_each} from "./../js/for/each.mjs";
-import {js_arguments_assert} from "./../js/arguments/assert.mjs";
+import {m_js_for_each} from "./../m/js/for/each.mjs";
+import {m_js_arguments_assert} from "./../m/js/arguments/assert.mjs";
 export async function list_join(lists) {
-  await js_arguments_assert(list_is)(arguments);
+  await m_js_arguments_assert(list_is)(arguments);
   let result = [];
-  await js_for_each(lists, async list => {
+  await m_js_for_each(lists, async list => {
     await list_add_all(result, list);
   });
   return result;

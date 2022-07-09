@@ -1,12 +1,12 @@
 import _ from "lodash";
-import {js_arguments_assert} from "./../js/arguments/assert.mjs";
+import {m_js_arguments_assert} from "./../m/js/arguments/assert.mjs";
 import {list_item_random} from "./../list/item/random.mjs";
 import {lyrics_that_clause} from "./that/clause.mjs";
 import {random_with_probability} from "./../random/with/probability.mjs";
-import {js_tautology} from "./../js/tautology.mjs";
-import {js_equals_json} from "./../js/equals/json.mjs";
+import {m_js_tautology} from "./../m/js/tautology.mjs";
+import {m_js_equals_json} from "./../m/js/equals/json.mjs";
 export async function lyrics_sentence(_arguments) {
-  await js_arguments_assert(js_tautology)(arguments);
+  await m_js_arguments_assert(m_js_tautology)(arguments);
   let {database} = _arguments;
   let {group} = _arguments;
   let noun = await list_item_random(group.nouns);
@@ -40,7 +40,7 @@ export async function lyrics_sentence(_arguments) {
     let has_verb = false;
     let verb;
     if (noun === "i") {
-      if (group.times && await js_equals_json(group.times, ["past"])) {
+      if (group.times && await m_js_equals_json(group.times, ["past"])) {
         verb = "was";
         is_past = true;
       } else {

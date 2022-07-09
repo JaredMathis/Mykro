@@ -1,14 +1,14 @@
 import {git_push} from "./../push.mjs";
 import {git_checkout_pull} from "./pull.mjs";
-import {js_string_is} from "./../../js/string/is.mjs";
-import {js_arguments_assert} from "./../../js/arguments/assert.mjs";
+import {m_js_string_is} from "./../../m/js/string/is.mjs";
+import {m_js_arguments_assert} from "./../../m/js/arguments/assert.mjs";
 import {git_merge} from "./../merge.mjs";
-import {js_for_each} from "./../../js/for/each.mjs";
-import {js_comment} from "./../../js/comment.mjs";
+import {m_js_for_each} from "./../../m/js/for/each.mjs";
+import {m_js_comment} from "./../../m/js/comment.mjs";
 export async function git_checkout_merge(merge_from, merge_into) {
-  await js_arguments_assert(js_string_is, js_string_is)(arguments);
-  await js_comment(`make sure both branches are up to date`);
-  await js_for_each([merge_from, merge_into], async branch_name => {
+  await m_js_arguments_assert(m_js_string_is, m_js_string_is)(arguments);
+  await m_js_comment(`make sure both branches are up to date`);
+  await m_js_for_each([merge_from, merge_into], async branch_name => {
     await git_checkout_pull(branch_name);
   });
   await git_merge(merge_from);
