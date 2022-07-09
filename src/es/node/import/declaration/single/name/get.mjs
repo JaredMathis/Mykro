@@ -9,6 +9,9 @@ export async function es_node_import_declaration_single_name_get(es_node_import_
   await js_arguments_assert(js_defined_is)(arguments);
   let specifiers = await property_get(es_node_import_specifier, "specifiers");
   let specifier = await list_single(specifiers);
+  if (specifier.type === 'ImportDefaultSpecifier') {
+    return;
+  }
   let local = await property_get(specifier, "local");
   let imported = await property_get(specifier, "imported");
   await js_for_each([local, imported], async i => {
