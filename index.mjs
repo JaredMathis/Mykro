@@ -80,7 +80,6 @@ export {git_merge} from "./src/git/merge.mjs";
 export {git_pull} from "./src/git/pull.mjs";
 export {git_push_origin_head} from "./src/git/push/origin/head.mjs";
 export {git_push} from "./src/git/push.mjs";
-export {index} from "./src/index.mjs";
 export {js_arguments_assert} from "./src/js/arguments/assert.mjs";
 export {js_assert} from "./src/js/assert.mjs";
 export {js_boolean_is} from "./src/js/boolean/is.mjs";
