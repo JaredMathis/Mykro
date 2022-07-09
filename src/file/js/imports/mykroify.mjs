@@ -9,6 +9,7 @@ import {list_size} from "./../../../list/size.mjs";
 import {list_single} from "./../../../list/single.mjs";
 import {list_where} from "./../../../list/where.mjs";
 import {js_assert} from "./../../../js/assert.mjs";
+import { js_equals } from "../../../js/equals.mjs";
 export async function file_js_imports_mykroify(function_name) {
   await js_arguments_assert(js_string_identifier_is)(arguments);
   let files_mykro = await file_js_all_mykro();
@@ -19,8 +20,10 @@ export async function file_js_imports_mykroify(function_name) {
         if (equals(specifier.type, "ImportSpecifier")) {
           if (equals(specifier.imported.type, "Identifier")) {
             let matches = await list_where(files_mykro, f => f.name === specifier.imported.name);
-            js_assert(js_number_at_most)(await list_size(matches), 1);
-            if (equals(await list_size(matches), 1)) {}
+            await js_assert(js_number_at_most)(await list_size(matches), 1);
+            if (equals(await list_size(matches), 1)) {
+              await js_assert(js_equals)(node.source.type, 'Literal')
+            }
           }
         }
       }
