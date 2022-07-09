@@ -1,7 +1,5 @@
-
-import { js_arguments_assert } from "./js_arguments_assert.mjs";
-
+import {js_arguments_assert} from "./../js/arguments/assert.mjs";
 export async function constant_numbers() {
-    await js_arguments_assert()(arguments);
-    return `1234567890`
+  await js_arguments_assert()(arguments);
+  return `1234567890`;
 }
