@@ -2,7 +2,6 @@ import {mykro_config_path_src_working_get} from "./../../../mykro/config/path/sr
 import {file_js_extension} from "./../extension.mjs";
 import {file_path_join} from "./../../path/join.mjs";
 import {m_js_string_replace_all} from "./../../../m/js/string/replace/all.mjs";
-import {mykro_config_src_path_get} from "./../../../mykro/config/src/path/get.mjs";
 import {m_js_string_identifier_is} from "./../../../m/js/string/identifier/is.mjs";
 import {m_js_arguments_assert} from "./../../../m/js/arguments/assert.mjs";
 export async function file_js_path_get(function_name) {
