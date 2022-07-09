@@ -2,7 +2,8 @@
   "path": {
     "src": {
       "mykro": "./src",
-      "other": []
+      "other": [],
+      "working": "./src"
     }
   },
   "auto": {
