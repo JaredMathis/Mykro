@@ -1,3 +1,4 @@
+import {mykro_config_src_other_get} from "./../other/get.mjs";
 import {mykro_config_src_path_get} from "./../path/get.mjs";
 import {js_arguments_assert} from "./../../../../js/arguments/assert.mjs";
 export async function mykro_config_src_paths_get() {
