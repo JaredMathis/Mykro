@@ -15,7 +15,7 @@ export async function file_js_index_generate() {
 export {${file.name}} from "./${await js_string_replace_all(file.file_path, "\\", "/")}";`;
   });
 
-  let output_file_path = await file_path_join([await mykro_config_src_path_get(), "index" + await file_js_extension()]);
+  let output_file_path = "index" + await file_js_extension();
   await file_overwrite(output_file_path, result);
   return result;
 }
