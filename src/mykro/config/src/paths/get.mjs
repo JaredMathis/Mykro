@@ -7,8 +7,6 @@ export async function mykro_config_src_paths_get() {
   await js_arguments_assert()(arguments);
   let mykro_directory = await mykro_config_src_path_get();
   let other_direcories = await mykro_config_src_other_get();
-  let result = [];
-  await list_add(result, mykro_directory);
-  await list_add_all(result, other_direcories);
+  let result = await list_join([[mykro_directory], other_direcories])
   return result;
 }
