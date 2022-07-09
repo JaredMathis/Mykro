@@ -15,7 +15,7 @@ export async function js_string_identifier_is(value) {
     let index = await list_index_of(identifer_characters_as_list, v);
     if (!index.success) {
       result = false;
-      console.log({v})
+      console.log({v, identifer_characters_as_list})
       return true;
     }
   });
