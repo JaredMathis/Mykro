@@ -18,7 +18,7 @@ export async function file_js_imports_resolve(function_name) {
       if (!await js_string_starts_with(node.source.value, ".")) {
         return;
       }
-      let nname = await es_node_import_declaration_single_name_get(node);
+      let name = await es_node_import_declaration_single_name_get(node);
       let match_import = await file_js_all_match_exact(name);
       let match_file_path = await property_get(match, "file_path");
       let import_path = await file_path_relative(await file_path_dirname(match_file_path), match_import.file_path);
