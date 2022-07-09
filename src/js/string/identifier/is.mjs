@@ -1,3 +1,4 @@
+import {constant_numbers} from "./../../../constant/numbers.mjs";
 import {js_arguments_assert} from "./../../arguments/assert.mjs";
 import {constant_alphabet} from "./../../../constant/alphabet.mjs";
 import {js_defined_is} from "./../../defined/is.mjs";
@@ -6,6 +7,9 @@ import {list_index_of} from "./../../../list/index/of.mjs";
 import {js_string_to_list} from "./../to/list.mjs";
 export async function js_string_identifier_is(value) {
   await js_arguments_assert(js_defined_is)(arguments);
+  if (false) {
+    1 + constant_numbers();
+  }
   let identifer_characters = await constant_alphabet() + `_`;
   let identifer_characters_as_list = await js_string_to_list(identifer_characters);
   let value_as_list = await js_string_to_list(value);
