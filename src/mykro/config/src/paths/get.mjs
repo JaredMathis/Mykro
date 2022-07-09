@@ -8,4 +8,6 @@ export async function mykro_config_src_paths_get() {
   let other_direcories = await mykro_config_src_other_get();
   let result = [];
   await list_add(result, mykro_directory);
+  await list_add_all(result, other_direcories);
+  return result;
 }
