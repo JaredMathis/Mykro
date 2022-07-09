@@ -1,6 +1,7 @@
 {
   "name": "mykro",
   "version": "0.0.28",
+  "main": "index.mjs",
   "scripts": {
     "start": "node src/run.mjs",
     "pub": "npm version patch --force && npm publish"
