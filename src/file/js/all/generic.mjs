@@ -1,3 +1,15 @@
+import {file_js_extension} from "./../extension.mjs";
+import {list_where} from "./../../../list/where.mjs";
+import {path_file_extension} from "./../../../path/file/extension.mjs";
+import {js_string_replace_all} from "./../../../js/string/replace/all.mjs";
+import {path_file_name} from "./../../../path/file/name.mjs";
+import {file_path_normalize} from "./../../path/normalize.mjs";
+import {file_path_dirname} from "./../../path/dirname.mjs";
+import {list_join} from "./../../../list/join.mjs";
+import {js_string_prefix_remove} from "./../../../js/string/prefix/remove.mjs";
+import {file_list} from "./../../list.mjs";
+import {list_map} from "./../../../list/map.mjs";
+import {list_is} from "./../../../list/is.mjs";
 import {js_arguments_assert} from "./../../../js/arguments/assert.mjs";
 export async function file_js_all_generic(directories) {
   await js_arguments_assert(list_is)(arguments);
@@ -7,10 +19,10 @@ export async function file_js_all_generic(directories) {
       return {
         without_directory: await js_string_prefix_remove(file_path, directory + "\\"),
         file_path
-      }
-    })
+      };
+    });
     return directory_files_mapped;
-  })
+  });
   let files = await list_join(directories_mapped);
   let mapped = await list_map(files, async f => {
     let dir_name = await file_path_dirname(f.without_directory);
