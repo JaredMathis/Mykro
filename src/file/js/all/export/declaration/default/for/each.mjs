@@ -2,8 +2,6 @@ import {mykro_config_path_src_working_get} from "./../../../../../../../mykro/co
 import {list_map} from "./../../../../../../../list/map.mjs";
 import {file_js_all} from "./../../../../../all.mjs";
 import {file_js_all_for_each_generic} from "./../../../../for/each/generic.mjs";
-import {file_js_all_function_names} from "./../../../../function/names.mjs";
-import {m_js_arguments_assert} from "./../../../../../../../m/js/arguments/assert.mjs";
 import {list_where} from "./../../../../../../../list/where.mjs";
 import { m_js_string_starts_with } from "../../../../../../../m/js/string/starts/with.mjs";
 export async function file_js_all_export_declaration_default_for_each() {
@@ -11,6 +9,5 @@ export async function file_js_all_export_declaration_default_for_each() {
   let files = await file_js_all();
   let filtered = await await list_where(files, async file => await m_js_string_starts_with(file.file_path, path_working));
   let function_names = await list_map(filtered, file => file.name);
-  console.log({function_names})
   await file_js_all_for_each_generic(function_names, arguments);
 }
