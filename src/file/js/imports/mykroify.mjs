@@ -10,6 +10,7 @@ import {list_single} from "./../../../list/single.mjs";
 import {list_where} from "./../../../list/where.mjs";
 import {js_assert} from "./../../../js/assert.mjs";
 import { js_equals } from "../../../js/equals.mjs";
+import { file_path_relative } from "../../path/relative.mjs";
 export async function file_js_imports_mykroify(function_name) {
   await js_arguments_assert(js_string_identifier_is)(arguments);
   let files_mykro = await file_js_all_mykro();
@@ -19,11 +20,12 @@ export async function file_js_imports_mykroify(function_name) {
         let specifier = await list_single(node.specifiers);
         if (equals(specifier.type, "ImportSpecifier")) {
           if (equals(specifier.imported.type, "Identifier")) {
-            let matches = await list_where(files_mykro, f => f.name === specifier.imported.name);
-            await js_assert(js_number_at_most)(await list_size(matches), 1);
-            if (equals(await list_size(matches), 1)) {
+            let imported_matches = await list_where(files_mykro, f => f.name === specifier.imported.name);
+            await js_assert(js_number_at_most)(await list_size(imported_matches), 1);
+            if (equals(await list_size(imported_matches), 1)) {
               await js_assert(js_equals)(node.source.type, 'Literal')
-              node.source.value = 
+              let match = await list_single(match);
+              node.source.value = await file_path_relative()
             }
           }
         }
