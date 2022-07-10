@@ -9,7 +9,9 @@ export async function ui_html_index_generate(main_function_name) {
 <!DOCTYPE html>
 <html>
     <body>
-        <script src="${match.file_path}"></script>
+        <script
+          type="module"
+          src="${match.file_path}"></script>
     </body>
 </html>
 `;
