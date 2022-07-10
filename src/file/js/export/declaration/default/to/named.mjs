@@ -28,4 +28,3 @@ export async function file_js_export_declaration_default_to_named(function_name)
     });
   });
 }
-
