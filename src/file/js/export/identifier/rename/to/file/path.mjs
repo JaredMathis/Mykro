@@ -22,6 +22,10 @@ export async function file_js_export_identifier_rename_to_file_path(function_nam
       if (declaration.type === "FunctionDeclaration") {
         if (declaration.id.type === "Identifier") {
           let function_name_existing = declaration.id.name;
+          console.log({
+            function_name,
+            function_name_existing
+          });
           if (!m_js_equals(function_name_existing, function_name)) {
             await file_js_all_identifier_rename(function_name_existing, function_name);
           }
