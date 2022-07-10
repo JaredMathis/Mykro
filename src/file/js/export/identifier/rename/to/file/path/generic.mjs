@@ -24,7 +24,9 @@ export async function file_js_export_identifier_rename_to_file_path_generic(func
         if (declaration.id.type === "Identifier") {
           let function_name_existing = declaration.id.name;
           if (!m_js_equals(function_name_existing, function_name)) {
-            await file_js_all_identifier_rename(function_name_existing, function_name);
+            if (!quick) {
+              await file_js_all_identifier_rename(function_name_existing, function_name);
+            }
           }
         }
       }
