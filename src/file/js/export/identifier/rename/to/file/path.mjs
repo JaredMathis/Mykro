@@ -1,7 +1,6 @@
 import {es_traverse} from "./../../../../../../../es/traverse.mjs";
 import {file_js_transform} from "./../../../../../transform.mjs";
 import {m_js_string_identifier_is} from "./../../../../../../../m/js/string/identifier/is.mjs";
-import {file_js_transform_ast} from "./../../../../../transform/ast.mjs";
 import {m_js_arguments_assert} from "./../../../../../../../m/js/arguments/assert.mjs";
 import { list_add } from "../../../../../../../list/add.mjs";
 import { m_js_equals } from "../../../../../../../m/js/equals.mjs";
@@ -16,7 +15,7 @@ export async function file_js_export_identifier_rename_to_file_path(function_nam
       }
     });
     if (m_js_equals(await list_size(result), 1)) {
-      
+
     }
   });
 }
