@@ -16,9 +16,6 @@ export async function file_js_export_identifier_rename_to_file_path(function_nam
         await list_add(result, node);
       }
     });
-    console.log({
-      result
-    });
     if (m_js_equals(await list_size(result), 1)) {
       let export_declaration = await list_single(result);
       let declaration = export_declaration.declaration;
