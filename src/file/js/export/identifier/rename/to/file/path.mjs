@@ -5,6 +5,7 @@ import {m_js_arguments_assert} from "./../../../../../../../m/js/arguments/asser
 import { list_add } from "../../../../../../../list/add.mjs";
 import { m_js_equals } from "../../../../../../../m/js/equals.mjs";
 import { list_size } from "../../../../../../../list/size.mjs";
+import { list_single } from "../../../../../../../list/single.mjs";
 export async function file_js_export_identifier_rename_to_file_path(function_name) {
   await m_js_arguments_assert(m_js_string_identifier_is)(arguments);
   await file_js_transform(function_name, async ast => {
@@ -15,10 +16,11 @@ export async function file_js_export_identifier_rename_to_file_path(function_nam
       }
     });
     if (m_js_equals(await list_size(result), 1)) {
+      let export_declaration = await list_single(result);
       if (false) {
         await file_js_all_identifier_rename(function_name, function_name_new);
       }
-      console.log({result})
+      console.log({export_declaration})
     }
   });
 }
