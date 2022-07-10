@@ -1,3 +1,9 @@
+import {m_js_merge} from "./../../../../../m/js/merge.mjs";
+import {m_js_clone} from "./../../../../../m/js/clone.mjs";
+import {m_js_equals} from "./../../../../../m/js/equals.mjs";
+import {m_js_assert} from "./../../../../../m/js/assert.mjs";
+import {list_single} from "./../../../../../list/single.mjs";
+import {list_size} from "./../../../../../list/size.mjs";
 import {m_js_arguments_assert} from "./../../../../../m/js/arguments/assert.mjs";
 export async function es_import_declaration_default_to_named(node, function_name) {
   await m_js_arguments_assert()(arguments);
