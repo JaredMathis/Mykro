@@ -23,8 +23,7 @@ export async function file_js_export_identifier_rename_to_file_path(function_nam
         if (declaration.id.type === "Identifier") {
           let function_name_existing = declaration.id.name;
           if (!m_js_equals(function_name_existing, function_name)) {
-            console.log('here');
-            // await file_js_all_identifier_rename(function_name, function_name);
+            await file_js_all_identifier_rename(function_name_existing, function_name);
           }
         }
       }
