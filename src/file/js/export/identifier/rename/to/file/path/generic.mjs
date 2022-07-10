@@ -7,8 +7,9 @@ import {es_traverse} from "./../../../../../../../../es/traverse.mjs";
 import {file_js_transform} from "./../../../../../../transform.mjs";
 import {m_js_string_identifier_is} from "./../../../../../../../../m/js/string/identifier/is.mjs";
 import {m_js_arguments_assert} from "./../../../../../../../../m/js/arguments/assert.mjs";
-export async function file_js_export_identifier_rename_to_file_path_generic(function_name) {
-  await m_js_arguments_assert(m_js_string_identifier_is)(arguments);
+import { m_js_boolean_is } from "../../../../../../../../m/js/boolean/is.mjs";
+export async function file_js_export_identifier_rename_to_file_path_generic(function_name, quick) {
+  await m_js_arguments_assert(m_js_string_identifier_is, m_js_boolean_is)(arguments);
   await file_js_transform(function_name, async ast => {
     let result = [];
     await es_traverse(ast, async node => {
