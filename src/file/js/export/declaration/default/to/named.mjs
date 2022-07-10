@@ -24,7 +24,7 @@ export async function file_js_export_declaration_default_to_named(function_name)
   let function_names = await file_js_all_function_names();
   await m_js_for_each(function_names, async function_name_other => {
     await file_js_transform_ast(function_name_other, async node => {
-      await es_import_declaration_default_to_named(node, function_name);
+      await es_import_declaration_default_to_named(node, a => a.local_name === function_name);
     });
   });
 }

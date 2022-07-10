@@ -15,7 +15,7 @@ export async function es_import_declaration_default_to_named(node, function_name
       if (specifier.type === "ImportDefaultSpecifier") {
         const local = specifier.local;
         await m_js_assert(m_js_equals)(local.type, "Identifier");
-        if (local.name === function_name) {
+        if (predicate({local_name:local.name})) {
           let imported = await m_js_clone(local);
           await m_js_merge(specifier, {
             type: "ImportSpecifier",
