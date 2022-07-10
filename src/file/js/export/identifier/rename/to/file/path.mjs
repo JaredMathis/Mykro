@@ -20,10 +20,7 @@ export async function file_js_export_identifier_rename_to_file_path(function_nam
       let declaration = export_declaration.declaration;
       if (declaration.type === 'FunctionDeclaration') {
         if (declaration.id.type === 'Identifier') {
-          if (false) {
-            await file_js_all_identifier_rename(function_name, function_name_new);
-          }
-          console.log(declaration)
+          await file_js_all_identifier_rename(function_name, function_name);
         }
       }
     }
