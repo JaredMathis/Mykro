@@ -1,8 +1,8 @@
 import {file_js_extension} from "./../extension.mjs";
 import {list_where} from "./../../../list/where.mjs";
-import {path_file_extension} from "./../../../path/file/extension.mjs";
+import {file_path_extension} from "./../../path/extension.mjs";
 import {m_js_string_replace_all} from "./../../../m/js/string/replace/all.mjs";
-import {path_file_name} from "./../../../path/file/name.mjs";
+import {file_path_name} from "./../../path/name.mjs";
 import {file_path_normalize} from "./../../path/normalize.mjs";
 import {file_path_dirname} from "./../../path/dirname.mjs";
 import {list_join} from "./../../../list/join.mjs";
@@ -26,12 +26,12 @@ export async function file_js_all_generic(directories) {
   let files = await list_join(directories_mapped);
   let mapped = await list_map(files, async f => {
     let dir_name = await file_path_dirname(f.without_directory);
-    let normalized = await file_path_normalize(dir_name + "\\" + path_file_name(f.without_directory));
+    let normalized = await file_path_normalize(dir_name + "\\" + file_path_name(f.without_directory));
     let name = await m_js_string_replace_all(normalized, "\\", "_");
     return {
       name,
       file_path: f.file_path,
-      extension: await path_file_extension(f.file_path)
+      extension: await file_path_extension(f.file_path)
     };
   });
   let filtered = await list_where(mapped, async m => m.extension === await file_js_extension());
