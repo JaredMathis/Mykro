@@ -3,7 +3,7 @@ import {es_node_import_declaration_single_name_get} from "./../../../es/node/imp
 import {m_js_string_identifier_is} from "./../../../m/js/string/identifier/is.mjs";
 import {m_js_arguments_assert} from "./../../../m/js/arguments/assert.mjs";
 import {file_js_all_match_exact} from "./../all/match/exact.mjs";
-import {property_get} from "./../../../property/get.mjs";
+import {m_js_property_get} from "./../../../m/js/property/get.mjs";
 import {file_path_dirname} from "./../../path/dirname.mjs";
 import {m_js_equals} from "./../../../m/js/equals.mjs";
 import {m_js_assert} from "./../../../m/js/assert.mjs";
@@ -24,7 +24,7 @@ export async function file_js_imports_resolve(function_name) {
         return;
       }
       let match_import = await file_js_all_match_exact(name);
-      let match_file_path = await property_get(match, "file_path");
+      let match_file_path = await m_js_property_get(match, "file_path");
       let import_path = await file_path_relative(await file_path_dirname(match_file_path), match_import.file_path);
       import_path = ".\\" + import_path;
       import_path = await m_js_string_replace_all(import_path, "\\", "/");

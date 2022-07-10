@@ -14,7 +14,7 @@ import {file_path_relative} from "./../../path/relative.mjs";
 export async function file_js_imports_mykroify(function_name) {
   await m_js_arguments_assert(m_js_string_identifier_is)(arguments);
   let match = await file_js_all_match_exact(function_name);
-  let match_file_path = await property_get(match, "file_path");
+  let match_file_path = await m_js_property_get(match, "file_path");
   let files_mykro = await file_js_all_mykro();
   await file_js_transform_ast(function_name, async node => {
     if (node.type === "ImportDeclaration") {
