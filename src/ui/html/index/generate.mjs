@@ -4,7 +4,7 @@ import { m_js_string_identifier_is } from "../../../m/js/string/identifier/is.mj
 import {m_js_arguments_assert} from "./../../../m/js/arguments/assert.mjs";
 export async function ui_html_index_generate(main_function_name) {
   await m_js_arguments_assert(m_js_string_identifier_is)(arguments);
-  let match = file_js_all_match_exact(main_function_name);
+  let match = await file_js_all_match_exact(main_function_name);
   let result = `
 <!DOCTYPE html>
 <html>
