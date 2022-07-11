@@ -9,4 +9,5 @@ export async function ui_element_style_button_primary(element) {
   element.style.listStyleType = "none";
   await ui_element_style_border(element, `rgba(${await ui_color_blue()}, 1)`);
   await ui_element_style_background_color(element, await ui_color_blue(), 0.3);
+  element.style.width = '100%';
 }
