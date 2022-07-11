@@ -8,7 +8,7 @@ export async function ui_view(parent) {
   let current;
   return {
     set: async constructor => {
-      if (m_js_defined_is(current)) {
+      if (await m_js_defined_is(current)) {
         await ui_element_remove(current);
       }
       let component = await constructor(parent);
