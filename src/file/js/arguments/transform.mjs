@@ -4,7 +4,6 @@ import {m_js_arguments_assert} from "./../../../m/js/arguments/assert.mjs";
 import {m_js_string_identifier_is} from "./../../../m/js/string/identifier/is.mjs";
 import {es_function_exported} from "./../../../es/function/exported.mjs";
 import {list_first} from "./../../../list/first.mjs";
-import _ from "lodash";
 import {m_js_property_get} from "./../../../m/js/property/get.mjs";
 import {m_js_assert} from "./../../../m/js/assert.mjs";
 import {m_js_equals} from "./../../../m/js/equals.mjs";
