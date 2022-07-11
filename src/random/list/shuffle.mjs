@@ -5,5 +5,7 @@ import {m_js_for_each} from "./../../m/js/for/each.mjs";
 import {m_js_arguments_assert} from "./../../m/js/arguments/assert.mjs";
 export async function random_list_shuffle(list) {
   await m_js_arguments_assert(list_is)(arguments);
-  await m_js_for_each(await list_range(await list_size(list)), async index => {});
+  await m_js_for_each(await list_range(await list_size(list)), async index => {
+    
+  });
 }
