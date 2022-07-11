@@ -8,4 +8,14 @@ export async function ui_view(parent) {
   let container = ui_element(parent, "div");
   await m_js_arguments_assert(ui_html_element_is)(arguments);
   let current;
+  return {
+    container,
+    view_set: async constructor => {
+      if (await m_js_defined_is(current)) {
+        await ui_element_remove(current);
+      }
+      let component = await constructor(container);
+      current = await m_js_property_get(component, "container");
+    }
+  };
 }
