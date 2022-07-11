@@ -3,9 +3,9 @@ import {random_list_slice} from "./../slice.mjs";
 import {list_is} from "./../../../list/is.mjs";
 import {m_js_number_is} from "./../../../m/js/number/is.mjs";
 import {m_js_arguments_assert} from "./../../../m/js/arguments/assert.mjs";
-export async function random_list_slice_join(list, count) {
+export async function random_list_slice_join(list, slice_size) {
   await m_js_arguments_assert(list_is, m_js_number_is)(arguments);
-  let slice = await random_list_slice(list, count);
+  let slice = await random_list_slice(list, slice_size);
   let joined = await m_js_string_join(slice, " ");
   return joined;
 }
