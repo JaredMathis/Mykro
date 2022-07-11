@@ -11,7 +11,7 @@ export async function ui_view(parent) {
       if (m_js_defined_is(current)) {
         await ui_element_remove(current);
       }
-      let component = await constructor();
+      let component = await constructor(parent);
       current = await m_js_property_get(component, 'container');
     }
   };
