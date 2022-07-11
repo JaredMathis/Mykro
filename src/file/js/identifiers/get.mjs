@@ -5,7 +5,6 @@ import {tree_traverse} from "./../../../tree/traverse.mjs";
 import {list_map} from "./../../../list/map.mjs";
 import {m_js_property_get} from "./../../../m/js/property/get.mjs";
 import {list_where} from "./../../../list/where.mjs";
-import _ from "lodash";
 import {m_js_string_identifier_is} from "./../../../m/js/string/identifier/is.mjs";
 import {m_js_properties} from "./../../../m/js/properties.mjs";
 import {m_js_property_has} from "./../../../m/js/property/has.mjs";
