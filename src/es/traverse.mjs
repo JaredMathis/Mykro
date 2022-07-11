@@ -7,7 +7,7 @@ import {list_map} from "./../list/map.mjs";
 import {list_where} from "./../list/where.mjs";
 import {m_js_property_get} from "./../m/js/property/get.mjs";
 import {tree_traverse} from "./../tree/traverse.mjs";
-import { list_is } from "../list/is.mjs";
+import {list_is} from "./../list/is.mjs";
 export async function es_traverse(ast, ast_node_for_each) {
   await m_js_arguments_assert(m_js_defined_is, m_js_function_is)(arguments);
   await tree_traverse(ast, async node => {

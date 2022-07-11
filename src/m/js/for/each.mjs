@@ -1,5 +1,5 @@
-import { list_is } from "../../../list/is.mjs";
-import { m_js_function_is } from "../function/is.mjs";
+import {list_is} from "./../../../list/is.mjs";
+import {m_js_function_is} from "./../function/is.mjs";
 import {m_js_arguments_assert} from "./../arguments/assert.mjs";
 import {m_js_defined_is} from "./../defined/is.mjs";
 import {m_js_true_is} from "./../true/is.mjs";

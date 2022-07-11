@@ -17,7 +17,7 @@ export async function file_js_parse(function_name) {
       file_path
     };
   } catch (e) {
-    console.log(file_path.red)
+    console.log(file_path.red);
     throw e;
   }
 }
