@@ -10,11 +10,11 @@ export async function ui_view(parent) {
   let current;
   return {
     container,
-    view_set: async constructor => {
+    view_set: async component_create => {
       if (await m_js_defined_is(current)) {
         await ui_element_remove(current);
       }
-      let component = await constructor(container);
+      let component = await component_create(container);
       current = await m_js_property_get(component, "container");
     }
   };
