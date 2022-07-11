@@ -13,7 +13,6 @@ export async function file_js_move(function_name, function_name_new) {
     await file_js_imports_resolve(file.name);
   });
   return {
-    function_name_new,
-    match
+    function_name_new
   };
 }
