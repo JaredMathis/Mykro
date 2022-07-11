@@ -3,6 +3,7 @@ import {m_js_string_is} from "./../../m/js/string/is.mjs";
 import {file_read} from "./../read.mjs";
 import {file_js_all_match_exact} from "./all/match/exact.mjs";
 import {es_parse} from "./../../es/parse.mjs";
+import "colors";
 export async function file_js_parse(function_name) {
   await m_js_arguments_assert(m_js_string_is)(arguments);
   let match = await file_js_all_match_exact(function_name);
@@ -16,6 +17,7 @@ export async function file_js_parse(function_name) {
       file_path
     };
   } catch (e) {
+    console.log(file_path.red)
     throw e;
   }
 }
