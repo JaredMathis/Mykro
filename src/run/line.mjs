@@ -1,6 +1,5 @@
 import {m_js_string_starts_with_ensure} from "./../m/js/string/starts/with/ensure.mjs";
 import {m_js_string_starts_with} from "./../m/js/string/starts/with.mjs";
-import _ from "lodash";
 import {git_acp} from "./../git/acp.mjs";
 import "colors";
 import {list_map} from "./../list/map.mjs";
@@ -49,7 +48,7 @@ export async function run_line(line) {
       message = await m_js_string_starts_with_ensure(message, prefix_expected);
       message = `${branch_name} ${message}`;
       let git_result = await git_acp(message);
-      if (_.isUndefined(git_result)) {
+      if (!await m_js_defined_is(git_result)) {
         console.log(`${git_acp.name} ran successfully`.magenta);
       } else {
         console.log(`${git_acp.name} errored. Maybe there was nothing to commit?`.magenta);
