@@ -8,10 +8,14 @@ export async function file_js_parse(function_name) {
   let match = await file_js_all_match_exact(function_name);
   let {file_path} = match;
   let unparsed = await file_read(file_path);
-  let ast = await es_parse(unparsed);
-  return {
-    ast,
-    unparsed,
-    file_path
-  };
+  try {
+    let ast = await es_parse(unparsed);
+    return {
+      ast,
+      unparsed,
+      file_path
+    };
+  } catch (e) {
+    throw e;
+  }
 }
