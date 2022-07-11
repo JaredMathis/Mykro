@@ -9,8 +9,9 @@ import {m_js_property_get} from "./../../../m/js/property/get.mjs";
 import {m_js_assert} from "./../../../m/js/assert.mjs";
 import {m_js_equals} from "./../../../m/js/equals.mjs";
 import {file_js_transform} from "./../transform.mjs";
+import { m_js_function_is } from "../../../m/js/function/is.mjs";
 export async function file_js_arguments_transform(function_name, transformer_arguments) {
-  await m_js_arguments_assert(m_js_string_identifier_is, _.isFunction)(arguments);
+  await m_js_arguments_assert(m_js_string_identifier_is, m_js_function_is)(arguments);
   let transformer = async ast => {
     let function_exported = await es_function_exported(ast);
     let declaration = await m_js_property_get(function_exported, "declaration");
