@@ -7,6 +7,7 @@ export async function ui_element(parent, tag_name) {
   result.style.fontSize = "3.1vh";
   result.style.fontFamily = "Sans-Serif";
   result.style.margin = 0;
+  result.style.color = 'black';
   result.style.marginBottom = "0.5vh";
   result.style.padding = 0;
   parent.appendChild(result);
