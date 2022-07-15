@@ -1,3 +1,4 @@
+import {m_js_function_call_arguments_first_2} from "./../m/js/function/call/arguments/first/2.mjs";
 import {m_js_number_smaller} from "./../m/js/number/smaller.mjs";
 import {list_reduce} from "./reduce.mjs";
 import {list_is} from "./is.mjs";
