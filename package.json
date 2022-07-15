@@ -1,6 +1,6 @@
 {
   "name": "mykro",
-  "version": "0.0.108",
+  "version": "0.0.109",
   "main": "index.mjs",
   "scripts": {
     "start": "node src/run.mjs",
