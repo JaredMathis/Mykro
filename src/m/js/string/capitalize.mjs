@@ -1,3 +1,4 @@
+import {m_js_string_capitalize_first} from "./capitalize/first.mjs";
 import {m_js_string_join} from "./join.mjs";
 import {list_map} from "./../../../list/map.mjs";
 import {m_js_string_split} from "./split.mjs";
