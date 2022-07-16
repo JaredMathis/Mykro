@@ -8,5 +8,5 @@ export async function m_js_string_capitalize_first(s) {
   if (await m_js_string_size(s) === 0) {
     return s;
   }
-  return s[0] + await m_js_string_listify(s, async l => await list_starting_at(l, 1));
+  return s[0].toUpperCase() + await m_js_string_listify(s, async l => await list_starting_at(l, 1));
 }
